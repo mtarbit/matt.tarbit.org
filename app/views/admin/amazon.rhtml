@@ -1,0 +1,78 @@
+
+<h2><%= @title %></h2>
+
+<% form_tag do %>
+
+	<fieldset>
+		<legend>Search Details</legend>
+			
+		<div class="form-row">
+			<div class="label"><label for="words">Keywords:</label></div>
+			<div class="input">
+				<%= text_field_tag(:keywords, params[:keywords], :style=>'width:250px', :size=>75) %>
+				&nbsp;<strong>in search index:</strong>&nbsp;
+				<%= select_tag(:search_index, options_for_select(Amazon::Product::CORE_SEARCH_INDICES, params[:search_index]))%>
+				&nbsp;
+				<%= submit_tag 'Submit', {:class=>'button'} %>
+			</div>
+		</div>
+
+	</fieldset>
+
+<% end %>
+
+<% if @items -%>
+
+	<div class="f-left" style="width:48%">
+		<h3>Primary result</h3>
+
+		<% item = @items.delete_at(0) %>
+
+		<fieldset style="padding-top:0;">
+			<div class="f-left" style="margin-top:1em; width:120px; text-align:center;">
+				<%= item.image ? link_to(image_tag(item.image, :width=>120, :alt=>item.title, :border=>0, :class=>'border'), item.url) : '&nbsp;' %>
+			</div>
+
+			<div class="f-left" style="width:170px; margin-left:1em;">
+				<p><strong><%= item.title %></strong> <%= item.creator %></p>
+				<dl class="list tiny">
+					<dt>ASIN:</dt>
+					<dd><%= item.asin %></dd>
+					<dt>Link:</dt>
+					<dd><%= link_to 'www.amazon.co.uk', item.associate_url %></dd>
+					<dt>Post:</dt>
+					<dd><%= link_to 'Write a review &rarr;', new_entry_url(:variant=>'review', :asin=>item.asin) %></dd>
+				</dl>
+			</div>
+
+			<div class="clear"></div>
+		</fieldset>
+	</div>
+
+	<div class="f-right" style="width:48%">
+		<h3><%= pluralize(@items.length, 'other result') %></h3>
+	
+		<% @items.each do |item| -%>
+
+			<div class="section">
+				<div class="f-left" style="width:75px; text-align:center;">
+					<p><%= item.image ? link_to(image_tag(item.image, :width=>60, :alt=>item.title, :border=>0, :class=>'border'), item.url) : '&nbsp;' %></p>
+				</div>
+				<div class="f-left small" style="width:250px; margin-left:1em;">
+					<p><strong style="color:#333;"><%= item.title %></strong> <%= item.creator %></p>
+					<dl class="list tiny">
+						<dt>ASIN:</dt>
+						<dd><%= item.asin %></dd>
+						<dt>Link:</dt>
+						<dd><%= link_to 'www.amazon.co.uk', item.associate_url %></dd>
+						<dt>Post:</dt>
+						<dd><%= link_to 'Write a review &rarr;', new_entry_url(:variant=>'review', :asin=>item.asin) %></dd>
+					</dl>
+				</div>
+				<div class="clear"></div>
+			</div>
+		
+		<% end -%>
+	</div>
+
+<% end -%>

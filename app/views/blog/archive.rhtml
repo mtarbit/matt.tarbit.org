@@ -1,0 +1,50 @@
+<div>
+	<div style="float:left; width:50%;"><h2>Archive</h2></div>
+	<div style="float:right; width:50%; text-align:right;"><p style="margin-top:0.6em;"><%= link_to 'View archives as list &rarr;', titles_url %></p></div>
+	<div class="clear"></div>
+</div>
+
+<% Time.now().year.downto(2001) do |y| %>
+
+	<div class="clear"></div>
+	<div class="cal-y">
+
+		<% if @dates[y].nil? %>
+
+			<h3><%= y %></h3>
+			<p>No entries for this year.</p>
+	
+		<% else %>
+
+			<h3><%= link_to(y, date_url(:y=>y)) %></h3>
+	
+			<% (1..12).each do |m| %>
+				<% month = Time.local(y,m).strftime("%b") %>
+			
+				<div class="cal-m <%= m%6 == 1 ? 'first':'' %>">
+					<small><%= link_to_unless(@dates[y][m].nil?, month, date_url(:y=>y,:m=>m)) %></small>
+					<table class="cal <%= @dates[y][m].nil? ? 'empty' : '' %>">
+						<% 6.times do |i| %>
+							<tr>
+								<% 7.times do |j| %>
+									<% 
+									d = 1 + ((i*7) + j) - Time.local(y,m).wday
+									count = @dates[y][m][d] rescue nil
+									valid = (d > 0 and d <= Date.civil(y,m,-1).day)
+									css = valid ? count ? 'in':'on':'off'
+									str = count ? link_to('&nbsp;', date_url(:y=>y,:m=>m,:d=>d), :title=>pluralize(count,'entry')) : '&nbsp;'
+									%>
+									<td width="14%" class="<%= css %>"><%= str %></td>
+								<% end %>
+							</tr> 
+						<% end %>
+					</table>
+				</div>
+	
+			<% end %>
+
+		<% end %>
+	
+	</div>
+	
+<% end %>

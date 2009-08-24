@@ -1,0 +1,54 @@
+<script>
+// <![CDATA[
+function challenge() {
+	$('<%= @tokens[0] %>').value = '<%= @tokens[1] %>';	
+}
+document.observe('dom:loaded', function(){
+	$('js-warning').hide();
+});
+// ]]>
+</script>
+
+<% form_rows_for :comment, :url=>{:controller=>:comment, :action=>:create}, :html=>{:onsubmit=>'challenge()'} do |f| %>
+	<%= hidden_field :entry, :id %>
+	<%= hidden_field_tag @tokens[0] %>
+
+	<fieldset>
+		<legend>Add a comment</legend>
+		
+		<% if Configuration::COMMENTS_ENABLED %>
+
+			<div id="js-warning">
+				<div class="form-row">
+					<div class="input"><em>You must have Javascript enabled to add a comment.</em></div>
+				</div>
+				<div class="form-gap"></div>
+			</div>
+
+			<%= f.text_field :name, :style=>'width:75%', :size=>50 %>
+			<%= f.text_field :email, :style=>'width:75%', :size=>50 %>
+			<div class="form-row">
+				<div class="label"><label for="comment_website">Website:</label></div>
+				<div class="input">
+					<%= text_field :comment, :website, :style=>'width:75%', :size=>50 %>
+					&nbsp; <small>(optional)</small>
+				</div>
+			</div>
+			<%= f.text_area :content, :style=>'width:98%', :cols=>72, :rows=>8, :label=>'Comment' %>
+
+			<div class="form-gap"></div>
+			
+			<div class="form-row">
+				<div class="input">
+					<%= submit_tag 'Submit', {:class=>'button'} %>
+					<%= submit_to_remote 'preview', 'Preview', {:html=>{:class=>'button'}, :url=>{:controller=>:comment, :action=>:preview}} %>
+				</div>
+			</div>
+
+		<% else  %>
+			<p>Temporarily disabled while I deal with spammers.</p>
+		<% end %>
+
+	</fieldset>
+
+<% end %>

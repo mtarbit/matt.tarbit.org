@@ -1,0 +1,11 @@
+<h2><%= @book.title %></h2>
+
+<% if img = @book.image('large') %>
+	<%= link_to(image_tag(img.url, :width=>200, :alt=>@book.title, :class=>'border inset-left'), @book.associate_url) %>
+<% end %>
+
+<p class="flushTop">by <%= linkify_authors(@book.authors) %></p>
+
+<% if @book.asin %>
+	<p class="small">See this book at <%= link_to 'Amazon UK', @book.associate_url %> or  <%= link_to 'US', @book.associate_url('com') %>.</p>
+<% end %>

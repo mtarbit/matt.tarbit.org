@@ -1,0 +1,8 @@
+_archive
+db/backup
+log/*
+tmp/*
+*.yml
+*.html
+!public/404.html
+!public/500.html

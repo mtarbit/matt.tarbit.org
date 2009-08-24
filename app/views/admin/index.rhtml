@@ -1,0 +1,42 @@
+<h2>Entry admin</h2>
+
+<p>
+	Add a new
+	<%= link_to 'post',	new_entry_url(:variant=>'post') %>,
+	<%= link_to 'link', new_entry_url(:variant=>'link') %>,
+	<%= link_to 'quote', new_entry_url(:variant=>'quote') %>,
+	<%= link_to 'review', new_entry_url(:variant=>'review') %>.
+	Get <%= link_to 'links from delicious', :action=>:sync_from_delicious %>.
+	Get <%= link_to 'tweets from twitter', :action=>:sync_from_twitter %>.
+	Or <%= link_to 'be a librarian', librarian_url %>.
+</p>
+
+<table class="data">
+	<tr>
+		<th width="55%">Entry</th>
+		<th class="center">Posted</th>
+		<th class="center">Cmts</th>
+		<th class="center">Tags</th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
+	<% for entry in @entries -%>
+		<tr class="<%= cycle('row0','row1') %>">
+			<td>
+			<%= case entry.format
+				when 'post': entry.title
+				when 'link': link_to entry.title, entry.url
+				when 'quote': link_to_if entry.url, "&#8220;%s&#8221;" % truncate(entry.content, 40), entry.url
+				else entry.title
+			end %>
+			</td>
+			<td class="center small"><%= entry.created_at.strftime("%d-%m-%y @ %H:%M") %></td>
+			<td class="center"><%= entry.comments.length > 0 ? entry.comments.length : '' %></td>
+			<td class="center"><%= entry.tags.length > 0 ? entry.tags.length : '' %></td>
+			<td class="center"><%= link_to 'View',   entry_url(entry) %></td>
+			<td class="center"><%= link_to 'Edit',   {:controller=>:entry, :action=>:edit,   :id=>entry } %></td>
+			<td class="center"><%= link_to 'Delete', {:controller=>:entry, :action=>:delete, :id=>entry}, :confirm=>'Are you sure?' %></td>
+		</tr>
+	<% end -%>
+</table>

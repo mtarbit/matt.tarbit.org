@@ -1,0 +1,15 @@
+<% entry.content = auto_link(entry.content, :urls) %>
+<% entry.content.gsub!(/\B(@[a-z0-9]+)/i) {|s| link_to($1, "http://twitter.com/#{$1}") } %>
+<h2 class="link">A quote from <%= link_to("me, on Twitter", entry.status_url) %>:</h2>
+
+<% if img = entry.extra %>
+	<%= link_to(image_tag(img, :width=>48, :height=>48, :alt=>"Twitter avatar for mtarbit", :class=>'border inset-left', :style=>'margin-right:25px'), entry.status_url) %>
+<% end %>
+
+<p class="quote">
+	<span class="content">
+		<span class="lquote">&#8220;</span>
+		<%= entry.content %>
+		<span class="rquote">&#8221;</span>
+	</span>
+</p>

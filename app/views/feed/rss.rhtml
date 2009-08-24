@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+	<channel>
+	 
+		<title>Matt Tarbit's Weblog</title> 
+		<link><%= index_url %></link>
+		<description>Matt Tarbit's Weblog</description>
+		<language>en</language>
+		<atom:link href="<%= rss_url %>" rel="self" type="application/rss+xml" />
+	
+		<% for entry in @entries -%>
+			<%= render(:partial => "partials/formats/#{entry.format}/feed", :locals=>{:entry=>entry} ) %>
+		<% end -%> 
+	
+	</channel> 
+
+</rss>

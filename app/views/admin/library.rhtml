@@ -1,0 +1,25 @@
+<h2>Library admin</h2>
+
+<p>
+	Add a <%= link_to 'new book', new_book_url %>.
+	Or <%= link_to 'manage entries', admin_url %>.
+</p>
+
+<table class="data">
+	<tr>
+		<th>Title</th>
+		<th>Author</th>
+		<th>Added</th>
+		<th></th>
+		<th></th>
+	</tr>
+	<% @books.each_with_index do |book,i| %>
+		<tr class="row<%= i%2 %>">
+			<td><%= link_to book.title, {:controller=>:book, :action=>:show, :id=>book } %></td>
+			<td><%= linkify_authors(book.authors) %></td>
+			<td style="white-space:nowrap;"><%= book.created_at.strftime('%e %b %Y') %></td>
+			<td><%= link_to 'Edit', 	{:controller=>:book, :action=>:edit, :id=>book } %></td>
+			<td><%= link_to 'Delete', 	{:controller=>:book, :action=>:delete, :id=>book }, :confirm=>'Are you sure?'  %></td>
+		</tr>
+	<% end %>
+</table>

@@ -1,0 +1,24 @@
+<h2><%= @author.name %></h2>
+
+<p style="margin-bottom:1.5em">There <%= @author.books.size==1 ? 'is' : 'are' %> <%= pluralize(@author.books.size, 'book') %> by this author in the library.</p>
+
+<% @author.books.each do |book| %>
+	<% img = book.image('small') %>
+	<% co_authors = book.authors - [@author] %>
+	<div class="mt mb">
+		<% if img %>
+			<div class="fl mr"><img src="<%= img.url %>" width="50" class="border" /></div>
+		<% end %>
+
+		<div style="margin-left:62px;">
+			<strong><em><%= link_to book.title, {:controller=>:book, :action=>:show, :id=>book.id}, {:class=>'hidden'} %></em></strong>
+			<% if co_authors.size > 0 %>
+				with <%= linkify_authors(co_authors, {:class=>'hidden'}) %>
+			<% end %>
+			<br />
+			<small>added <%= book.created_at.strftime('%e %b %Y') %></small>
+		</div>
+	
+		<div class="clear"></div>
+	</div>
+<% end %>

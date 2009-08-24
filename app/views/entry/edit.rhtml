@@ -1,0 +1,25 @@
+<h2>Edit <%= @entry.format.humanize %></h2>
+
+<% form_rows_for :entry, :url=>{:action=>:update} do |f| %>
+	<%= hidden_field :entry, :id %>
+	<%= hidden_field :entry, :format %>
+
+	<fieldset>
+		<legend><%= @entry.format.humanize %> Content</legend>
+		
+		<%= render(:partial => "partials/formats/#{@entry.format}/form", :locals=>{:f=>f,:entry=>@entry} ) %>
+
+		<div class="form-row">
+			<div class="label"><label for="entry_tags_as_string">Tags:</label></div>
+			<div class="input"><%= text_field :entry, :tags_as_string, :style=>'width:98%', :size=>75 %></div>
+		</div>
+
+		<div class="form-gap"></div>
+			
+		<div class="form-row">
+			<div class="input"><%= submit_tag 'Submit', {:class=>'button'} %></div>
+		</div>
+
+	</fieldset>
+
+<% end %>

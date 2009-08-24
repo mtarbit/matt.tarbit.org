@@ -1,0 +1,22 @@
+
+<h2><%= h @title %></h2>
+
+<% form_tag do %>
+
+	<fieldset>
+		<legend>Search Details</legend>
+			
+		<div class="form-row">
+			<div class="label"><label for="words">Words:</label></div>
+			<div class="input">
+				<%= text_field_tag :words, params[:words], :style=>'width:200px', :size=>75 %>
+				&nbsp;
+				<%= submit_tag 'Submit', {:class=>'button'} %>
+			</div>
+		</div>
+
+	</fieldset>
+
+<% end %>
+
+<%= render :partial=>'partials/entries', :locals=>{:words=>@words} %>

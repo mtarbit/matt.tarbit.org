@@ -1,0 +1,12 @@
+<h2>Authors</h2>
+
+<p style="margin-bottom:1.5em">There are books by <%= pluralize(@authors.size, 'author') %> in the library (browse <%= link_to 'by book', {:controller=>'book', :action=>'index'} %>).</p>
+
+<ul class="spaced">
+	<% @authors.each do |author| %>
+		<li>
+			<strong><%= link_to author.name, {:action=>'show', :id=>author}, {:class=>'hidden'} %></strong>
+			with <%= pluralize(author.count, 'book') %>
+		</li>
+	<% end %>
+</ul>

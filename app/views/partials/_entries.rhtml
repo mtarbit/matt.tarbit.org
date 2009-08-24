@@ -1,0 +1,19 @@
+<% if entries -%>
+	<% entries.each_with_index do |entry,i| -%>
+		<%
+		min = 0; max = entries.size - 1
+		this_date = entry.created_at.strftime('%e %b %Y')
+		last_date = (i>min) ? (last_entry = entries[i-1]).created_at.strftime('%e %b %Y') : ''
+		next_date = (i<max) ? (next_entry = entries[i+1]).created_at.strftime('%e %b %Y') : ''
+		-%>
+
+		<% if last_date != this_date -%>
+			<div class="date"><span><%= this_date %></span></div>
+		<% end -%>
+
+		<% if entry.format == 'link' and (last_entry.nil? or last_entry.format != 'link' or last_date != this_date) -%><ul class="links"><% end -%>
+		<%= render(:partial => "partials/formats/#{entry.format}/multiple", :locals => {:entry=>entry, :words=>@words} ) %>
+		<% if entry.format == 'link' and (next_entry.nil? or next_entry.format != 'link' or next_date != this_date) -%></ul><% end -%>
+
+	<% end -%>
+<% end -%>

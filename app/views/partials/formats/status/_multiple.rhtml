@@ -1,0 +1,10 @@
+<% entry.content = auto_link(entry.content, :urls) %>
+<% entry.content.gsub!(/\B(@[a-z0-9]+)/i) {|s| link_to($1, "http://twitter.com/#{$1}") } %>
+<% entry.content.gsub!(/\B(#[a-z0-9]+)/i) {|s| link_to($1, "http://twitter.com/search?q=" + URI.escape($1)) } %>
+<% string_format = '<span class="lquote">&#8220;</span>%s<span class="rquote">&#8221;</span>' %>
+<div class="quote">
+	<div class="content"><%= highlight_html(markdown(string_format % entry.content), @words) %></div>
+	<p class="source">&mdash; <%= link_to "@twitter", entry.status_url %></p>
+	<p class="comments"><%= link_to pluralize(entry.comments_count, 'comment'), entry_url(entry) %></p>
+	<div class="clear"></div>
+</div>

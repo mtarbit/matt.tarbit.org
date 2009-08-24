@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title><%= truncate(@title,60) || "Matt Tarbit's Weblog" %></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<%= stylesheet_link_tag 'common','syntax', :media=>'all' %>
+	<!--[if lte IE 7]>
+		<%= stylesheet_link_tag 'conditional/ie-lte-7', :media=>'all' %>
+	<![endif]-->
+
+	<%= javascript_include_tag 'prototype','application' %>
+
+	<%= auto_discovery_link_tag :rss, rss_url %>
+</head>
+<body id="<%= "#{controller.controller_name}-#{controller.action_name}" %>" <% if controller.wide_layout? %>class="wide"<% end %>>
+
+<div id="pagefull">
+	
+	<div id="pagehead"><div class="inner">
+		<h1 id="pagelogo"><%= link_to "<span>Matt<small>.</small>Tarbit<small>.org</small></span>", index_url, :rel=>'me' %></h1>
+		<ul id="pagemenu">
+			<li class="first"><%= link_to 'About', about_url %></li>
+			<li><%= link_to 'Archive', archive_url %></li>
+			<li><%= link_to 'Library', library_url %></li>
+			<li><%= link_to 'Tags', tags_url %></li>
+			<li><%= link_to 'Feed', rss_url %></li>
+			<li><%= link_to 'Search', search_url %></li>
+		</ul>
+		<br class="clear" />
+	</div></div>
+
+	<div id="pagebody"><div class="inner">		
+		<% if controller.wide_layout? -%>
+
+			<%= render(:partial=>'partials/feedback', :object=>flash) %>
+			<%= yield %>
+
+		<% else -%>
+
+			<div class="pagelcol">
+				<%= render(:partial=>'partials/feedback', :object=>flash) %>
+				<%= yield %>
+			</div>
+
+			<div class="pagercol">
+				<% if @content_for_sidebar %>
+					<%= yield :sidebar %>
+				<% else %>
+					<h2>Where am I?</h2>
+
+					<p>
+					This is the personal site of <%= link_to 'Matthew Tarbit', about_url %>, a seasoned
+					web developer holed-up in a hideaway somewhere in the depths of Leeds, England.
+					</p>
+					<p>
+					Should the mood arise, you might add my outpourings to the deluge that is your already
+					overflowing <%= link_to 'info drip feed', rss_url %>.
+					</p>
+					<p>
+					Alternately, rest a while and <%= link_to 'dig through my entries', search_url %>
+					like a corpulent pig in search of all that is truffle-icious.
+					</p>
+				<% end %>
+			</div>
+
+			<div class="clear"></div>
+
+		<% end -%>
+
+	</div></div>
+
+</div>
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-3016489-1";
+urchinTracker();
+</script>
+
+</body>
+</html>

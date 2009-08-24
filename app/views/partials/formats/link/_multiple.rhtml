@@ -1,0 +1,6 @@
+<% entry.title += (/[.:!?]$/ =~ entry.title) ? '' : '.' %>
+<% entry.title = link_to(entry.title, h(entry.url)) %>
+<li>
+	<div class="content"><%= highlight_html(markdown("__#{entry.title}__\n#{entry.content}"),@words) %></div>
+	<p class="comments"><%= link_to pluralize(entry.comments_count, 'comment'), entry_url(entry) %></p>
+</li>

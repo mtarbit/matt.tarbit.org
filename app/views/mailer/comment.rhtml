@@ -1,0 +1,16 @@
+Visitor: <%= @comment.name %>
+Email:   <%= @comment.email %>
+Website: <%= @comment.website %>
+Entry:   <%= @comment.entry.title %>
+
+--------------------------------------------------------------------
+
+<%= word_wrap(@comment.content, 68) %>
+
+--------------------------------------------------------------------
+
+Read it: <%= @read_link %>
+Junk it: <%= @junk_link %>
+
+Referer: <%= @request.env['HTTP_REFERER'] %>
+IP Addr: <%= @comment.ip %>

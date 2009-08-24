@@ -1,0 +1,5 @@
+<h3><%= pluralize(entry.comments_count, 'comment') %></h3>
+
+<ul>
+	<%= render_comments(entry.threads) %>
+</ul>

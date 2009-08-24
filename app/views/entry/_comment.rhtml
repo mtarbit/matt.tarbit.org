@@ -1,0 +1,20 @@
+<% 
+c.content = simple_format(c.content)
+c.content = auto_link(c.content, :urls) {|t| truncate %r{^(http://)?(www.)?([^/]*)}.match(t)[-1] }
+c.content.gsub!(/(<[aA] )/,'\1 rel="nofollow"')
+if !c.website.blank? && c.website.include?('.')
+	href = (c.website =~ /^[a-z]+:\/\//) ? c.website : "http://#{c.website}"
+elsif !c.email.blank?
+	href = "mailto:#{c.email}"
+end
+%>
+<li style="margin-left:<%= depth * 2 %>em;" id="comment-<%= c.id %>">
+	<div class="comment">
+		<%= c.content %>
+	</div>
+	<p class="small">
+		Posted
+		by <%= link_to_if href, h(c.name.titleize), href %> 
+		on <%= link_to (c.created_at || Time.now()).strftime("%e %b %Y at %I:%M %p"), {:anchor=>"comment-#{c.id}"}, {:title=>'Permalink'} %>
+	</p>
+</li>

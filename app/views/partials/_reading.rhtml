@@ -1,0 +1,23 @@
+<h2>Reading</h2>
+
+<p>See all books &amp; authors in <%= link_to 'the library', library_url %>.</p>
+
+<% @books.each_with_index do |book,i| %>
+	<% img = book.image('small') %>
+	<div class="mt mb">
+		<% if img %>
+			<div class="fl"><img src="<%= img.url %>" width="50" class="border" /></div>
+		<% end %>
+		<div style="margin-left:62px;">
+			<strong><em><%= link_to truncate(book.title, 60), {:controller=>:book, :action=>:show, :id=>book.id}, {:class=>'hidden'} %></em></strong>
+			by <%= linkify_authors(book.authors, {:class=>'hidden'}) %><br />
+			<small>added <%= book.created_at.strftime('%e %b %Y') %></small>
+		</div>
+		<div class="clear"></div>
+	</div>
+<% end %>
+
+<p><small><em>
+	Note: This is a work in progress. The books shown are currently the newest
+	additions to the DB, and not necessarily the most recently read.
+</em></small></p>

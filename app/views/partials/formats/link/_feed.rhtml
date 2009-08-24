@@ -1,0 +1,11 @@
+<item>
+	<title><%=h entry.page_title %></title>
+	<link><%= entry_url(entry) %></link>
+	<guid><%= entry_url(entry) %></guid>
+	<description>
+		<% entry.title += (/[.:!?]$/ =~ entry.title) ? '' : '.' %>
+		<%=h link_to entry.title, entry.url %>
+		<%=h entry.content %>
+	</description>
+	<pubDate><%= entry.created_at.rfc822 %></pubDate>
+</item>
