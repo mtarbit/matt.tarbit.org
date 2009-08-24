@@ -1,7 +1,7 @@
 _archive
 db/backup
-log/*
-tmp/*
+log/*.log
+tmp/**/*
 *.yml
 *.html
 !public/404.html
