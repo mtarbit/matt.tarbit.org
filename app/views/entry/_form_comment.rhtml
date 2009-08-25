@@ -16,7 +16,7 @@ document.observe('dom:loaded', function(){
 	<fieldset>
 		<legend>Add a comment</legend>
 		
-		<% if Configuration::COMMENTS_ENABLED %>
+		<% if SETTINGS['features_enabled']['comments'] %>
 
 			<div id="js-warning">
 				<div class="form-row">

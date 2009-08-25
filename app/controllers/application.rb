@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
 
   def spam_challenge_tokens
     ipaddr = Digest::SHA1.hexdigest(request.env['REMOTE_ADDR'])
-    secret = Digest::SHA1.hexdigest(Configuration::SITE_SECRET)
+    secret = Digest::SHA1.hexdigest(SETTINGS['site_secret'])
     Digest::SHA1.hexdigest(ipaddr + secret).scan(/.{20}/)
   end
 

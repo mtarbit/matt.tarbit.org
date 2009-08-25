@@ -23,7 +23,7 @@ class CommentController < ApplicationController
     comment.entry = entry
     comment.ip = request.env['REMOTE_ADDR']
 
-    unless Configuration::COMMENTS_ENABLED
+    unless SETTINGS['features_enabled']['comments']
       redirect_to entry_url(entry)
     else
       unless params[tokens[0]] == tokens[1]
