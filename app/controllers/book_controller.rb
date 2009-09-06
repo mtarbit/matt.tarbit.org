@@ -32,6 +32,11 @@ class BookController < ApplicationController
       @book = Book.new(params[:book])
     end
     @products = @book.search_for_products
+
+    logger.info("@@@@@@@@@@@@@@@")
+    logger.info(@products.inspect)
+    logger.info("@@@@@@@@@@@@@@@")
+
     render :action=>'edit'
   end
 

@@ -24,7 +24,9 @@ class Book < ActiveRecord::Base
   
   def search_for_products
     keywords = (self.isbn.empty?) ? self.title : self.isbn
-    Product.search(keywords,{ :Raw=>true })
+    products = Product.search(keywords,{ :Raw=>true })
+    products = [products] unless products.is_a? Array
+    products
   end
   
   def image(image_type)

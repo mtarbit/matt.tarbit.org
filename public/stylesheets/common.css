@@ -45,7 +45,7 @@ body.wide #pagebody .inner { width:960px; }
 #pagehead			{ color:#fff; }
 #pagehead a			{ color:#cf0; }
 .pagelcol			{ float:left; overflow:hidden; width:400px; }
-.pagercol			{ float:left; overflow:hidden; width:250px; margin-left:30px; }
+.pagercol			{ float:left; width:250px; margin-left:30px; }
 
 #pagelogo			{ float:left; }
 /*
@@ -54,7 +54,7 @@ body.wide #pagebody .inner { width:960px; }
 #pagemenu			{ float:left; margin:0; padding:0; margin-left:1em; margin-top:2.7em; font-weight:bold; }
 */
 #pagelogo a			{ color:#fff; }
-#pagelogo a small	{ color:#fff; font-weight:bold; font-size:0.6em; color:#cf0; left:0.15em; position:relative; }
+#pagelogo a small	{ color:#cf0; font-weight:bold; font-size:0.6em; left:0.15em; position:relative; }
 #pagemenu			{ float:left; margin:0; padding:0; font-weight:bold; margin-top:1.3em; margin-left:2em; }
 #pagemenu li		{ list-style-type:none; float:left; line-height:1em; margin-left:1em; border-left:1px solid #444; padding-left:1em; }
 #pagemenu li.first	{ margin-left:0; border-left:0; padding-left:0; }
@@ -64,6 +64,8 @@ body.wide #pagebody .inner { width:960px; }
 #feedback			{ background:#f2ffbf; border:1px solid #dfeab1; font-weight:bold; padding:1em; margin-bottom:1em; }
 #feedback.errors h2 { font-size:1em; font-weight:bold; }
 #feedback.errors ul { font-weight:normal; margin-bottom:0; }
+
+img					{ display:block; } /* fix inline images with descender space due to strict-rendering doctype */
 
 a					{ color:#c60; }
 a.hidden 			{ color:#222; text-decoration:none; }
@@ -186,6 +188,8 @@ p.comments a		{ font-size:0.75em; background:url(/images/icons/comments.gif) 0 0
 .quote .source		{ margin:0; float:right; color:#ddd; }
 .quote .comments	{ margin:0; float:left; }
 
+.book				{ background:#fafafa; border:1px solid #ddd; padding:7px; -moz-border-radius:7px; -webkit-border-radius:7px; -moz-box-shadow:0 3px 2px #eee; }
+
 #metadata			{ margin-left:0; padding-left:0; }
 #metadata li		{ list-style-type:none; padding-left:22px; margin:0; margin-bottom:1em; }
 #metadata li.time	{ background:url(/images/icons/time.gif) no-repeat; }
@@ -195,7 +199,7 @@ p.comments a		{ font-size:0.75em; background:url(/images/icons/comments.gif) 0 0
 
 #tags				{ margin:1em 0; padding:0; text-align:center; font-size:0.9em; }
 #tags li			{ list-style-type:none; margin:0; padding:0; float:left; }
-#tags a				{ text-decoration:none; color:#333; border:1px solid #ddd; background:url(/images/fades/pale.gif) repeat-x top #f2f2f2; display:block; margin:0; padding:0 5px; margin-right:1px; margin-bottom:1px; line-height:22px; }
+#tags a				{ text-decoration:none; color:#333; border:1px solid #ddd; background:url(/images/fades/pale.gif) repeat-x top #f2f2f2; display:block; margin:0; padding:0 5px; margin-right:1px; margin-bottom:1px; line-height:22px; -moz-border-radius:5px; -webkit-border-radius:5px; }
 #tags a:hover		{ text-decoration:none; color:#fff; border:1px solid #333; background:url(/images/fades/dark.gif) repeat-x top #333; }
 
 .vcard-download 	{ float:right; width:13em; background:#f2f2f2 url(/images/fades/pale.gif) repeat-x top; }
