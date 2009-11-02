@@ -9,12 +9,19 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password
 
   attr_accessor :wide_layout
+  attr_accessor :single_column
   
+  def initialize
+    @wide_layout = false
+    @single_column = false
+  end
+
   def wide_layout?
     @wide_layout ? true : false
   end
-  def initialize
-    @wide_layout = false
+
+  def single_column?
+    @single_column ? true : false
   end
 
   def login_from_cookie

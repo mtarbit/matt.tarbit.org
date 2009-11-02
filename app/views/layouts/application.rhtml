@@ -31,7 +31,7 @@
 	</div></div>
 
 	<div id="pagebody"><div class="inner">		
-		<% if controller.wide_layout? -%>
+		<% if controller.wide_layout? or controller.single_column? -%>
 
 			<%= render(:partial=>'partials/feedback', :object=>flash) %>
 			<%= yield %>

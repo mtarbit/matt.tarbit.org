@@ -48,7 +48,7 @@ class BlogController < ApplicationController
   end
   
   def cv
-    @wide_layout = true
+    @single_column = true
   end
   
   def hobby_games
