@@ -215,8 +215,8 @@ p.comments a		{ font-size:0.75em; background:url(/images/icons/comments.gif) 0 0
 .sample .screen		{ float:right; width:8em; margin-left:1em; }
 .sample .screen	img	{ border:1px solid #aaa; }
 .sample .detail		{ }
-.sample .detail	h4 	{ margin:0; }
-.sample .detail ul	{ font-size:0.9em; }
+.sample .detail	h4 	{ font-size:1.2em; margin:0; margin-bottom:0.5em; }
+.sample .detail ul	{ font-size:0.9em; margin-bottom:0; }
 .sample .detail li	{ margin:0.2em 0; }
 
 .cal-y				{ margin:0; }
