@@ -168,7 +168,7 @@ div.date span 		{ padding-right:1em; background:#fff; text-align:left; line-heig
 #pagercol div.date span { width:10em; right:-12em; text-align:left; }
 */
 
-.section			{ border-top:1px solid #ddd; margin:1em 0; }
+.section			{ border-top:1px solid #ddd; margin:2em 0; }
 
 p.comments a		{ font-size:0.75em; background:url(/images/icons/comments.gif) 0 0.15em no-repeat; padding-left:20px; }
 
@@ -212,7 +212,7 @@ p.comments a		{ font-size:0.75em; background:url(/images/icons/comments.gif) 0 0
 #portfolio .r-col	{ float:right; }
 
 .sample 			{ border:1px solid #ddd; background:#f2f2f2 url(/images/fades/pale.gif) repeat-x top; padding:15px; margin-bottom:5px; }
-.sample .screen		{ float:right; width:8em; margin-left:1em; }
+.sample .screen		{ float:right; width:12em; margin-left:3em; }
 .sample .screen	img	{ border:1px solid #aaa; }
 .sample .detail		{ }
 .sample .detail	h4 	{ font-size:1.2em; margin:0; margin-bottom:0.5em; }
