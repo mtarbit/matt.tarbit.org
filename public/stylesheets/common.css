@@ -30,6 +30,7 @@ body {
 	font-family: Helvetica, Arial, sans-serif;
 	font-size:80%;
 	line-height:1.4em;
+	background:#fff;
 	color:#222;
 }
 
@@ -146,8 +147,8 @@ table.data th input, table.data th select { font-weight:normal; }
 table.data small	{ font-size:0.85em; }
 
 dl.list 			{ margin:1em 0; }
-dl.list dt 			{ margin:0; margin-bottom:1px; padding:0.2em 0; min-height:1.3em; width:10em; float:left; clear:left; font-weight:bold; }
-dl.list dd 			{ margin:0; margin-bottom:1px; padding:0.2em 0; min-height:1.3em; margin-left:10em; }
+dl.list dt 			{ margin:0; margin-bottom:1px; padding:0.2em 0; min-height:1.3em; width:8em; float:left; clear:left; font-weight:bold; }
+dl.list dd 			{ margin:0; margin-bottom:1px; padding:0.2em 0; min-height:1.3em; margin-left:8em; }
 
 dl.tiny dt			{ width:3.5em; }
 dl.tiny dd			{ margin-left:3.5em; }
@@ -168,7 +169,7 @@ div.date span 		{ padding-right:1em; background:#fff; text-align:left; line-heig
 #pagercol div.date span { width:10em; right:-12em; text-align:left; }
 */
 
-.section			{ border-top:1px solid #ddd; margin:2em 0; }
+.section			{ border-top:1px solid #ddd; margin:1.5em 0; }
 
 p.comments a		{ font-size:0.75em; background:url(/images/icons/comments.gif) 0 0.15em no-repeat; padding-left:20px; }
 
@@ -202,17 +203,22 @@ p.comments a		{ font-size:0.75em; background:url(/images/icons/comments.gif) 0 0
 #tags a				{ text-decoration:none; color:#333; border:1px solid #ddd; background:url(/images/fades/pale.gif) repeat-x top #f2f2f2; display:block; margin:0; padding:0 5px; margin-right:1px; margin-bottom:1px; line-height:22px; -moz-border-radius:5px; -webkit-border-radius:5px; }
 #tags a:hover		{ text-decoration:none; color:#fff; border:1px solid #333; background:url(/images/fades/dark.gif) repeat-x top #333; }
 
-.vcard-download 	{ float:right; width:13em; background:#f2f2f2 url(/images/fades/pale.gif) repeat-x top; }
-.vcard-download a 	{ color:#333; background:url(/images/cv/icon-hcard-download02.png) 91% 50% no-repeat; padding:0.4em 0.6em; padding-right:4em; border:1px solid #ddd; text-decoration:none; display:block; font-size:0.9em; line-height:1.3em; }
-.vcard-download a:hover { color:#fff; background-color:#333; border-color:#333; }
-.vcard .org 		{ display:none; }
+.download-links			{ float:right; width:10.5em; margin-top:0.2em; }
+.download-link 			{ background:#f2f2f2 url(/images/fades/pale.gif) repeat-x top; margin-bottom:0.5em; }
+.download-link a 		{ color:#333; padding:0.4em 0.6em; padding-right:2.5em; border:1px solid #ddd; text-decoration:none; display:block; font-size:0.8em; line-height:1.3em; -moz-border-radius:5px; -webkit-border-radius:5px; }
+.download-link a:hover 	{ color:#fff; background-color:#333; border-color:#333; }
+
+.icon-vcard				{ background:url(/images/icons/vcard.png) 92% 50% no-repeat; }
+.icon-pdf				{ background:url(/images/icons/page_white_acrobat.png) 92% 50% no-repeat; }
+
+.vcard .org 			{ display:none; }
 
 #portfolio .row		{  }
 #portfolio .l-col	{ float:left; }
 #portfolio .r-col	{ float:right; }
 
 .sample 			{ border:1px solid #ddd; background:#f2f2f2 url(/images/fades/pale.gif) repeat-x top; padding:15px; margin-bottom:5px; }
-.sample .screen		{ float:right; width:12em; margin-left:3em; }
+.sample .screen		{ float:right; width:12em; margin-left:2em; }
 .sample .screen	img	{ border:1px solid #aaa; }
 .sample .detail		{ }
 .sample .detail	h4 	{ font-size:1.2em; margin:0; margin-bottom:0.5em; }
@@ -249,3 +255,4 @@ p.comments a		{ font-size:0.75em; background:url(/images/icons/comments.gif) 0 0
 .site-xb 			{ background:url(http://www.google.com/s2/favicons?domain=xbox.com) 0 50% no-repeat; }
 .site-lf 			{ background:url(http://www.google.com/s2/favicons?domain=last.fm) 0 50% no-repeat; }
 
+.print				{ display:none; }

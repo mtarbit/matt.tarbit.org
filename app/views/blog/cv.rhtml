@@ -1,8 +1,8 @@
-<h2>Curriculum Vitae</h2>
+<div id="hcard-Matt-Tarbit" class="vcard">
+	<h2><a class="url fn" href="http://matt.tarbit.org">Matthew Tarbit</a></h2>
 
-<div class="section">
-	<div id="hcard-Matt-Tarbit" class="vcard">
-		<h3><a class="url fn" href="http://matt.tarbit.org">Matthew Tarbit</a></h3>
+	<div class="section">
+		<h3>Overview</h3>
 
 		<p style="font-size:1.2em; line-height:1.4em; margin-bottom:1.4em;">
 			Fast, neat, hard-working developer with almost a decade's experience. Equally at home with both 
@@ -11,11 +11,11 @@
 			solutions.
 		</p>
 		
-		<div class="hr"><hr /></div>
-
-		<div class="vcard-download">
-			<a href="http://technorati.com/contacts/<%= cv_url %>">Download vCard to your address book</a>
+		<div class="download-links">
+			<div class="download-link"><a class="icon-vcard" href="http://technorati.com/contacts/<%= cv_url %>">Download vCard to your address book</a></div>
+			<div class="download-link"><a class="icon-pdf" href="/files/Matthew Tarbit - CV.pdf">Download a copy of this CV as a PDF</a></div>
 		</div>
+
 		<dl class="list">
 			<dt>Current Title:</dt>
 			<dd>Senior Web Developer <span class="org">Sense Internet</span></dd>
@@ -28,12 +28,15 @@
 				<address class="adr">
 					<span class="street-address">20 Ash Grove</span>,
 					<span>Hyde Park</span>,
-					<span class="locality">Leeds</span><br />
+					<span class="locality">Leeds</span>,
 					<span class="region">West Yorkshire</span>,
 					<span class="country-name">UK</span>,
 					<span class="postal-code">LS6 1AY</span>
 				</address>
 			</dd>
+
+			<dt>Phone:</dt>
+			<dd>07724 737672</dd>
 
 			<dt>Email:</dt>
 			<dd><a class="email" href="mailto:mtarbit@gmail.com">mtarbit@gmail.com</a></dd>
@@ -81,8 +84,8 @@
 	<ul>
 		<li>HTML, XHTML</li>
 		<li>CSS</li>
-		<li>Javascript <small>&mdash; DOM scripting, AJAX, experience of Prototype, jQuery and the Google Maps API</small></li>
-		<li>Actionscript <small>&mdash; including AS 3.0</small></li>
+		<li>JavaScript <small>&mdash; DOM scripting, AJAX, experience of Prototype, jQuery and the Google Maps API</small></li>
+		<li>ActionScript <small>&mdash; including AS 3.0</small></li>
 		<li>PHP <small>&mdash; including experience of MVC and OO development</small></li>
 		<li>MySQL</li>
 		<li>Adobe Flash</li>
@@ -93,14 +96,14 @@
 
 	<h4>More recent additions (2-3 years or less)</h4>
 	<ul>
-		<li>Ruby, Ruby on Rails <small>&mdash; in which this site is built</small></li>
+		<li>Ruby, Ruby on Rails <small>&mdash; in which my personal website is built</small></li>
 		<li>Subversion, Git</li>
 		<li>DVD Production <small>&mdash; with Adobe Encore</small></li>
 	</ul>
 
 	<p>
 		I have a genuine drive to develop my knowledge of programming and web development and keep up with as many technologies as I can, both emerging and established.
-		Alongside my extensive experience in a professional setting with those above, I also have at least a passing acquaintance with the following:
+		Alongside my extensive experience in a professional setting with those above, I have also experimented with, or written small programs in, the following:
 	</p>
 	<ul>
 		<li>Python/Django, C, Objective-C/Cocoa, LISP/Scheme, Perl</li>
@@ -108,7 +111,7 @@
 
 </div>
 
-<div class="section">
+<div class="section pg">
 	<h3>Education &amp; Employment History</h3>
 
 	<dl class="list">
@@ -131,10 +134,11 @@
 		<div class="detail">
 			<h4>JavaScript Toolkit</small></h4>
 			<ul class="compact">
+				<li class="print">http://jsframework.sense-dev.com:8080</li>
 				<li><a href="http://jsframework.sense-dev.com:8080">Library of over 20 UI widgets</a> (DatePicker, Overlay, AutoComplete).</li>
 				<li>Compact visual effects toolkit (CSS tweening, drag &amp; drop).</li>
 				<li>Widgets can be instantiated with pure markup (no JavaScript required).</li>
-				<li>Library structured in a name-spaced class hierarchy, supporting extensibility.</li>
+				<li>Structured in a name-spaced class hierarchy, supporting extensibility.</li>
 				<li>Lightweight debug console for development where FireBug isn't available (Ctrl-Shift-L).</li>
 				<li>Build tool for smoother deployment.</li>
 			</ul>
@@ -147,8 +151,9 @@
 		<div class="detail">
 			<h4>Travelodge</h4>
 			<ul class="compact">
+				<li class="print">http://www.travelodge.co.uk</li>
 				<li><a href="http://www.travelodge.co.uk">Public website</a> of the UK's biggest budget hotel chain.</li>
-				<li>Part of two man team working on markup &amp; CSS throughout the site's history.</li>
+				<li>Part of two-man team working on markup &amp; CSS for much of the site's history.</li>
 				<li>Following a recent redesign, revamped 3rd party markup &amp; CSS resulting in a reduction in CSS filesize of around 60%.</li>
 				<li>Lead developer on Google Maps implementation with custom clustering mechanism.</li>
 			</ul>
@@ -161,8 +166,9 @@
 		<div class="detail">
 			<h4>Rizla</h4>
 			<ul class="compact">
+				<li class="print">http://www.rizla.co.uk</li>
 				<li><a href="http://www.rizla.co.uk">Public website</a> of the UK's biggest rolling paper brand.</li>
-				<li>Part of two man team working on markup &amp; CSS throughout the site's history.</li>
+				<li>Part of two man team working on markup &amp; CSS for much of the site's history.</li>
 				<li>Various branded Flash games (breakout, bowling) including the long-term visitor favourite:
 					<a href="http://www.rizla.co.uk/game-time/?game=rizlajongg">Rizlahjong</a>.
 				</li>
@@ -172,12 +178,13 @@
 		<div class="clear"></div>
 	</div>
 
-	<div class="sample">
+	<div class="sample pg">
 		<div class="screen"><a href="http://www.bafta-online.org"><img src="/images/cv/thumbs/bafta.png" width="153" height="97" border="0" alt="" /></a></div>
 		<div class="detail">
-			<h4>Bafta <small>(in development)</small></h4>
+			<h4>Bafta <small>(awaiting launch)</small></h4>
 			<ul class="compact">
-				<li><a href="http://www.rizla.co.uk">Voting application</a> for the British Academy of Film and Television Arts.</li>
+				<li class="print">http://www.bafta-online.org</li>
+				<li><a href="http://www.bafta-online.org">Voting application</a> for the British Academy of Film and Television Arts.</li>
 				<li>Primary source of vote data for BAFTA awards.</li>
 				<li>Web-based application as replacement for existing downloadable flash applications.</li>
 				<li>Sole front-end developer on rich AJAX-driven UI with graceful degradation to fully functional non-JavaScript fallback.</li>
@@ -191,6 +198,7 @@
 		<div class="detail">
 			<h4>Imperial Tobacco</h4>
 			<ul class="compact">
+				<li class="print">http://www.imperial-trade.com</li>
 				<li><a href="http://www.imperial-trade.com">Trade website</a> of the world's 4th largest Tobacco company.</li>
 				<li>Single-handed build (HTML, CSS, JS, PHP &amp; MySQL).</li>
 			</ul>
@@ -202,7 +210,8 @@
 		<div class="screen"><a href="http://www.warburtons-trade.co.uk"><img src="/images/cv/thumbs/warburtons.png" width="153" height="97" border="0" alt="" /></a></div>
 		<div class="detail">
 			<h4>Warburtons</h4>
-			<ul class="compact">	
+			<ul class="compact">
+				<li class="print">http://www.warburtons-trade.co.uk</li>
 				<li><a href="http://www.warburtons-trade.co.uk">Trade website</a> of &ldquo;Britain's favourite baker&rdquo;.</li>
 				<li>Single-handed build (HTML, CSS, JS, PHP &amp; MySQL).</li>
 			</ul>
@@ -230,7 +239,8 @@
 		<div class="screen"><a href="http://www.xt3.com"><img src="/images/cv/thumbs/xt3.png" width="153" height="97" border="0" alt="" /></a></div>
 		<div class="detail">
 			<h4>XT3</h4>
-			<ul class="compact">	
+			<ul class="compact">
+				<li class="print">http://www.xt3.com</li>
 				<li><a href="http://www.xt3.com">Social networking site</a> with around 50,000 members. Established in association with <a href="http://www.wyd2008.org">World Youth Day</a> and the Catholic church.</li>
 				<li>Lead initial design work (including current logo).</li>
 				<li>JavaScript developer on AJAX-driven interactions used throughout the site.</li>
@@ -243,6 +253,7 @@
 		<div class="detail">
 			<h4>Helly Hansen <small>(2001-2004)</small></h4>
 			<ul class="compact">
+				<li class="print">http://www.hellyhansen.com</li>
 				<li><a href="http://www.hellyhansen.com">Public website</a> for leisure &amp; sportswear ranges.</li>
 				<li><a href="http://www.hhworkwear.com">Public website</a> for industrial workwear range.</li>
 				<li>Internal product management website.</li>
@@ -256,6 +267,7 @@
 		<div class="detail">
 			<h4>Sense Internet <small>(Internal Tools)</small></h4>
 			<ul class="compact">
+				<li class="print">http://www.sense.co.uk</li>
 				<li>SenseMax Intranet: Built UI for resource planner, calendar, address book, bug tracker, wiki.</li>
 				<li>Hit Tracker: Collecting analytics data from ~75% of Sense's websites.</li>
 				<li>Significant input into Sense's PHP MVC framework.</li>
