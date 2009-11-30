@@ -210,6 +210,7 @@ p.comments a		{ font-size:0.75em; background:url(/images/icons/comments.gif) 0 0
 
 .icon-vcard				{ background:url(/images/icons/vcard.png) 92% 50% no-repeat; }
 .icon-pdf				{ background:url(/images/icons/page_white_acrobat.png) 92% 50% no-repeat; }
+.icon-doc				{ background:url(/images/icons/page_white_word.png) 92% 50% no-repeat; }
 
 .vcard .org 			{ display:none; }
 
