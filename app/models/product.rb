@@ -36,6 +36,8 @@ class Product < ActiveRecord::Base
 
     res = [res] unless res.is_a?(Array)
     res = (raw) ? res : res.collect { |item| self.convert_from_amazon(item) }
+    
+    (operation == :lookup) ? res[0] : res
   end
   
   def self.search_by_asin(asin)
@@ -62,17 +64,10 @@ class Product < ActiveRecord::Base
   end
 
   def self.convert_from_amazon(item)
-    hash = {}
-    logger.info(">>>>>>>>>\n" + item.inspect + "\n>>>>>>>>>")
-    logger.info(">>>>>>>>>\n" + item.class.to_s + "\n>>>>>>>>>")
-    logger.info(">>>>>>>>>\n" + item.size.inspect + "\n>>>>>>>>>")
-    logger.info(">>>>>>>>>\n" + item[0].inspect + "\n>>>>>>>>>")
-    logger.info(">>>>>>>>>\n" + item[1].inspect + "\n>>>>>>>>>")
-    logger.info(">>>>>>>>>\n" + item[:ASIN].inspect + "\n>>>>>>>>>")
-    logger.info(">>>>>>>>>\n" + item['ASIN'].inspect + "\n>>>>>>>>>")
-    hash[:asin] = item['ASIN']
-    hash[:url]  = item['DetailPageURL']
-	  product = self.new(hash)
+    product = self.new({
+      :asin => item['ASIN'],
+      :url  => item['DetailPageURL']
+    })
 
 	  if item_attr = item['ItemAttributes']
   	  product.title     = item_attr['Title']
