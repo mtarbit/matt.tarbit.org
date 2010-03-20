@@ -30,16 +30,12 @@ class Product < ActiveRecord::Base
   
   def self.request(operation, search, options={})
     raw = options.delete(:Raw)
-        
+
     amz = Amazon::Product.new(SETTINGS['amazon']['access_key'], SETTINGS['amazon']['secret_key'])
     res = amz.method(operation).call(search, options)
-    # logger.info(">>>>>>>>>\n" + res.inspect + "\n>>>>>>>>>")
 
-    if (operation == :lookup)
-      res = (raw) ? res : self.convert_from_amazon(res)
-    else
-      res = (raw) ? res : res.collect { |item| self.convert_from_amazon(item) }
-    end
+    res = [res] unless res.is_a?(Array)
+    res = (raw) ? res : res.collect { |item| self.convert_from_amazon(item) }
   end
   
   def self.search_by_asin(asin)
@@ -66,10 +62,17 @@ class Product < ActiveRecord::Base
   end
 
   def self.convert_from_amazon(item)
-	  product = self.new({
-	    :asin     => item['ASIN'],
-  		:url      => item['DetailPageURL']
-	  })
+    hash = {}
+    logger.info(">>>>>>>>>\n" + item.inspect + "\n>>>>>>>>>")
+    logger.info(">>>>>>>>>\n" + item.class.to_s + "\n>>>>>>>>>")
+    logger.info(">>>>>>>>>\n" + item.size.inspect + "\n>>>>>>>>>")
+    logger.info(">>>>>>>>>\n" + item[0].inspect + "\n>>>>>>>>>")
+    logger.info(">>>>>>>>>\n" + item[1].inspect + "\n>>>>>>>>>")
+    logger.info(">>>>>>>>>\n" + item[:ASIN].inspect + "\n>>>>>>>>>")
+    logger.info(">>>>>>>>>\n" + item['ASIN'].inspect + "\n>>>>>>>>>")
+    hash[:asin] = item['ASIN']
+    hash[:url]  = item['DetailPageURL']
+	  product = self.new(hash)
 
 	  if item_attr = item['ItemAttributes']
   	  product.title     = item_attr['Title']
