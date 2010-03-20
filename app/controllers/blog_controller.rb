@@ -55,6 +55,10 @@ class BlogController < ApplicationController
     @wide_layout = true
   end
   
+  def family_games
+  	@wide_layout = true
+  end
+
   def notfound
     render :status => 404
   end

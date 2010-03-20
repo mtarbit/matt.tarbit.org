@@ -1,0 +1,543 @@
+<script type="text/javascript">
+	// <![CDATA[
+	
+	function initImages() {
+		var re = /_t\.jpg$/;
+		$$('div.img a').each(function(el){
+			var img = el.down('img');
+			if (img) {
+				if (re.test(img.src)) {
+					el.href = img.src.replace(re,'.jpg');
+					el.observe('click', function(e){ window.open(this.href); e.stop(); });
+				}
+			}
+		})
+	}
+	
+	document.observe('dom:loaded', initImages);
+	
+	// ]]>
+</script>
+
+<style type='text/css'>
+	ul.gamesList                { margin:1em auto; padding:0; width:870px; overflow:hidden; }
+	ul.gamesList li             { margin:0; padding:0; list-style-type:none; float:left; margin-left:10px; margin-bottom:2em; width:100px; text-align:center; }
+	ul.gamesList li.first       { clear:both; margin-left:0; }
+	ul.gamesList li.wrong       { opacity:0.5; }
+	ul.gamesList div.img        { width:100px; height:100px; overflow:hidden; margin-bottom:0.5em; text-align:center; }
+	ul.gamesList div.img img    { display:inline; }
+	ul.gamesList div.txt a      { line-height:1.2em; }
+	ul.gamesList div small      { color:#666; }
+</style>
+
+<h2>Family Games: The 100 Best<span style="font-weight:normal; color:#666;"> &mdash; A Visual Companion</span></h2>
+
+<p>
+	All imagery courtesy of the community at <a href="http://www.geekdo.com/">Geekdo</a>. Click on a thumbnail to see the 
+	full-size scan in a new window, or click on a title to read more about that game.
+</p>
+
+<div class="hr"><hr /></a></div>
+
+<ul class='gamesList'>
+	<li class="first">
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic275838_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/7866'>10 Days in the USA</a></div>
+		<div><small>Carrie Bebris</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic215664_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/27708'>1960: The Making of the President</a></div>
+		<div><small>Steven E. Schend</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic213515_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/74'>Apples to Apples</a></div>
+		<div><small>Dominic Crapuchettes</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic342879_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/162'>The Awful Green Things from Outer Space</a></div>
+		<div><small>Mike Breault</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic40574_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/163'>Balderdash</a></div>
+		<div><small>Jeff Tidball</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic174405_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/3955'>Bang!</a></div>
+		<div><small>Keith Baker</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic288374_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/2425'>Battleship</a></div>
+		<div><small>Bruce Harlick</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic306631_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/1231'>Bausack</a></div>
+		<div><small>James Wallis</small></div>
+	</li>
+	<li class="first">
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic23902_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/165'>Black Box</a></div>
+		<div><small>Paul Jaquays</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic153979_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/2453'>Blokus</a></div>
+		<div><small>Lewis Pulsipher</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic198033_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/1293'>Boggle</a></div>
+		<div><small>Teeuwynn Woodruff</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic97113_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/805'>Buffy the Vampire Slayer</a></div>
+		<div><small>Fred Hicks</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic162151_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/5048'>Candy Land</a></div>
+		<div><small>James Ernest</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic211972_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/41'>Can't Stop</a></div>
+		<div><small>Ian Livingstone</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic170131_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/1475'>Careers</a></div>
+		<div><small>Bruce Whitehill</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic276567_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/30950'>Cat</a></div>
+		<div><small>Jared Sorensen</small></div>
+	</li>
+	<li class="first">
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic181642_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/7'>Cathedral</a></div>
+		<div><small>Wolfgang Baur</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic190573_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/1294'>Clue</a></div>
+		<div><small>John Scott Tynes</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic239843_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/112'>Condottiere</a></div>
+		<div><small>Alessio Cavatore</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic130508_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/2719'>Connect Four</a></div>
+		<div><small>Elaine Cunningham</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic180029_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/891'>Cranium</a></div>
+		<div><small>Will Hindmarch</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic246545_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/2129'>Crossbows and Catapults</a></div>
+		<div><small>Erik Mona</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic204975_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/30'>Dark Tower</a></div>
+		<div><small>William W. Connors</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic204982_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/1509'>Dogfight</a></div>
+		<div><small>John D. Rateliff</small></div>
+	</li>
+	<li class="first">
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic424735_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/1339'>Dungeon!</a></div>
+		<div><small>Robert J. Schwalb</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic255238_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/2346'>Dvonn</a></div>
+		<div><small>jim pinto</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic242020_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/445'>Easter Island</a></div>
+		<div><small>Gav Thorpe</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic509670_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/157'>Eurorails</a></div>
+		<div><small>Jeff Grubb</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic505499_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/43731'>Faery's Tale Deluxe</a></div>
+		<div><small>Kenneth Hite</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic399009_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/170'>Family Business</a></div>
+		<div><small>Richard Dansky</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic125970_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/789'>Focus</a></div>
+		<div><small>Warren Spector</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic62726_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/172'>For Sale</a></div>
+		<div><small>Corey Konieczka</small></div>
+	</li>
+	<li class="first">
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic290658_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/99'>Fortress America</a></div>
+		<div><small>James M. Ward</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic197395_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/340'>Frank's Zoo</a></div>
+		<div><small>Stan!</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic288405_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/2921'>The Game of Life</a></div>
+		<div><small>Bruce C. Shelley</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic164269_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/4385'>A Gamut of Games</a></div>
+		<div><small>Phil Orbanes</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic51337_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/12692'>Gloom</a></div>
+		<div><small>Monica Valentinelli</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic72031_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/6714'>Go Away Monster!</a></div>
+		<div><small>Matt Leacock</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic210008_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/929'>The Great Dalmuti</a></div>
+		<div><small>Steve Jackson</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic143139_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/116'>Guillotine</a></div>
+		<div><small>David "Zeb" Cook</small></div>
+	</li>
+	<li class="first">
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic185673_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/6351'>Gulo Gulo</a></div>
+		<div><small>Jason Matthews</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic72861_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/2944'>Halli Galli</a></div>
+		<div><small>Joshua Howard</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic275126_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/361'>Hare & Tortoise</a></div>
+		<div><small>Bruce Nesmith</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic90721_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/3439'>HeroClix</a></div>
+		<div><small>Mike Pondsmith</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic338410_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/699'>HeroQuest</a></div>
+		<div><small>Anthony J. Gallela</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic244662_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/11170'>HeroScape</a></div>
+		<div><small>Chris Pramas</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic149662_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/8203'>Hey! That's My Fish!</a></div>
+		<div><small>Ed Greenwood</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic159511_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/2655'>Hive</a></div>
+		<div><small>Colin McComb</small></div>
+	</li>
+	<li class="first">
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic38466_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/120'>Hoity Toity</a></div>
+		<div><small>Alan R. Moon</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic72808_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/9674'>Ingenious</a></div>
+		<div><small>Jon Leitheusser</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic178934_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/855'>Java</a></div>
+		<div><small>Uli Blennemann</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic72882_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/8098'>Jungle Speed</a></div>
+		<div><small>Luke Crane</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic193726_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/257'>Kill Doctor Lucky</a></div>
+		<div><small>Monte Cook</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic199970_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/227'>Knightmare Chess</a></div>
+		<div><small>Emiliano Sciarra</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic327728_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/45'>Liar's Dice</a></div>
+		<div><small>Todd A. Breitenstein</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic289639_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/327'>Loopin' Louie</a></div>
+		<div><small>Marc Gascoigne</small></div>
+	</li>
+	<li class="first">
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic69357_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/3201'>Lord of the Rings: The Confrontation</a></div>
+		<div><small>Andrew Parks</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic194176_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/50'>Lost Cities</a></div>
+		<div><small>Seth Johnson</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic124633_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/3279'>Magi-Nation</a></div>
+		<div><small>John Yianni</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic194789_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/437'>Master Labyrinth</a></div>
+		<div><small>Bill Bodden</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic212908_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/2392'>Mastermind</a></div>
+		<div><small>Andrew Greenberg</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic43663_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/10630'>Memoir '44</a></div>
+		<div><small>Ken Levine</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic154433_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/590'>Mille Bornes</a></div>
+		<div><small>Scott Haring</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic265476_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/1406'>Monopoly</a></div>
+		<div><small>Steve Jackson</small></div>
+	</li>
+	<li class="first">
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic94317_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/2679'>Mouse Trap</a></div>
+		<div><small>Sheri Graner Ray</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic72923_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/371'>Mystery Rummy: Murders in the Rue Morgue</a></div>
+		<div><small>Kevin G. Nunn</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic401239_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/3086'>The Omega Virus</a></div>
+		<div><small>Dale Donovan</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic243834_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/2389'>Othello</a></div>
+		<div><small>Darren Watts</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic254416_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/30549'>Pandemic</a></div>
+		<div><small>Charles Ryan</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic212178_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/1295'>Pente</a></div>
+		<div><small>Michelle Lyons</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic336863_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/2281'>Pictionary</a></div>
+		<div><small>Thomas M. Reid</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic46789_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/11571'>Pieces of Eight</a></div>
+		<div><small>Nicole Lindroos</small></div>
+	</li>
+	<li class="first">
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic423644_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/140'>Pit</a></div>
+		<div><small>John Wick</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic297011_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/1381'>Pok&eacute;mon</a></div>
+		<div><small>Matt Forbeck</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic61378_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/5399'>Prince Valiant</a></div>
+		<div><small>Robin D. Laws</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic309353_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/25669'>Qwirkle</a></div>
+		<div><small>Stephen Glenn</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic154405_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/51'>Ricochet Robots</a></div>
+		<div><small>S&eacute;bastien Pauchon</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic62237_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/181'>Risk</a></div>
+		<div><small>Peter Olotka</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic410151_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/811'>Rummikub</a></div>
+		<div><small>Richard Breese</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic172295_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/438'>Scotland Yard</a></div>
+		<div><small>Jesse Scoble</small></div>
+	</li>
+	<li class="first">
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic404651_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/320'>Scrabble</a></div>
+		<div><small>Richard Garfield</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic73045_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/1198'>Set</a></div>
+		<div><small>Mike Selinker</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic428828_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/40692'>Small World</a></div>
+		<div><small>Rob Heinsoo</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic266469_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/2407'>Sorry!</a></div>
+		<div><small>Hal Mangold</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic25644_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/1917'>Stratego</a></div>
+		<div><small>Jess Lebow</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic526409_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/2251'>Strat-O-Matic Baseball</a></div>
+		<div><small>Eric Goldberg</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic147340_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/2653'>Survive!</a></div>
+		<div><small>Andrea Angiolino</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic348656_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/30869'>Thebes</a></div>
+		<div><small>Karl Deckard</small></div>
+	</li>
+	<li class="first">
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic305979_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/1353'>Time's Up!</a></div>
+		<div><small>Dan Tibbles</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic30978_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/5396'>Trade Winds</a></div>
+		<div><small>Tom Wham</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic158561_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/2842'>TransAmerica</a></div>
+		<div><small>Susan McKinley Ross</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic141782_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/2952'>Trivial Pursuit</a></div>
+		<div><small>Ray Winninger</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic146608_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/949'>Twixt</a></div>
+		<div><small>Leo Colovini</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic73103_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/2223'>Uno</a></div>
+		<div><small>Matthew Kirby</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic6080_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/1515'>Upwords</a></div>
+		<div><small>David Parlett</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic95263_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/925'>Werewolf</a></div>
+		<div><small>Lester Smith</small></div>
+	</li>
+	<li class="first">
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic521431_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/20100'>Wits & Wagers</a></div>
+		<div><small>John Kovalic</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic378237_t.jpg' width="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/2243'>Yahtzee</a></div>
+		<div><small>Philip Reed</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic192910_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/6830'>Zendo</a></div>
+		<div><small>Kevin Wilson</small></div>
+	</li>
+	<li>
+		<div class='img'><a href='#'><img src='http://images.boardgamegeek.com/images/pic187388_t.jpg' height="100" /></a></div>
+		<div class='txt'><a href='http://www.geekdo.com/boardgame/27588'>Zooloretto</a></div>
+		<div><small>Jess Hartley</small></div>
+	</li>
+</ul>
