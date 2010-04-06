@@ -1,0 +1,23 @@
+domain: localhost
+site_secret: ************
+pygmentize_path: /usr/local/bin/pygmentize
+
+features_enabled:
+    comments: true
+
+gmail:
+    username: tarbit.org@googlemail.com
+    password: password
+
+twitter:
+    username: mtarbit@gmail.com
+    password: password
+
+delicious:
+    username: pxmatt
+    password: password
+
+amazon:
+    access_key: ********************
+    secret_key: ****************************************
+    associate_id: *************

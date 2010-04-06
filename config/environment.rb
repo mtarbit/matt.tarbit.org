@@ -28,7 +28,8 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem 'BlueCloth'
   config.gem 'will_paginate', :version => '~> 2.3.11', :source => 'http://gemcutter.org'
-
+  config.gem 'openrain-action_mailer_tls', :lib => 'smtp_tls.rb', :source => 'http://gems.github.com'
+  
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
@@ -48,16 +49,10 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 
-  # See Rails::Configuration for more options
-  config.action_mailer.smtp_settings = {
-    :address => "smtp.gmail.com",
-    :port => 587,
-    :domain => "localhost",
-    :authentication => :plain,
-    :user_name => SETTINGS['gmail']['username'],
-    :password => SETTINGS['gmail']['password']
-  }
-  
+  # --------------------------------------------------------------------------------
+  # Config below was pre-2.3.5 and pre-initializers. May be better placed elsewhere.
+  # --------------------------------------------------------------------------------
+
   # Keep logfiles managable and under control, should limit it to 50 1MB files
   # See: http://blog.caboo.se/articles/2005/12/15/who-said-size-is-not-important
   config.logger = Logger.new(config.log_path, 50, 1024**2)
