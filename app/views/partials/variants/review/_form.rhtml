@@ -1,0 +1,13 @@
+<%= hidden_field_tag 'asin', entry.product.asin %>
+
+<%= f.text_field :title, :style=>'width:98%', :size=>75 %>
+<%= f.text_field :slug, :style=>'width:98%', :size=>75 %>
+
+<div class="fr" style="text-align:center; margin:2px 10px 0 0;">
+	<%= image_tag(entry.product.image, :width=>125, :class=>'border') %>
+	<p><%= link_to 'Change product &rarr;', url_for(:controller=>'admin', :action=>'amazon', :next=>request.path) %></p>
+</div>
+
+<%= f.text_area :content, :style=>'width:81%', :cols=>72, :rows=>30 %>
+
+

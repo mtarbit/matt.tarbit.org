@@ -1,6 +1,17 @@
 class CommentController < ApplicationController
-  before_filter :authenticate, :only=>[:delete]
+  before_filter :authenticate, :only=>[:index,:delete]
   cache_sweeper :blog_sweeper, :only=>[:create,:update,:delete]
+
+  layout :layout_for_action
+
+  def layout_for_action
+    action_name == 'index' ? 'admin' : 'application'
+  end
+
+  def index
+    @single_column = true
+    @comments = Comment.paginate(:all, :page=>params[:page], :per_page=>15, :order=>'comments.created_at DESC')
+  end
 
 	def preview
 		redirect_to index_url unless request.xhr?
@@ -58,7 +69,7 @@ class CommentController < ApplicationController
   def delete
     comment = Comment.find(params[:id])
     comment.destroy
-    redirect_to entry_url(comment.entry)
+    redirect_to request.referer || entry_url(comment.entry)
   end
 
 end

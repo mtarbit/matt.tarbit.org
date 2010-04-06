@@ -1,5 +1,5 @@
 <% cache do %>
-	<%= render(:partial => "partials/formats/#{@entry.format}/single", :locals=>{:entry=>@entry} ) %>
+	<%= render(:partial => "partials/variants/#{@entry.variant}/single", :locals=>{:entry=>@entry} ) %>
 	<div id="comments">
 		<%= render(:partial => 'comments', :locals=>{:entry=>@entry}) %>
 	</div>
@@ -22,8 +22,8 @@
 			at <%= @entry.created_at.strftime("%I:%M %p") %>
 		</li>
 
-		<% if @prev: %><li class="prev"><%= link_to truncate(@prev.page_title,60), entry_url(@prev), :title=>'Older entry' %></li><% end %>
-		<% if @next: %><li class="next"><%= link_to truncate(@next.page_title,60), entry_url(@next), :title=>'Newer entry' %></li><% end %>
+		<% if @prev: %><li class="prev"><%= link_to truncate(@prev.page_title, :length=>60), entry_url(@prev), :title=>'Older entry' %></li><% end %>
+		<% if @next: %><li class="next"><%= link_to truncate(@next.page_title, :length=>60), entry_url(@next), :title=>'Newer entry' %></li><% end %>
 
 		<% if @entry.tags.count > 0 -%>
 			<li class="tags"><%= linkify_tags(@entry.tags) %></li>

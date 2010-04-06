@@ -1,6 +1,9 @@
 <% 
 c.content = simple_format(c.content)
-c.content = auto_link(c.content, :urls) {|t| truncate %r{^(http://)?(www.)?([^/]*)}.match(t)[-1] }
+c.content = auto_link(c.content, :urls) do |t|
+	parts = t.sub(%r{https?://},'').split('/')
+	(parts.length > 1) ? parts[0] + '/.../' + parts[-1] : parts
+end
 c.content.gsub!(/(<[aA] )/,'\1 rel="nofollow"')
 if !c.website.blank? && c.website.include?('.')
 	href = (c.website =~ /^[a-z]+:\/\//) ? c.website : "http://#{c.website}"

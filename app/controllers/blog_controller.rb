@@ -2,9 +2,8 @@ class BlogController < ApplicationController
   caches_page :index, :archive, :archives_by_title, :date, :about
 
   def index
-    @wide_layout = true
-    @long  = Entry.find(:all, :include=>[:comments], :order=>'entries.created_at DESC', :limit=>10, :conditions=>["format IN('post','review')"])
-    @short = Entry.find(:all, :include=>[:comments], :order=>'entries.created_at DESC', :limit=>20, :conditions=>["format NOT IN('post','review')"])
+    @entries = Entry.find(:all, :include=>[:comments], :order=>'entries.created_at DESC', :limit=>20)
+    @first_date = @entries.first.created_at
     @books = Book.find(:all, :include=>[:authors], :order=>'books.created_at DESC', :limit=>4)
   end
 	
@@ -26,7 +25,7 @@ class BlogController < ApplicationController
       @prev = @entries.last.find_prev
       @next = @entries.first.find_next
     rescue:
-      render :action=>'notfound'
+      render_not_found
     end
   end
 
@@ -41,7 +40,7 @@ class BlogController < ApplicationController
   end
 
   def about
-    @count = Entry.count(:all, :group=>:format, :order=>'count_all DESC')
+    @count = Entry.count(:all, :group=>:variant, :order=>'count_all DESC')
     @total = @count.inject(0) { |sum,a| sum + a.last }
     @books = Book.count
     @authors = Author.count
@@ -59,10 +58,6 @@ class BlogController < ApplicationController
   	@wide_layout = true
   end
 
-  def notfound
-    render :status => 404
-  end
-  
 private
 
   def split_search_terms(str)

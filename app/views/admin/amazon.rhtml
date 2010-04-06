@@ -2,6 +2,7 @@
 <h2><%= @title %></h2>
 
 <% form_tag do %>
+	<%= hidden_field_tag(:next, params[:next]) %>
 
 	<fieldset>
 		<legend>Search Details</legend>
@@ -41,7 +42,7 @@
 					<dt>Link:</dt>
 					<dd><%= link_to 'www.amazon.co.uk', item.associate_url %></dd>
 					<dt>Post:</dt>
-					<dd><%= link_to 'Write a review &rarr;', new_entry_url(:variant=>'review', :asin=>item.asin) %></dd>
+					<dd><%= link_to 'Use this product &rarr;', "#{params[:next]}?asin=#{item.asin}" %></dd>
 				</dl>
 			</div>
 
@@ -66,7 +67,7 @@
 						<dt>Link:</dt>
 						<dd><%= link_to 'www.amazon.co.uk', item.associate_url %></dd>
 						<dt>Post:</dt>
-						<dd><%= link_to 'Write a review &rarr;', new_entry_url(:variant=>'review', :asin=>item.asin) %></dd>
+						<dd><%= link_to 'Use this product &rarr;', "#{params[:next]}?asin=#{item.asin}" %></dd>
 					</dl>
 				</div>
 				<div class="clear"></div>

@@ -18,11 +18,11 @@ module ApplicationHelper
 	end
 
   def linkify_tags(tags)
-    tags.map{|t| link_to(t.name, tag_url(:name=>t.name), {:class=>'tag'}) }.to_sentence(:connector=>'&amp;', :skip_last_comma=>true)
+    tags.map{|t| link_to(t.name, tag_url(:name=>t.name), {:class=>'tag'}) }.to_sentence(:last_word_connector=>' &amp; ')
   end
 
   def linkify_authors(authors, html_options={})
-    authors.map{|a| link_to(a.name, {:controller=>:author,:action=>:show,:id=>a.id}, html_options) }.join(', ') #to_sentence(:connector=>'&amp;', :skip_last_comma=>true)
+    authors.map{|a| link_to(a.name, {:controller=>:author,:action=>:show,:id=>a.id}, html_options) }.to_sentence(:last_word_connector=>' and ')
   end
 
   def highlight_html(str,words)

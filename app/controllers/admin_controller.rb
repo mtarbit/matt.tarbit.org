@@ -2,6 +2,8 @@ class AdminController < ApplicationController
   before_filter :authenticate, :except=>:login
   cache_sweeper :blog_sweeper, :only=>[:sync_from_delicious, :sync_from_twitter]
   
+  layout "admin"
+  
   def login
     if request.post?
       user = User.authenticate(params[:user][:username], params[:user][:password])
@@ -25,9 +27,9 @@ class AdminController < ApplicationController
   end
 
   def index
-    @wide_layout = true
-		conditions = {:format => params[:variant]} if params[:variant]
-    @entries = Entry.find(:all, :conditions=>conditions, :include=>[:comments,:tags], :order => 'entries.created_at DESC', :limit=>20)
+    @single_column = true
+		conditions = {:variant => params[:variant]} if params[:variant]
+    @entries = Entry.paginate(:all, :page=>params[:page], :per_page=>15, :conditions=>conditions, :include=>[:comments,:tags], :order => 'entries.created_at DESC')
   end
 
   def sync_from_delicious
@@ -43,7 +45,7 @@ class AdminController < ApplicationController
 
   def sync_from_twitter
     require 'twitter'
-    latest = Entry.find(:first, :conditions=>{:format=>'status'}, :order=>'created_at DESC')
+    latest = Entry.find(:first, :conditions=>{:variant=>'status'}, :order=>'created_at DESC')
     params = latest ? {:since_id=>latest.url} : {:count=>200}
     tweets = Twitter::Base.new(SETTINGS['twitter']['username'], SETTINGS['twitter']['password']).timeline(:user, params)
 		tweets.each {|e| Entry.create_from_twitter(e) }
@@ -51,18 +53,17 @@ class AdminController < ApplicationController
   end
 
   def amazon
-    @wide_layout = true
+    @single_column = true
 		@title = 'Amazon search'
 
-    if params[:keywords]
-      if @items = Product.search(params[:keywords],{ :SearchIndex=>params[:search_index] })
-  			@title << " results for \"#{params[:keywords]}\""
-      end
+    if params[:keywords] and params[:search_index]
+      @items = Product.search(params[:keywords],{ :SearchIndex=>params[:search_index] })
+			@title << " results for \"#{params[:keywords]}\"" if @items
     end
   end
 
   def library
-    @wide_layout = true
+    @single_column = true
     @books = Book.find(:all, :include=>[:authors], :order => 'books.created_at DESC')
   end
 

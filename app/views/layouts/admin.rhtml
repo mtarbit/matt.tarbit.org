@@ -1,0 +1,6 @@
+<% content_for :navigation do -%>
+	<li class="first"><%= link_to 'Entries', admin_url %></li>
+	<li><%= link_to 'Comments', comments_url %></li>
+	<li><%= link_to 'Books', librarian_url %></li>
+<% end -%>
+<%= render :file=>'layouts/application' %>

@@ -10,7 +10,7 @@
 		<atom:link href="<%= rss_url %>" rel="self" type="application/rss+xml" />
 	
 		<% for entry in @entries -%>
-			<%= render(:partial => "partials/formats/#{entry.format}/feed", :locals=>{:entry=>entry} ) %>
+			<%= render(:partial => "partials/variants/#{entry.variant}/feed", :locals=>{:entry=>entry} ) %>
 		<% end -%> 
 	
 	</channel> 

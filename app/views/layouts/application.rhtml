@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<title><%= truncate(@title,60) || "Matt Tarbit's Weblog" %></title>
+	<title><%= truncate(@title, :length=>60) || "Matt Tarbit's Weblog" %></title>
 	<meta charset="utf-8">
 
 	<%= stylesheet_link_tag 'common','syntax', :media=>'all' %>
@@ -36,12 +36,16 @@
 	<div id="pagehead"><div class="inner">
 		<h1 id="pagelogo"><%= link_to "<span>Matt<small>.</small>Tarbit<small>.org</small></span>", index_url, :rel=>'me' %></h1>
 		<ul id="pagemenu">
-			<li class="first"><%= link_to 'About', about_url %></li>
-			<li><%= link_to 'Archive', archive_url %></li>
-			<li><%= link_to 'Library', library_url %></li>
-			<li><%= link_to 'Tags', tags_url %></li>
-			<li><%= link_to 'Feed', rss_url %></li>
-			<li><%= link_to 'Search', search_url %></li>
+			<% if @content_for_navigation %>
+				<%= yield :navigation %>
+			<% else %>
+				<li class="first"><%= link_to 'About', about_url %></li>
+				<li><%= link_to 'Archive', archive_url %></li>
+				<li><%= link_to 'Library', library_url %></li>
+				<li><%= link_to 'Tags', tags_url %></li>
+				<li><%= link_to 'Feed', rss_url %></li>
+				<li><%= link_to 'Search', search_url %></li>
+			<% end %>
 		</ul>
 		<br class="clear" />
 	</div></div>
@@ -66,16 +70,16 @@
 					<h2>Where am I?</h2>
 
 					<p>
-					This is the personal site of <%= link_to 'Matthew Tarbit', about_url %>, a seasoned
-					web developer holed-up in a hideaway somewhere in the depths of Leeds, England.
+						This is the personal site of <%= link_to 'Matthew Tarbit', about_url %>, a seasoned
+						web developer holed-up in a hideaway somewhere in the depths of Leeds, England.
 					</p>
 					<p>
-					Should the mood arise, you might add my outpourings to the deluge that is your already
-					overflowing <%= link_to 'info drip feed', rss_url %>.
+						Should the mood arise, you might add my outpourings to the deluge that is your already
+						overflowing <%= link_to 'info drip feed', rss_url %>.
 					</p>
 					<p>
-					Alternately, rest a while and <%= link_to 'dig through my entries', search_url %>
-					like a corpulent pig in search of all that is truffle-icious.
+						Alternately, rest a while and <%= link_to 'dig through my entries', search_url %>
+						like a corpulent pig in search of all that is truffle-icious.
 					</p>
 				<% end %>
 			</div>

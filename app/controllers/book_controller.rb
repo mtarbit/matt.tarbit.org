@@ -3,6 +3,12 @@ class BookController < ApplicationController
   caches_page :index, :show
   cache_sweeper :book_sweeper, :only=>[:create,:update,:delete]
 
+  layout :layout_for_action
+
+  def layout_for_action
+    ['index','show'].include?(action_name) ? 'application' : 'admin'
+  end
+
   def index
     @books = Book.find(:all,:include=>[:authors], :order=>'books.created_at DESC')
   end
@@ -12,19 +18,19 @@ class BookController < ApplicationController
   end
 
   def new
-    @wide_layout = true
+    @single_column = true
     @book = Book.new
     render :action=>'edit'
   end
 
   def edit
-    @wide_layout = true
+    @single_column = true
     @book = Book.find(params[:id])
     @products = @book.search_for_products
   end
 
   def search
-    @wide_layout = true
+    @single_column = true
     if params[:book][:id]
       @book = Book.find(params[:book][:id])
       @book.attributes = params[:book]
@@ -33,9 +39,9 @@ class BookController < ApplicationController
     end
     @products = @book.search_for_products
 
-    logger.info("@@@@@@@@@@@@@@@")
-    logger.info(@products.inspect)
-    logger.info("@@@@@@@@@@@@@@@")
+    # logger.info("@@@@@@@@@@@@@@@")
+    # logger.info(@products.inspect)
+    # logger.info("@@@@@@@@@@@@@@@")
 
     render :action=>'edit'
   end

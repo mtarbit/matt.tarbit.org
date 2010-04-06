@@ -1,15 +1,15 @@
 <h2>Entry admin</h2>
 
 <p>
-	Add a new
-	<%= link_to 'post',	new_entry_url(:variant=>'post') %>,
-	<%= link_to 'link', new_entry_url(:variant=>'link') %>,
-	<%= link_to 'quote', new_entry_url(:variant=>'quote') %>,
-	<%= link_to 'review', new_entry_url(:variant=>'review') %>.
-	Get <%= link_to 'links from delicious', :action=>:sync_from_delicious %>.
-	Get <%= link_to 'tweets from twitter', :action=>:sync_from_twitter %>.
-	Or <%= link_to 'be a librarian', librarian_url %>.
+	Create a <%= Entry.variants.map {|v| link_to(v, new_entry_url(:variant=>v)) }.to_sentence(:two_words_connector=>' or ', :last_word_connector=>' or ') %>.
+	Sync <%= link_to 'links', :action=>:sync_from_delicious %> or <%= link_to 'statuses', :action=>:sync_from_twitter %>.
 </p>
+
+<div class="hr"><hr /></div>
+
+<div class="fl">Filter by <%= Entry.variants.map {|v| link_to(v, :variant=>v) }.to_sentence(:two_words_connector=>' or ', :last_word_connector=>' or ') %>.</div>
+<%= will_paginate @entries %>
+<div class="clear"></div>
 
 <table class="data">
 	<tr>
@@ -24,10 +24,10 @@
 	<% for entry in @entries -%>
 		<tr class="<%= cycle('row0','row1') %>">
 			<td>
-			<%= case entry.format
+			<%= case entry.variant
 				when 'post': entry.title
 				when 'link': link_to entry.title, entry.url
-				when 'quote': link_to_if entry.url, "&#8220;%s&#8221;" % truncate(entry.content, 40), entry.url
+				when 'quote': link_to_if entry.url, "&#8220;%s&#8221;" % truncate(entry.content, :length=>40), entry.url
 				else entry.title
 			end %>
 			</td>
@@ -40,3 +40,5 @@
 		</tr>
 	<% end -%>
 </table>
+
+<%= will_paginate @entries %>

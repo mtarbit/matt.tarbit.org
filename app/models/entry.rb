@@ -7,6 +7,12 @@ class Entry < ActiveRecord::Base
 	validates_presence_of :title
 	validates_presence_of :slug
 	# validates_uniqueness_of :slug
+
+  @@VARIANTS = ['link','post','review','quote','status']
+
+  def self.variants
+    @@VARIANTS
+  end
 	
   def tags_as_string=(tags)
     if tags.is_a? String
@@ -21,16 +27,16 @@ class Entry < ActiveRecord::Base
 
 	def generate_slug
 		str = self.title.downcase.gsub(/[^a-z0-9._ ]+/,'').gsub(/ +/,'-')
-		str = str.split(/-/)[0,3].join('-') if self.format != 'post'
+		str = str.split(/-/)[0,3].join('-') if self.variant != 'post'
 		self.slug = str
 	end
 
   def longform?
-    ['post','review'].include? self.format
+    ['post','review'].include? self.variant
   end
 		
 	def page_title
-		case self.format
+		case self.variant
 			when 'post': self.title
 			when 'link': "Bookmark for \"#{self.title}\""
 			when 'quote': "A quote from #{self.title}"
@@ -40,7 +46,7 @@ class Entry < ActiveRecord::Base
 	end
 
   def status_url
-    "http://twitter.com/mtarbit/status/#{self.url}" if self.format == 'status'
+    "http://twitter.com/mtarbit/status/#{self.url}" if self.variant == 'status'
   end
 
   def find_next
@@ -136,7 +142,7 @@ class Entry < ActiveRecord::Base
 
   def self.convert_from_twitter(item)
     attrs = {
-			'format' => 'status',
+			'variant' => 'status',
       'created_at' => Time.parse(item.created_at),
       'url' => item.id,
       'title' => "Status #{item.id}",
@@ -160,7 +166,7 @@ class Entry < ActiveRecord::Base
 
   def self.convert_from_delicious(item)
     attrs = {
-			'format' => 'link',
+			'variant' => 'link',
       'created_at' => item['time'],
       'url' => item['href'],
       'title' => item['description'],

@@ -9,25 +9,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090225185632) do
+ActiveRecord::Schema.define(:version => 20100404210959) do
 
   create_table "authors", :force => true do |t|
     t.string "name"
   end
 
   create_table "authors_books", :id => false, :force => true do |t|
-    t.integer "author_id", :limit => 11, :null => false
-    t.integer "book_id",   :limit => 11, :null => false
+    t.integer "author_id", :null => false
+    t.integer "book_id",   :null => false
   end
 
   add_index "authors_books", ["author_id"], :name => "index_authors_books_on_author_id"
   add_index "authors_books", ["book_id"], :name => "index_authors_books_on_book_id"
 
   create_table "book_images", :force => true do |t|
-    t.integer "book_id",    :limit => 11, :null => false
+    t.integer "book_id",    :null => false
     t.string  "url"
-    t.integer "height",     :limit => 11, :null => false
-    t.integer "width",      :limit => 11, :null => false
+    t.integer "height",     :null => false
+    t.integer "width",      :null => false
     t.string  "image_type"
   end
 
@@ -42,24 +42,24 @@ ActiveRecord::Schema.define(:version => 20090225185632) do
   end
 
   create_table "comments", :force => true do |t|
-    t.integer  "entry_id",       :limit => 11,                :null => false
-    t.integer  "parent_id",      :limit => 11
+    t.integer  "entry_id",                      :null => false
+    t.integer  "parent_id"
     t.text     "content"
     t.string   "name"
     t.string   "href"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "children_count", :limit => 11, :default => 0
+    t.integer  "children_count", :default => 0
     t.string   "website"
     t.string   "email"
     t.string   "ip"
   end
 
   create_table "entries", :force => true do |t|
-    t.integer  "comments_count", :limit => 11, :default => 0
+    t.integer  "comments_count", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "format"
+    t.string   "variant"
     t.string   "slug"
     t.string   "title"
     t.text     "content"
@@ -68,16 +68,16 @@ ActiveRecord::Schema.define(:version => 20090225185632) do
   end
 
   create_table "entries_tags", :id => false, :force => true do |t|
-    t.integer "entry_id", :limit => 11, :null => false
-    t.integer "tag_id",   :limit => 11, :null => false
+    t.integer "entry_id", :null => false
+    t.integer "tag_id",   :null => false
   end
 
   add_index "entries_tags", ["entry_id", "tag_id"], :name => "index_entries_tags_on_entry_id_and_tag_id"
   add_index "entries_tags", ["tag_id"], :name => "index_entries_tags_on_tag_id"
 
   create_table "products", :force => true do |t|
-    t.integer  "entry_id",   :limit => 11
-    t.string   "asin",                     :null => false
+    t.integer  "entry_id"
+    t.string   "asin",       :null => false
     t.string   "url"
     t.string   "title"
     t.string   "image"
@@ -87,8 +87,8 @@ ActiveRecord::Schema.define(:version => 20090225185632) do
     t.datetime "updated_at"
   end
 
-  add_index "products", ["entry_id"], :name => "index_products_on_entry_id"
   add_index "products", ["asin"], :name => "index_products_on_asin"
+  add_index "products", ["entry_id"], :name => "index_products_on_entry_id"
 
   create_table "tags", :force => true do |t|
     t.string "name"

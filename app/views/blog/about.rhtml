@@ -4,16 +4,19 @@
 	<h3>This site belongs to Matthew J. Tarbit</h3>
 	<p>
 		I come from Newcastle-upon-Tyne, in the North of England, and live in Leeds, in the pretend North of England.
-		I'm married to the lovely Katie Buffalo, she's a 'murican and the best thing since sliced bread, we met on the internet, it's the future.
+		I'm married to the lovely <a href="http://theyorkshirefork.co.uk">Katie Buffalo</a>, she's a 'murican and the best thing since sliced bread, we met on the internet, it's the future.
 	</p>
 	<p>
-		I work as a web developer for <a href="http://www.sense.co.uk/">Sense Internet</a>, and have done for what seems like all of my natural life.
-		To earn my keep I tie ribbons of PHP, MySQL, HTML, CSS, JavaScript, Flash and ActionScript into pretty bows.
+		I've recently finished a long stint working for <a href="http://www.sense.co.uk/">Sense Internet</a>, tying ribbons of PHP, MySQL, HTML, CSS, JavaScript, Flash and ActionScript into pretty bows.
+		And am now settling in to the distinctly more Python-flavoured environs of <a href="http://www.isotoma.com/">Isotoma</a> in York.
 	</p>
 	<p>
 		If you've looked at the archives at all you may have noticed there's a gap of 2 years unaccounted for. 
 		The entries preceding that lull are from a site called pixelised.com that my brother and I used to run.
 		Seemed a shame to let them go to waste.
+	</p>
+	<p>
+		If you'd like to get in touch with me, you can send an email to mtarbit, plus an at-sign, then gmail, with a dot-com.
 	</p>
 </div>
 
@@ -22,7 +25,7 @@
 	<p>
 		This website plays host to <%= link_to(pluralize(@total,'entry'), archive_url) %> 
 		which can be broken down by type as 
-		<%= @count.map{ |a| pluralize(a.last,a.first) }.to_sentence(:skip_last_comma=>true) %>.
+		<%= @count.map{ |a| pluralize(a.last,a.first) }.to_sentence(:last_word_connector=>' and ') %>.
 		There's also a library of <%= link_to(pluralize(@books,'book'), library_url) %> by <%= link_to(pluralize(@authors,'author'),{:controller=>'author'}) %>.
 	</p>
 	<p>
@@ -66,10 +69,9 @@
 		    <li class="site-tw"><a rel="me" href="http://www.twitter.com/mtarbit">Tweets</a> at Twitter</li>
 		    <li class="site-dl"><a rel="me" href="http://del.icio.us/pxmatt">Links</a> at Delicious</li>
 		    <li class="site-fb"><a rel="me" href="http://www.facebook.com/profile.php?id=687311229">Friends</a> at Facebook</li>
+			<li class="site-li"><a rel="me" href="http://www.linkedin.com/pub/matt-tarbit/5/809/388">Contacts</a> at LinkedIn</li>
 		    <li class="site-fl"><a rel="me" href="http://www.flickr.com/photos/36071867@N00/">Photos</a> at Flickr</li>
-		    <li class="site-td"><a rel="me" href="http://mattt.tadalist.com/lists/public/669605">ToDos</a> at TaDaList</li>
 		    <li class="site-lt"><a rel="me" href="http://www.librarything.com/catalog/mtarbit">Books</a> at LibraryThing</li>
-			<li class="site-do"><a rel="me" href="http://www.dopplr.com/traveller/mtarbit/public/">Travel</a> at Dopplr.com</li>
 			<li class="site-xb"><a rel="me" href="http://live.xbox.com/en-US/profile/profile.aspx?pp=0&amp;GamerTag=Matt+and+Katie">Games</a> at Xbox Live</li>
 		    <li class="site-lf"><a rel="me" href="http://www.last.fm/user/pxm">Music</a> at Last.fm</li>
 		</ul>

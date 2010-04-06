@@ -41,7 +41,7 @@ class Product < ActiveRecord::Base
   end
   
   def self.search_by_asin(asin)
-    self.find_by_asin(asin) || self.create_from_amazon(asin)
+    self.find_by_asin(asin) || self.lookup(asin)
   end
 
   def self.find_images_by_asin(asin)
@@ -54,13 +54,6 @@ class Product < ActiveRecord::Base
       end
     end
     images
-  end
-  
-  def self.create_from_amazon(asin)
-    if item = self.lookup(asin)
-      item.save!
-      item
-    end
   end
 
   def self.convert_from_amazon(item)
@@ -79,7 +72,7 @@ class Product < ActiveRecord::Base
 	  end
 
 		if item_image = item['LargeImage']
-  		product.image     = item_image['URL']
+  		product.image = item_image['URL']
     end
     
     product

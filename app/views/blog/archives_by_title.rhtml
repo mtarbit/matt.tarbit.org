@@ -19,7 +19,7 @@
 
 		
 		<% if this_date != last_date -%><ul class="spaced" style="font-size:0.9em;"><% end -%>
-			<li><%= link_to truncate(entry.page_title,60), entry_url(entry) %></li>
+			<li><%= link_to truncate(entry.page_title, :length=>80), entry_url(entry) %></li>
 		<% if this_date != next_date -%></ul><% end -%>
 
 	<% end -%>

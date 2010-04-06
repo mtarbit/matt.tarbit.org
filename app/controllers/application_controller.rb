@@ -2,15 +2,21 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-
-  # Pick a unique cookie name to distinguish our session data from others'
-  session :session_key => '_blog_session_id'
+  helper :all # include all helpers, all the time
+  protect_from_forgery # See ActionController::RequestForgeryProtection for details
   before_filter :login_from_cookie
+
+  # Scrub sensitive parameters from your log
   filter_parameter_logging :password
 
   attr_accessor :wide_layout
   attr_accessor :single_column
-  
+
+  unless ActionController::Base.consider_all_requests_local
+    rescue_from Exception, :with => :render_error
+    rescue_from ActionController::RoutingError, :with => :render_not_found
+  end
+
   def initialize
     @wide_layout = false
     @single_column = false
@@ -58,6 +64,23 @@ class ApplicationController < ActionController::Base
     ipaddr = Digest::SHA1.hexdigest(request.env['REMOTE_ADDR'])
     secret = Digest::SHA1.hexdigest(SETTINGS['site_secret'])
     Digest::SHA1.hexdigest(ipaddr + secret).scan(/.{20}/)
+  end
+
+protected
+
+  def render_error(exception)
+    log_error(exception)
+    render_optional_error_file(:internal_server_error)
+  end
+
+  def render_not_found(exception)
+    log_error(exception)
+    render_optional_error_file(:not_found)
+  end
+
+  def render_optional_error_file(status_code)
+    status = interpret_status(status_code)
+    render :template => "/errors/#{status[0,3]}.html.erb", :status => status, :layout => "application.rhtml"
   end
 
 end

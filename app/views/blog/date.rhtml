@@ -1,6 +1,6 @@
 <h2><%= @title %></h2>
 
-<%= render :partial=>'partials/entries' %>
+<%= render :partial=>'partials/entries', :object=>@entries %>
 
 <% if @next or @prev -%>
 	<% content_for :sidebar do -%>

@@ -1,12 +1,12 @@
-<h2>Add a new <%= @entry.format.humanize %></h2>
+<h2>Add a new <%= @entry.variant.humanize %></h2>
 
 <% form_rows_for :entry, :url=>{:action=>:create} do |f| %>
-	<%= hidden_field :entry, :format %>
+	<%= hidden_field :entry, :variant %>
 
 	<fieldset>
-		<legend><%= @entry.format.humanize %> Content</legend>
+		<legend><%= @entry.variant.humanize %> Content</legend>
 
-		<%= render(:partial => "partials/formats/#{@entry.format}/form", :locals=>{:f=>f,:entry=>@entry} ) %>
+		<%= render(:partial => "partials/variants/#{@entry.variant}/form", :locals=>{:f=>f,:entry=>@entry} ) %>
 
 		<div class="form-row">
 			<div class="label"><label for="entry_tags_as_string">Tags:</label></div>

@@ -1,31 +1,20 @@
-<div>
-	<div class="pagelcol">
-		<h2 id="long-entries">Long</h2>
-		<%= render(:partial=>'partials/entries', :object=>@long) %>
-	</div>
+<h2>Latest entries</h2>
+<%= render(:partial=>'partials/entries', :object=>@entries) %>
 
-	<div class="pagercol">
-		<h2 id="short-entries">Short</h2>
-		<%= render(:partial=>'partials/entries', :object=>@short) %>
-	</div>
+<div class="hr"><hr /></div>
 
-	<div class="pagercol">
-		<h2>Where am I?</h2>
+<p><%= link_to '&larr; Archived entries by month', date_url(:y=>@first_date.year,:m=>@first_date.month) %></p>
 
-		<p>
-		The personal site of <%= link_to 'Matthew Tarbit', about_url %>, a seasoned
-		web developer holed-up in a hideaway somewhere in the depths of Leeds, England.
-		</p>
 
-		<div class="hr"><hr /></div>
+<% content_for :sidebar do -%>
+	<h2>Where am I?</h2>
 
-		<%= render(:partial=>'partials/reading', :object=>@books) %>
-	</div>
+	<p>
+	The personal site of <%= link_to 'Matthew Tarbit', about_url %>, a seasoned
+	web developer holed-up in a hideaway somewhere in the depths of Leeds, England.
+	</p>
 
-	<div class="clear"></div>
-</div>
+	<div class="hr"><hr /></div>
 
-<p>
-	<% time = [@long.first.created_at, @short.first.created_at].max %>
-	<%= link_to '&larr; Archived entries by month', date_url(:y=>time.year,:m=>time.month) %>
-</p>
+	<%= render(:partial=>'partials/reading', :object=>@books) %>
+<% end -%>

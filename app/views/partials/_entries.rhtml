@@ -9,11 +9,13 @@
 
 		<% if last_date != this_date -%>
 			<div class="date"><span><%= this_date %></span></div>
+		<% elsif entry.longform? -%>
+			<div class="hr"><hr /></div>
 		<% end -%>
 
-		<% if entry.format == 'link' and (last_entry.nil? or last_entry.format != 'link' or last_date != this_date) -%><ul class="links"><% end -%>
-		<%= render(:partial => "partials/formats/#{entry.format}/multiple", :locals => {:entry=>entry, :words=>@words} ) %>
-		<% if entry.format == 'link' and (next_entry.nil? or next_entry.format != 'link' or next_date != this_date) -%></ul><% end -%>
+		<% if entry.variant == 'link' and (last_entry.nil? or last_entry.variant != 'link' or last_date != this_date) -%><ul class="links"><% end -%>
+		<%= render(:partial => "partials/variants/#{entry.variant}/multiple", :locals => {:entry=>entry, :words=>@words} ) %>
+		<% if entry.variant == 'link' and (next_entry.nil? or next_entry.variant != 'link' or next_date != this_date) -%></ul><% end -%>
 
 	<% end -%>
 <% end -%>

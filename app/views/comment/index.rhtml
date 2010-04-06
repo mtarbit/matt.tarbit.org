@@ -1,0 +1,24 @@
+<h2>Comment admin</h2>
+
+<%= will_paginate @comments %>
+
+<table class="data">
+	<tr>
+		<th>Date</th>
+		<th width="60%">Comment</th>
+		<th>Name</th>
+		<th></th>
+		<th></th>
+	</tr>
+	<% for comment in @comments -%>
+		<tr class="<%= cycle('row0','row1') %>">
+			<td class="ac small"><%= comment.created_at.strftime("%d-%m-%y @ %H:%M") %></td>
+			<td><span title="<%= h(comment.content) %>"><%= h(truncate(comment.content, 75)) %></span></td>
+			<td><%= link_to comment.name, comment.email %></td>
+			<td class="ac"><%= link_to 'Link', comment.website %></td>
+			<td class="ac"><%= link_to 'Delete', {:action=>:delete, :id=>comment}, :confirm=>'Are you sure?' %></td>
+		</tr>
+	<% end -%>
+</table>
+
+<%= will_paginate @comments %>
