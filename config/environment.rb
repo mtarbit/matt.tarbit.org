@@ -26,7 +26,7 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
-  config.gem 'BlueCloth'
+  config.gem 'BlueCloth', :lib => 'bluecloth', :version => '1.0.1'
   config.gem 'will_paginate', :version => '~> 2.3.11', :source => 'http://gemcutter.org'
   config.gem 'openrain-action_mailer_tls', :lib => 'smtp_tls.rb', :source => 'http://gems.github.com'
   

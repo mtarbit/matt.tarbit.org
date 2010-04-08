@@ -16,8 +16,8 @@ class BlueCloth
       lang = code.slice!(regx).slice(regx,1)
 
       # Escape newlines (No idea why this is necessary. Wasn't previously.)
-      code.gsub!(/\\r/,"\\\\\\r")
-      code.gsub!(/\\n/,"\\\\\\n")
+      code.gsub!(/\\r/,"\\\\r")
+      code.gsub!(/\\n/,"\\\\n")
 
       # Call out to pygmentize to markup the code for highlighting
       code = `echo #{escape_shell_arg(code)} | #{escape_shell_arg(SETTINGS['pygmentize_path'])} -f html -l #{escape_shell_arg(lang)}`
