@@ -1,9 +1,9 @@
-domain: localhost
 site_secret: ************
 pygmentize_path: /usr/local/bin/pygmentize
 
 features_enabled:
     comments: true
+    emails: true
 
 gmail:
     username: tarbit.org@googlemail.com

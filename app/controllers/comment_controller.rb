@@ -21,8 +21,8 @@ class CommentController < ApplicationController
 	end
   
   def create
+    # If no referer, it's probably a spambot, so give it the silent treatment.
     unless request.env.has_key?('HTTP_REFERER')
-      # Almost certainly a spambot, give them the silent treatment
       logger.silence do
         render :text=>'', :status=>404 and return
       end
@@ -34,29 +34,43 @@ class CommentController < ApplicationController
     comment.entry = entry
     comment.ip = request.env['REMOTE_ADDR']
 
-    unless SETTINGS['features_enabled']['comments']
+    last_comment = Comment.find(:first, :order=>'created_at DESC')
+    is_duplicate = (last_comment and last_comment.content == comment.content)
+
+    # Is this a duplicate comment, or are comments disabled?
+    if is_duplicate or not SETTINGS['features_enabled']['comments']
       redirect_to entry_url(entry)
     else
+
+      # Did the comment pass our spam challenge?
       unless params[tokens[0]] == tokens[1]
         flash[:errors] = "Sorry, your comment didn't make it through our spam filtering."
         redirect_to entry_url(entry)
       else
+
+        # Did we successfully save the comment?
         unless comment.save
           flash[:errors] = comment.errors.full_messages
           flash[:comment] = params[:comment]
           redirect_to entry_url(entry)
         else
+
+          # Send a comment notification email then show the comment added to the page.
           vars = {
             :comment => comment, 
             :read_link => entry_url(entry, :anchor=>"comment-#{comment.id}"),
             :junk_link => url_for(:controller=>'comment', :action=>'delete', :id=>comment),
             :request => request
           }
-          email = Mailer.deliver_comment(vars)
+          if SETTINGS['features_enabled']['emails']
+            email = Mailer.deliver_comment(vars)
+          end
           redirect_to vars[:read_link]
+
         end
       end
     end
+
   end
   
   def update
