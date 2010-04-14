@@ -18,7 +18,15 @@ class EntryController < ApplicationController
    		@title = @entry.page_title
   		@next = @entry.find_next
   		@prev = @entry.find_prev
-      @comment = Comment.new(flash[:comment])
+
+      # Create the comment object, pre-populating it with data
+      # from either a failed submission or a previous comment.
+      @comment = Comment.new(flash[:comment] || {
+        :name => cookies[:user_name],
+        :email => cookies[:user_email],
+        :website => cookies[:user_website]
+      })
+
       @tokens = spam_challenge_tokens 
     end
   end

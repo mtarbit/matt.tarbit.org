@@ -55,6 +55,11 @@ class CommentController < ApplicationController
           redirect_to entry_url(entry)
         else
 
+          # Remember the user's details for next time.
+          cookies[:user_name] = { :value => comment.name, :expires => 1.year.from_now }
+          cookies[:user_email] = { :value => comment.email, :expires => 1.year.from_now }
+          cookies[:user_website] = { :value => comment.website, :expires => 1.year.from_now }
+
           # Send a comment notification email then show the comment added to the page.
           vars = {
             :comment => comment, 
