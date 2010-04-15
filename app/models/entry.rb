@@ -51,6 +51,29 @@ class Entry < ActiveRecord::Base
     "http://twitter.com/mtarbit/status/#{self.url}" if self.variant == 'status'
   end
 
+  def thumb_url
+    if self.variant == 'link'
+      url = self.video_thumb_url_for_google unless url
+      url = self.video_thumb_url_for_youtube unless url
+      url
+    end
+  end
+  
+  def video_thumb_url_for_google
+    # Thumbnail URLs in video feed all seem to be broken for now.
+    # if self.url =~ /http:\/\/video\.google/
+    #   m = self.url.match(/\?docid=(-?[0-9]+)(&|$)/)
+    #   "http://video.google.com/videofeed?docid=%s" % [m[1]] if m
+    # end
+  end
+
+  def video_thumb_url_for_youtube
+    if self.url =~ /http:\/\/(www\.)?youtube/
+      m = self.url.match(/\?v=([-_0-9a-zA-Z]+)(&|$)/)
+      "http://img.youtube.com/vi/%s/default.jpg" % [m[1]] if m
+    end
+  end
+
   def find_next
     self.class.find(:first, :conditions=>['created_at > ?', self.created_at], :order=>'created_at ASC')
   end
