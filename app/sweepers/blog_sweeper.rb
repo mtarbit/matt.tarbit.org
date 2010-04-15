@@ -34,7 +34,7 @@ private
     expire_fragment({:controller=>'entry',:action=>'read'}.merge(options_for_entry(entry)))
 
     # Expire the front page if this entry is on it
-		last = Entry.find(:first, :order=>'created_at DESC', :offset=>19)
+		last = Entry.published.find(:first, :order=>'created_at DESC', :offset=>19)
 		expire_page(index_path) if entry.created_at >= last.created_at
 
     # Expire the date pages that this entry appears on

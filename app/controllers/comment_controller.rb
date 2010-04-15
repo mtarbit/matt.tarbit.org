@@ -15,7 +15,7 @@ class CommentController < ApplicationController
 
 	def preview
 		redirect_to index_url unless request.xhr?
-		@entry = Entry.find(params[:entry][:id])
+		@entry = Entry.published.find(params[:entry][:id])
 		@entry.threads.build(params[:comment])
 	  @entry.comments_count += 1
 	end
@@ -29,7 +29,7 @@ class CommentController < ApplicationController
     end
     
     tokens = spam_challenge_tokens
-    entry = Entry.find(params[:entry][:id])
+    entry = Entry.published.find(params[:entry][:id])
     comment = Comment.new(params[:comment])
     comment.entry = entry
     comment.ip = request.env['REMOTE_ADDR']

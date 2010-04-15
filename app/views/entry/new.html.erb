@@ -1,6 +1,7 @@
 <h2>Add a new <%= @entry.variant.humanize %></h2>
 
 <% form_rows_for :entry, :url=>{:action=>:create} do |f| %>
+    
 	<%= hidden_field :entry, :variant %>
 
 	<fieldset>
@@ -12,6 +13,15 @@
 			<div class="label"><label for="entry_tags_as_string">Tags:</label></div>
 			<div class="input"><%= text_field :entry, :tags_as_string, :style=>'width:98%', :size=>75 %></div>
 		</div>
+
+		<div class="form-gap"></div>
+
+        <div class="form-row">
+            <div class="input">
+                <span class="tick-item"><%= check_box :entry, :published %></span>
+                <span class="tick-text"><label for="entry_published">Publish this entry in the public area of the website.</label></span>
+            </div>
+        </div>
 
 		<div class="form-gap"></div>
 			

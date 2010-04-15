@@ -12,8 +12,9 @@ class EntryController < ApplicationController
     if params[:slug]
       @entry = Entry.find_by_slug(params[:y],params[:m],params[:d], params[:slug])
     end
-    if @entry.nil?
-      render_not_found
+    if @entry.nil? or (not session[:user] and not @entry.published)
+      # render_not_found
+      raise ActiveRecord::RecordNotFound
     else
    		@title = @entry.page_title
   		@next = @entry.find_next

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100404210959) do
+ActiveRecord::Schema.define(:version => 20100415083512) do
 
   create_table "authors", :force => true do |t|
     t.string "name"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20100404210959) do
     t.text     "content"
     t.string   "url"
     t.string   "extra"
+    t.boolean  "published",      :default => true
   end
 
   create_table "entries_tags", :id => false, :force => true do |t|

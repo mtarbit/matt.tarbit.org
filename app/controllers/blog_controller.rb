@@ -2,23 +2,23 @@ class BlogController < ApplicationController
   caches_page :index, :archive, :archives_by_title, :date, :about
 
   def index
-    @entries = Entry.find(:all, :include=>[:comments], :order=>'entries.created_at DESC', :limit=>20)
+    @entries = Entry.published.find(:all, :include=>[:comments], :order=>'entries.created_at DESC', :limit=>20)
     @first_date = @entries.first.created_at
     @books = Book.find(:all, :include=>[:authors], :order=>'books.created_at DESC', :limit=>4)
   end
 	
   def archive
-    @dates = Entry.counts_by_date
+    @dates = Entry.published.counts_by_date
   end
 
   def archives_by_title
-    @entries = Entry.find(:all, :order=>'entries.created_at DESC')
+    @entries = Entry.published.find(:all, :order=>'entries.created_at DESC')
   end
 
   def date
     y,m,d = [params[:y], params[:m], params[:d]].map {|v| v.to_i if v }
     begin
-      @entries = Entry.find_by_date(y,m,d)
+      @entries = Entry.published.find_by_date(y,m,d)
       @format1 = m ? d ? "%e %b %Y" : "%b %Y" : "%Y"
       @format2 = m ? d ? "%Y %m %d" : "%Y %m" : "%Y"
       @title = 'All entries from ' + Time.local(y,m,d).strftime(@format1)
@@ -32,7 +32,7 @@ class BlogController < ApplicationController
   def search
     if params[:words]
       @words = split_search_terms(params[:words])
-      @entries = Entry.find_by_words(@words)
+      @entries = Entry.published.find_by_words(@words)
 			@title = 'Search results for "%s"' % params[:words]
 		else
 			@title = 'Search'
@@ -40,7 +40,7 @@ class BlogController < ApplicationController
   end
 
   def about
-    @count = Entry.count(:all, :group=>:variant, :order=>'count_all DESC')
+    @count = Entry.published.count(:all, :group=>:variant, :order=>'count_all DESC')
     @total = @count.inject(0) { |sum,a| sum + a.last }
     @books = Book.count
     @authors = Author.count

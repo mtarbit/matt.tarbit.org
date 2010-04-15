@@ -16,6 +16,15 @@
 		</div>
 
 		<div class="form-gap"></div>
+
+        <div class="form-row">
+            <div class="input">
+                <span class="tick-item"><%= check_box :entry, :published %></span>
+                <span class="tick-text"><label for="entry_published">Publish this entry in the public area of the website.</label></span>
+            </div>
+        </div>
+
+		<div class="form-gap"></div>
 			
 		<div class="form-row">
 			<div class="input"><%= submit_tag 'Submit', {:class=>'button'} %></div>

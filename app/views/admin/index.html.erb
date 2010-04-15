@@ -15,6 +15,7 @@
 	<tr>
 		<th width="55%">Entry</th>
 		<th class="center">Posted</th>
+		<th class="center">Pubd</th>
 		<th class="center">Cmts</th>
 		<th class="center">Tags</th>
 		<th></th>
@@ -32,6 +33,7 @@
 			end %>
 			</td>
 			<td class="center small"><%= entry.created_at.strftime("%d-%m-%y @ %H:%M") %></td>
+			<td class="center"><%= entry.published ? '&bull;' : '' %></td>
 			<td class="center"><%= entry.comments.length > 0 ? entry.comments.length : '' %></td>
 			<td class="center"><%= entry.tags.length > 0 ? entry.tags.length : '' %></td>
 			<td class="center"><%= link_to 'View',   entry_url(entry) %></td>
