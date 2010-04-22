@@ -1,9 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <meta charset="utf-8">
 	<title><%= truncate(@title, :length=>60) || "Matt Tarbit's Weblog" %></title>
-	<meta charset="utf-8">
 
+    <meta name="description" content="A personal site on games, programming, and anything else which might have happened across into my peripheral vision lately." />
+
+	<%= auto_discovery_link_tag :rss, rss_url %>
+    
 	<%= stylesheet_link_tag 'common','syntax', :media=>'all' %>
 	<%= stylesheet_link_tag 'print', :media=>'print' %>
 	<!--[if lte IE 7]>
@@ -19,15 +23,13 @@
 		_gaq.push(['_trackPageview']);
 
 		(function() {
-			var ga = document.createElement('script');
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			ga.setAttribute('async', 'true');
-			document.documentElement.firstChild.appendChild(ga);
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		})();
 
 	</script>
 
-	<%= auto_discovery_link_tag :rss, rss_url %>
 </head>
 <body id="<%= "#{controller.controller_name}-#{controller.action_name}" %>" <% if controller.wide_layout? %>class="wide"<% end %>>
 
