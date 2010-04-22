@@ -9,7 +9,7 @@
 
 		<% if last_date != this_date -%>
 			<div class="date"><span><%= this_date %></span></div>
-		<% elsif entry.longform? or (last_entry and last_entry.longform?) -%>
+		<% elsif entry.longform? or not (entry.variant == 'link' and last_entry.variant == 'link') -%>
 			<div class="hr"><hr /></div>
 		<% end -%>
 

@@ -33,10 +33,6 @@ class Entry < ActiveRecord::Base
 		self.slug = str
 	end
 
-  def longform?
-    ['post','review'].include? self.variant
-  end
-		
 	def page_title
 		case self.variant
 			when 'post': self.title
@@ -47,31 +43,27 @@ class Entry < ActiveRecord::Base
 		end
 	end
 
+  def longform?
+    ['post','review'].include? self.variant
+  end
+		
+  def video?
+    self.variant == 'link' and self.url =~ /http:\/\/(www\.)?youtube/
+  end
+ 
+  def video_id
+    if self.video?
+      m = self.url.match(/\?v=([-_0-9a-zA-Z]+)(&|$)/)
+      m ? m[1] : nil
+    end
+  end
+
   def status_url
     "http://twitter.com/mtarbit/status/#{self.url}" if self.variant == 'status'
   end
 
   def thumb_url
-    if self.variant == 'link'
-      url = self.video_thumb_url_for_google unless url
-      url = self.video_thumb_url_for_youtube unless url
-      url
-    end
-  end
-  
-  def video_thumb_url_for_google
-    # Thumbnail URLs in video feed all seem to be broken for now.
-    # if self.url =~ /http:\/\/video\.google/
-    #   m = self.url.match(/\?docid=(-?[0-9]+)(&|$)/)
-    #   "http://video.google.com/videofeed?docid=%s" % [m[1]] if m
-    # end
-  end
-
-  def video_thumb_url_for_youtube
-    if self.url =~ /http:\/\/(www\.)?youtube/
-      m = self.url.match(/\?v=([-_0-9a-zA-Z]+)(&|$)/)
-      "http://img.youtube.com/vi/%s/default.jpg" % [m[1]] if m
-    end
+    "http://img.youtube.com/vi/%s/0.jpg" % [self.video_id] if self.video?
   end
 
   def find_next

@@ -52,7 +52,7 @@ class EntryController < ApplicationController
     @entry = Entry.find(params[:id])
 
     if @entry.variant=='review' and params[:asin]
-      @entry.product = Product.search_by_asin(params[:asin])
+      @entry.product = Product.lookup(params[:asin])
       @entry.title = @entry.page_title
     end
   end

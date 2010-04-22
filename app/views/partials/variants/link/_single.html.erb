@@ -1,2 +1,41 @@
+<% if entry.video? -%>
+    <a href="<%= entry.url %>"><img src="<%= entry.thumb_url  %>" width="40%" class="framed inset-right" /></a>
+<% end -%>
+
 <h2 class="link">Bookmark for <%= link_to('"%s"' % truncate(entry.title, :length=>60), entry.url) %></h2>
 <p><%= entry.content %></p>
+
+<% if entry.video? -%>
+
+    <script type="text/javascript">
+        $(document).observe('dom:loaded', function(){
+            $('video-link').observe('click', showVideo);
+        });
+
+        function showVideo(e) {
+            if (e) e.stop();
+            var div = $('video-player');
+            if (div) div.show();
+        }
+    </script>
+
+    <style type="text/css">
+        object { display:block; }
+    </style>
+
+    <p>
+        <a id="video-link" href="#" onclick="$('video-player').show(); return false;">Watch this video here &rarr;</a>
+    </p>
+
+    <div class="clear"></div>
+
+    <div id="video-player" style="display:none; width:480px; margin:1em auto; padding:5px; border:1px solid #ddd; -webkit-box-shadow:0 2px 10px #ccc;">
+        <object width="480" height="385">
+            <param name="movie" value="http://www.youtube.com/v/<%= entry.video_id %>&hl=en_GB&fs=1&"></param>
+            <param name="allowFullScreen" value="true"></param>
+            <param name="allowscriptaccess" value="always"></param>
+            <embed src="http://www.youtube.com/v/<%= entry.video_id %>&hl=en_GB&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed>
+        </object>
+    </div>
+<% end -%>
+
