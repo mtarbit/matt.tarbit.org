@@ -63,8 +63,41 @@ function initCodeLineNumbers() {
 	});
 }
 
+function initVideoLink() {
+    $$('body#entry-read .video-link').each(function(link){
+        link.observe('click', function(e){
+            if (e) e.stop();
+            var div = $$('.video-player').first();
+            if (div) div.show();
+        });
+    });
+}
+
+Element.addMethods({
+    visible: function(element) {
+        return $(element).getStyle('display') != 'none';
+    },
+    show: function(element){
+        $(element).setStyle({ display: $(element).oldblock || '' });
+        if ($(element).getStyle('display') == 'none') {
+            var newElement = document.createElement($(element).tagName);
+            $$('body').first().insert({bottom: newElement});
+            $(element).setStyle({ display: $(newElement).getStyle('display')});
+            $(newElement).remove();
+            if ($(element).getStyle('display') == 'none') $(element).setStyle({ display: 'block'});
+        }
+        return element;
+    },
+    hide: function(element){
+        $(element).oldblock = $(element).oldblock || $(element).getStyle("display");
+        $(element).setStyle({display: 'none'});
+        return element;
+    }
+});
+
 document.observe('dom:loaded',function(){
 	initCodeLineNumbers();
 	initHomepageHeaders();
 	initSlugField();
+    initVideoLink();
 });
