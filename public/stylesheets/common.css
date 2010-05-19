@@ -72,11 +72,11 @@ a					{ color:#c60; }
 a.hidden 			{ color:#222; text-decoration:none; }
 a.hidden:hover		{ color:#c60; text-decoration:underline; }
 
-h1, h2, h3, h4, h5	{ font-weight:bold; margin:1em 0; color:#222; }
-h1					{ font-size:2.8em; font-weight:bold; color:#fff; margin:0; line-height:1em; }
+h1, h2, h3, h4, h5	{ font-family:Helvetica, Arial, sans-serif; font-weight:bold; margin:1em 0; color:#222; }
+.wf-active h1, h2, h3, h4, h5 { font-family:'Droid Serif', Helvetica, Arial, sans-serif; }
+h1					{ font-size:2.8em; color:#fff; margin:0; line-height:1em; }
 h2					{ font-size:2em; line-height:1.2em; margin:0; margin-bottom:0.6em; }
 h3					{ font-size:1.6em; line-height:1.1em; }
-h4					{ font-weight:bold; }
 h1 a, h2 a, h3 a, h4 a { color:#222; text-decoration:none; }
 h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover { color:#c60; }
 h2.link a			{ text-decoration:underline; color:#c60; }
