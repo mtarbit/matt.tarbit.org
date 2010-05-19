@@ -6,15 +6,18 @@ features_enabled:
     emails: true
 
 gmail:
-    username: tarbit.org@googlemail.com
+    username: username
     password: password
 
 twitter:
-    username: mtarbit@gmail.com
-    password: password
+	oauth:
+	    consumer_key: ********************
+	    consumer_secret: *******************************************
+	    access_token: **************************************************
+	    access_secret: ******************************************
 
 delicious:
-    username: pxmatt
+    username: username
     password: password
 
 amazon:
