@@ -8,6 +8,7 @@
 
 	<%= auto_discovery_link_tag :rss, rss_url %>
     
+	<%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Droid+Serif:bold', :media=>'all' %>
 	<%= stylesheet_link_tag 'common','syntax', :media=>'all' %>
 	<%= stylesheet_link_tag 'print', :media=>'print' %>
 	<!--[if lte IE 7]>
@@ -15,11 +16,6 @@
 	<![endif]-->
 
 	<%= javascript_include_tag 'prototype','application' %>
-	<%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js' %>
-
-	<script type="text/javascript">
-		WebFont.load({ google: { families: [ 'Droid Serif:bold' ] } });
-	</script>
 
 	<script type="text/javascript">
 
