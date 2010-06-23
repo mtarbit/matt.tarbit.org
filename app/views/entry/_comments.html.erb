@@ -1,11 +1,4 @@
-<div class="fl">
-	<h3><%= pluralize(entry.comments_count, 'comment') %></h3>
-</div>
-<div class="fr" style="margin-top:1.9em;">
-	<script type="text/javascript" src="http://tweetmeme.com/i/scripts/button.js"></script>
-	<iframe src="http://www.facebook.com/plugins/like.php?href=<%=u entry_url(entry) %>&amp;layout=button_count&amp;show_faces=false&amp;width=75&amp;action=like&amp;font&amp;colorscheme=light&amp;height=20" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:20px; position:relative; top:-2px;" allowTransparency="true"></iframe>
-</div>
-<div class="clear"></div>
+<h3><%= pluralize(entry.comments_count, 'comment') %></h3>
 
 <ul>
 	<%= render_comments(entry.threads) %>

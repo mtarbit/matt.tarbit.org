@@ -4,11 +4,11 @@
 
 <% @books.each_with_index do |book,i| %>
 	<% img = book.image('small') %>
-	<div class="mt mb">
+	<div class="book">
 		<% if img %>
-			<div class="fl"><img src="<%= img.url %>" width="50" class="border" /></div>
+			<div class="img"><img src="<%= img.url %>" width="50" class="border" /></div>
 		<% end %>
-		<div style="margin-left:62px;">
+		<div class="txt">
 			<strong><em><%= link_to truncate(book.title, :length=>60), {:controller=>:book, :action=>:show, :id=>book.id}, {:class=>'hidden'} %></em></strong>
 			by <%= linkify_authors(book.authors, {:class=>'hidden'}) %><br />
 			<small>added <%= book.created_at.strftime('%e %b %Y') %></small>
