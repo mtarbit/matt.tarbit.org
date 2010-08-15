@@ -68,13 +68,13 @@ class ApplicationController < ActionController::Base
 
 protected
 
-  def render_error(exception)
-    log_error(exception)
+  def render_error(exception=nil)
+    log_error(exception) if exception
     render_optional_error_file(:internal_server_error)
   end
 
-  def render_not_found(exception)
-    log_error(exception)
+  def render_not_found(exception=nil)
+    log_error(exception) if exception
     render_optional_error_file(:not_found)
   end
 

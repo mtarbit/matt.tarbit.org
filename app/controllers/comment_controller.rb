@@ -86,9 +86,13 @@ class CommentController < ApplicationController
   end
 
   def delete
-    comment = Comment.find(params[:id])
-    comment.destroy
-    redirect_to request.referer || entry_url(comment.entry)
+    begin
+      comment = Comment.find(params[:id])
+      comment.destroy
+      redirect_to request.referer || entry_url(comment.entry)
+    rescue ActiveRecord::RecordNotFound
+      render_not_found
+    end
   end
 
 end

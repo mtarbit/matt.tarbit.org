@@ -56,14 +56,14 @@ body.wide #pagebody .inner { width:960px; }
 */
 #pagelogo a			{ color:#fff; }
 #pagelogo a small	{ color:#cf0; font-weight:bold; font-size:0.6em; left:0.15em; position:relative; }
-#pagemenu			{ float:left; margin:0; padding:0; font-family:'Droid Serif', Helvetica, Arial, sans-serif; font-weight:normal; margin-top:1.35em; margin-left:2em; }
+#pagemenu			{ float:left; margin:0; padding:0; font-family:'Droid Serif', Georgia, Helvetica, Arial, sans-serif; font-weight:normal; margin-top:1.35em; margin-left:2em; }
 #pagemenu li		{ list-style-type:none; float:left; line-height:1em; margin-left:1em; border-left:1px solid #444; padding-left:1em; }
 #pagemenu li.first	{ margin-left:0; border-left:0; padding-left:0; }
 #pagemenu a			{ color:#fff; text-decoration:none; }
 #pagemenu a:hover	{ color:#c60; }
 
-#feedback			{ background:#f2ffbf; border:1px solid #dfeab1; font-weight:bold; padding:1em; margin-bottom:1em; }
-#feedback.errors h2 { font-size:1em; font-weight:bold; }
+#feedback			{ color:#c60; border:1px solid #c60; font-weight:bold; padding:1.5em; margin-bottom:2em; }
+#feedback.errors h2 { font-size:1em; font-weight:bold; color:#c60; }
 #feedback.errors ul { font-weight:normal; margin-bottom:0; }
 
 img					{ display:block; } /* fix inline images with descender space due to strict-rendering doctype */
@@ -127,14 +127,14 @@ ul.spaced li		{ margin:0.5em 0; }
 
 fieldset			{ border:1px solid #ddd; background:url(/images/fades/pale.gif) repeat-x top #f2f2f2; margin:1em 0; margin-bottom:2em; padding:1em; padding-top:0.5em; }
 legend				{ font-weight:bold; color:#999; }
-input, select		{ font-size:1.0em; font-family:"Lucida Grande","Bitstream Vera Sans",Arial,Helvetica,sans-serif; padding:2px; }
-textarea			{ font-size:1.0em; font-family:"Lucida Grande","Bitstream Vera Sans",Arial,Helvetica,sans-serif; padding:2px; }
+input, select		{ font-size:1.0em; font-family:Georgia, Helvetica, Arial, sans-serif; padding:2px; }
+textarea			{ font-size:1.0em; font-family:Georgia, Helvetica, Arial, sans-serif; padding:2px; }
 input.button		{ border:1px solid #333; background:url(/images/fades/dark.gif) repeat-x top #333; color:#fff; padding-left:8px; padding-right:8px; }
-	
+
 .form-row			{ clear:left; margin:5px 0; }
 .form-gap			{ clear:left; margin-top:15px; }
-.label				{ float:left; margin-right:5px; width:75px; padding-top:0.15em; }
-.input				{ margin-left:80px; }
+.label				{ float:left; margin-right:5px; width:85px; padding-top:0.15em; }
+.input				{ margin-left:90px; }
 .buttons			{ clear:both; padding-top:5px; }
 .label label		{ font-weight:bold; }
 .tick-item          { position:absolute; margin-left:-4px; margin-top:-1px; }
@@ -271,4 +271,6 @@ blockquote			{ border-left:5px solid #ddd; padding-left:1em; }
 .print				{ display:none; }
 
 .pagination			{ text-align:right; }
+
+#goog-fixurl h3 b	{ font-weight:normal; }
 
