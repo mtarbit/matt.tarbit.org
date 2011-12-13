@@ -46,13 +46,13 @@ class ApplicationController < ActionController::Base
 	
 	def entry_path(*args)
 		options = args.last.is_a?(Hash) ? args.pop : {}
-		entry_slug_path(entry_options(args.first), options)
+		entry_slug_path(entry_options(args.first)) # , options)
 	end
 	helper_method :entry_path
 
 	def entry_url(*args)
 		options = args.last.is_a?(Hash) ? args.pop : {}
-		entry_slug_url(entry_options(args.first), options)
+		entry_slug_url(entry_options(args.first)) # , options)
 	end
 	helper_method :entry_url
 
