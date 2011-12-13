@@ -4,7 +4,7 @@ class Entry < ActiveRecord::Base
   has_and_belongs_to_many :tags, :order => 'name'
   has_one :product, :dependent=>:destroy
 
-  named_scope :published, :conditions => { :published => true }
+  scope :published, :conditions => { :published => true }
 
 	validates_presence_of :title
 	validates_presence_of :slug

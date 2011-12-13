@@ -6,16 +6,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   before_filter :login_from_cookie
 
-  # Scrub sensitive parameters from your log
-  filter_parameter_logging :password
-
   attr_accessor :wide_layout
   attr_accessor :single_column
 
-  unless ActionController::Base.consider_all_requests_local
-    rescue_from Exception, :with => :render_error
-    rescue_from ActionController::RoutingError, :with => :render_not_found
-  end
+  # Need to replace this with something suitable.
+  # rescue_from Exception, :with => :render_error
+  # rescue_from ActiveRecord::RecordNotFound :with => :render_not_found
 
   def initialize
     @wide_layout = false
