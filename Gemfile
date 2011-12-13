@@ -29,8 +29,11 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug'
+gem 'ruby-debug'
 
 gem 'rails_autolink'
 gem 'formatize'
+gem 'will_paginate'
+gem 'ruby-hmac'
+gem 'httparty'
 
