@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   def initialize
     @wide_layout = false
     @single_column = false
+    super
   end
 
   def wide_layout?
