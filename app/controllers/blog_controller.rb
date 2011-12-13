@@ -6,13 +6,13 @@ class BlogController < ApplicationController
     @first_date = @entries.first.created_at
     @books = Book.includes(:authors).order('books.created_at DESC').limit(4)
   end
-	
+
   def archive
     @dates = Entry.published.counts_by_date
   end
 
   def archives_by_title
-    @entries = Entry.published.all.order('entries.created_at DESC')
+    @entries = Entry.published.order('entries.created_at DESC')
   end
 
   def date
@@ -33,10 +33,10 @@ class BlogController < ApplicationController
     if params[:words]
       @words = split_search_terms(params[:words])
       @entries = Entry.published.find_by_words(@words)
-			@title = 'Search results for "%s"' % params[:words]
-		else
-			@title = 'Search'
-		end
+      @title = 'Search results for "%s"' % params[:words]
+    else
+      @title = 'Search'
+    end
   end
 
   def about
@@ -45,17 +45,17 @@ class BlogController < ApplicationController
     @books = Book.count
     @authors = Author.count
   end
-  
+
   def cv
     @single_column = true
   end
-  
+
   def hobby_games
     @wide_layout = true
   end
-  
+
   def family_games
-  	@wide_layout = true
+    @wide_layout = true
   end
 
 private
@@ -69,5 +69,5 @@ private
     # replace placeholders with spaces and remove quotes
     words.map {|w| w.gsub('[SPACE]',' ').gsub(reg,'\1') }
   end
-    
+
 end
