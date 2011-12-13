@@ -22,7 +22,7 @@ module ApplicationHelper
   end
 
   def linkify_authors(authors, html_options={})
-    authors.map{|a| link_to(a.name, {:controller=>:author,:action=>:show,:id=>a.id}, html_options) }.to_sentence(:last_word_connector=>' and ')
+    authors.map{|a| link_to(a.name, {:controller=>:author,:action=>:show,:id=>a.id}, html_options) }.to_sentence(:last_word_connector=>' and ').html_safe
   end
 
   def highlight_html(str,words)

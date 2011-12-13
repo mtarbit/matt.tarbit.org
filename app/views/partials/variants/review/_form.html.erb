@@ -5,7 +5,11 @@
 
 <div class="fr" style="text-align:center; margin:2px 10px 0 0;">
 	<%= image_tag(entry.product.image, :width=>125, :class=>'border') %>
-	<p><%= link_to 'Change product &rarr;', url_for(:controller=>'admin', :action=>'amazon', :next=>request.path) %></p>
+	<p>
+        <%= link_to(url_for(:controller=>'admin', :action=>'amazon', :next=>request.path)) do %>
+            Change product &rarr;
+        <% end %>
+    </p>
 </div>
 
 <%= f.text_area :content, :style=>'width:515px', :cols=>72, :rows=>30 %>

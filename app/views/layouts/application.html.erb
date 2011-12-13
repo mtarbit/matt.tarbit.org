@@ -39,7 +39,11 @@
 <div id="pagefull">
 	
 	<div id="pagehead"><div class="inner">
-		<h1 id="pagelogo"><%= link_to "<span>Matt<small>.</small>Tarbit<small>.org</small></span>", index_url, :rel=>'me' %></h1>
+		<h1 id="pagelogo">
+            <%= link_to(index_url, :rel=>'me') do %>
+                <span>Matt<small>.</small>Tarbit<small>.org</small></span>
+            <% end %>
+        </h1>
 		<ul id="pagemenu">
 			<% if content_for? :navigation %>
 				<%= yield :navigation %>

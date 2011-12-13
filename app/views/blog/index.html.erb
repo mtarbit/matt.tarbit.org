@@ -3,7 +3,11 @@
 
 <div class="hr"><hr /></div>
 
-<p><%= link_to '&larr; Archived entries by month', date_url(:y=>@first_date.year,:m=>@first_date.month) %></p>
+<p>
+    <%= link_to(date_url(:y=>@first_date.year, :m=>@first_date.month)) do %>
+        &larr; Archived entries by month
+    <% end %>
+</p>
 
 
 <% content_for :sidebar do -%>
