@@ -8,14 +8,14 @@
 
 	<%= auto_discovery_link_tag :rss, rss_url %>
     
-    <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold', :media=>'all' %>
-	<%= stylesheet_link_tag 'common','syntax', :media=>'all' %>
+    <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold' %>
+	<%= stylesheet_link_tag 'application' %>
 	<%= stylesheet_link_tag 'print', :media=>'print' %>
 	<!--[if lte IE 7]>
-		<%= stylesheet_link_tag 'conditional/ie-lte-7', :media=>'all' %>
+		<%= stylesheet_link_tag 'conditional/ie-lte-7' %>
 	<![endif]-->
 
-	<%= javascript_include_tag 'prototype','application' %>
+	<%= javascript_include_tag 'application' %>
 
     <%= csrf_meta_tags %>
 
@@ -41,7 +41,7 @@
 	<div id="pagehead"><div class="inner">
 		<h1 id="pagelogo"><%= link_to "<span>Matt<small>.</small>Tarbit<small>.org</small></span>", index_url, :rel=>'me' %></h1>
 		<ul id="pagemenu">
-			<% if @content_for_navigation %>
+			<% if content_for? :navigation %>
 				<%= yield :navigation %>
 			<% else %>
 				<li class="first"><%= link_to 'About', about_url %></li>
@@ -69,7 +69,7 @@
 			</div>
 
 			<div class="pagercol">
-				<% if @content_for_sidebar %>
+				<% if content_for? :sidebar %>
 					<%= yield :sidebar %>
 				<% else %>
 					<h2>Where am I?</h2>
