@@ -1,6 +1,6 @@
 _archive
 db/backup
-log/*
+log/*.log
 tmp/**/*
 *.yml
 *.html
