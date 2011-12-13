@@ -2,9 +2,9 @@ class BlogController < ApplicationController
   caches_page :index, :archive, :archives_by_title, :date, :about
 
   def index
-    @entries = Entry.published.find(:all, :include=>[:comments], :order=>'entries.created_at DESC', :limit=>20)
+    @entries = Entry.published.includes(:comments).order('entries.created_at DESC').limit(20)
     @first_date = @entries.first.created_at
-    @books = Book.find(:all, :include=>[:authors], :order=>'books.created_at DESC', :limit=>4)
+    @books = Book.includes(:authors).order('books.created_at DESC').limit(4)
   end
 	
   def archive
@@ -12,7 +12,7 @@ class BlogController < ApplicationController
   end
 
   def archives_by_title
-    @entries = Entry.published.find(:all, :order=>'entries.created_at DESC')
+    @entries = Entry.published.all.order('entries.created_at DESC')
   end
 
   def date
@@ -40,7 +40,7 @@ class BlogController < ApplicationController
   end
 
   def about
-    @count = Entry.published.count(:all, :group=>:variant, :order=>'count_all DESC')
+    @count = Entry.published.count(:group=>:variant, :order=>'count_all DESC')
     @total = @count.inject(0) { |sum,a| sum + a.last }
     @books = Book.count
     @authors = Author.count
