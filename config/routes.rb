@@ -59,7 +59,7 @@ MattTarbitOrg::Application.routes.draw do
   match         'archive/titles' => 'blog#archives_by_title', :as => :titles
   match         'search' => 'blog#search', :as => :search
   match         'tag' => 'tag#index', :as => :tags
-  match         'tag/:name' => 'tag#read', :as => :tag
+  match         'tag/:name' => 'tag#read', :as => :tag, :constraints => { :name => /[^\/]+/ }
   match         'rss' => 'feed#rss', :as => :rss
 
   match         'admin' => 'admin#index', :as => :admin
@@ -75,10 +75,10 @@ MattTarbitOrg::Application.routes.draw do
   match         'cv' => 'blog#cv'
 
   match ':y(/:m(/:d))' => 'blog#date', :as => :date, 
-    :constraints => { :y=>/(19|20)\d\d/, :m=>/[01]?\d/, :d=>/[0-3]?\d/ }
+    :constraints  =>  { :y => /(19|20)\d\d/, :m => /[01]?\d/, :d => /[0-3]?\d/ }
 
   match ':y/:m/:d/:slug' => 'entry#read', :as => :entry_slug,
-    :constraints => { :y=>/(19|20)\d\d/, :m=>/[01]?\d/, :d=>/[0-3]?\d/, :slug=>/[a-z0-9._-]+/ }
+    :constraints  =>  { :y => /(19|20)\d\d/, :m => /[01]?\d/, :d => /[0-3]?\d/, :slug => /[a-z0-9._-]+/ }
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
