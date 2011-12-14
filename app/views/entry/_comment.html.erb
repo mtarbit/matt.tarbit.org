@@ -17,7 +17,7 @@ end
 	</div>
 	<p class="small">
 		Posted
-		by <%= link_to_if href, h(c.name.titleize), href %> 
+		by <%= link_to_if href, c.name.titleize, href %> 
 		on <%= link_to (c.created_at || Time.now()).strftime("%e %b %Y at %I:%M %p"), {:anchor=>"comment-#{c.id}"}, {:title=>'Permalink'} %>
 	</p>
 </li>

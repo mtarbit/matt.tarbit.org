@@ -1,5 +1,5 @@
 <% entry.title += (/[.:!?]$/ =~ entry.title) ? '' : '.' %>
-<% entry.title = link_to(entry.title, h(entry.url)) %>
+<% entry.title = link_to(entry.title, entry.url) %>
 <li>
 	<div class="content">
         <% if entry.video? -%>

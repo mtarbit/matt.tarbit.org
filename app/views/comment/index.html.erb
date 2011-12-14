@@ -13,7 +13,7 @@
 	<% for comment in @comments -%>
 		<tr class="<%= cycle('row0','row1') %>">
 			<td class="ac small"><%= comment.created_at.strftime("%d-%m-%y @ %H:%M") %></td>
-			<td><span title="<%= h(comment.content) %>"><%= h(truncate(comment.content, 75)) %></span></td>
+			<td><span title="<%= comment.content %>"><%= truncate(comment.content, 75) %></span></td>
 			<td><%= link_to comment.name, comment.email %></td>
 			<td class="ac"><%= link_to 'Link', comment.website %></td>
 			<td class="ac"><%= link_to 'Delete', {:action=>:delete, :id=>comment}, :confirm=>'Are you sure?' %></td>
