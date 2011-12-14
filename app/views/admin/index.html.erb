@@ -13,7 +13,8 @@
 
 <table class="data">
 	<tr>
-		<th width="55%">Entry</th>
+        <th class="center">Variant</th>
+		<th width="50%">Entry</th>
 		<th class="center">Posted</th>
 		<th class="center">Pubd</th>
 		<th class="center">Cmts</th>
@@ -24,11 +25,13 @@
 	</tr>
 	<% for entry in @entries -%>
 		<tr class="<%= cycle('row0','row1') %>">
+            <td class="center small"><%= entry.variant %></td>
 			<td>
 			<%= case entry.variant
 				when 'post': entry.title
 				when 'link': link_to entry.title, entry.url
-				when 'quote': link_to_if entry.url, "&#8220;%s&#8221;" % truncate(entry.content, :length=>40), entry.url
+				when 'quote': link_to_if entry.url, ("&#8220;%s&#8221;" % truncate(entry.content, :length=>60)).html_safe, entry.url
+                when 'status': truncate(entry.content, :length=>60)
 				else entry.title
 			end %>
 			</td>
