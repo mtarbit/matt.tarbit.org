@@ -110,7 +110,7 @@ class AdminController < ApplicationController
 
   def library
     @single_column = true
-    @books = Book.find(:all, :include=>[:authors], :order => 'books.created_at DESC')
+    @books = Book.includes([:authors]).order('books.created_at DESC').paginate(:page => params[:page], :per_page => 15)
   end
 
 private

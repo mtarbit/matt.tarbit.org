@@ -10,7 +10,7 @@ class BookController < ApplicationController
   end
 
   def index
-    @books = Book.find(:all,:include=>[:authors], :order=>'books.created_at DESC')
+    @books = Book.includes([:authors]).order('books.created_at DESC')
   end
 
   def show

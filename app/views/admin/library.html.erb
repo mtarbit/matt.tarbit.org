@@ -1,24 +1,29 @@
 <h2>Library admin</h2>
 
-<p>
-	Create a <%= link_to 'book', new_book_url %>.
-</p>
+<div class="fl">Create a <%= link_to 'book', new_book_url %>.</div>
+
+<%= will_paginate @books %>
+
+<div class="clear"></div>
 
 <table class="data">
 	<tr>
-		<th style="width:50%;">Title</th>
-		<th style="width:50%;">Author</th>
-		<th>Added</th>
+		<th style="width:45%;">Title</th>
+		<th style="width:30%;">Author</th>
+		<th class="center">Added</th>
 		<th></th>
 		<th></th>
 	</tr>
 	<% @books.each_with_index do |book,i| %>
 		<tr class="row<%= i%2 %>">
-			<td><%= link_to truncate(book.title, 50), {:controller=>:book, :action=>:show, :id=>book } %></td>
+			<td><%= link_to truncate(book.title, :length => 50), {:controller=>:book, :action=>:show, :id=>book } %></td>
 			<td><%= linkify_authors(book.authors) %></td>
-			<td class="ar" style="white-space:nowrap;"><%= book.created_at.strftime('%e %b %Y') %></td>
-			<td><%= link_to 'Edit', 	{:controller=>:book, :action=>:edit, :id=>book } %></td>
-			<td><%= link_to 'Delete', 	{:controller=>:book, :action=>:delete, :id=>book }, :confirm=>'Are you sure?'  %></td>
+			<td class="ac small"><%= book.created_at.strftime("%d-%m-%y @ %H:%M") %></td>
+			<td class="ac"><%= link_to 'Edit', 	{:controller=>:book, :action=>:edit, :id=>book } %></td>
+			<td class="ac"><%= link_to 'Delete', 	{:controller=>:book, :action=>:delete, :id=>book }, :confirm=>'Are you sure?'  %></td>
 		</tr>
 	<% end %>
 </table>
+
+<%= will_paginate @books %>
+
