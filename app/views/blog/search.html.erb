@@ -1,7 +1,7 @@
 
 <h2><%= @title %></h2>
 
-<% form_tag do %>
+<%= form_tag do %>
 
 	<fieldset>
 		<legend>Search Details</legend>
@@ -19,4 +19,4 @@
 
 <% end %>
 
-<%= render :partial=>'partials/entries', :locals=>{:words=>@words} %>
+<%= render :partial => 'partials/entries', :locals => { :entries => @entries, :words => @words } %>

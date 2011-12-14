@@ -26,19 +26,33 @@ module ApplicationHelper
   end
 
   def highlight_html(str,words)
-		return str if str.nil? or words.nil?
-		# make sure we're only highlighting non-tag text
-		text_open = '(^|\G|<(?:.*?)>)'
-		text_shut = '($|<(?:.*?)>)'
-		reg = /#{text_open}(.*?)#{text_shut}/
-		str.gsub(reg) { $1 + highlight_text($2,words) + $3 }
-	end
-																					        
-	def highlight_text(str,words)
-		return str if str.nil? or words.nil?
-		words.map! {|w| Regexp.escape(w) }
-		words = words.join('|')
-		str.gsub(/\b(#{words})\b/i, '<em class="highlight">\1</em>')
-	end
+    return str if str.nil? or words.nil?
+
+    # Make sure we're only highlighting non-tag text.
+    # \G is the point where the last match finished.
+    text_open = '(^|<.*?>|\G)'
+    text_shut = '($|<.*?>)'
+    reg = /#{text_open}(.*?)#{text_shut}/
+
+    # Block form of gsub is broken for SafeBuffers. Escape first,
+    # convert to str, then convert back to SafeBuffer when done.
+    # See: https://github.com/rails/rails/issues/1555
+    str = ERB::Util.html_escape(str).to_str
+    str.gsub!(reg) { $1 + highlight_text($2, words) + $3 }
+    str.html_safe
+  end
+                                                  
+  def highlight_text(str,words)
+    return str if str.nil? or words.nil?
+
+    # Create a reg-ex pattern from the search words.
+    words.map! {|w| Regexp.escape(w) }
+    words = words.join('|')
+
+    # See comments in highlight_html() above.
+    str = ERB::Util.html_escape(str).to_str
+    str.gsub!(/\b(#{words})\b/i, '<em class="highlight">\1</em>')
+    str.html_safe
+  end
 
 end
