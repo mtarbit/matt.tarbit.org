@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate
     unless session[:user]
-      session[:referrer] = request.request_uri
+      session[:referrer] = request.env['REQUEST_URI']
       redirect_to :controller=>'admin', :action=>'login'
     end
   end
