@@ -1,11 +1,15 @@
 <% cache do %>
 	<%= render(:partial => "partials/variants/#{@entry.variant}/single", :locals=>{:entry=>@entry} ) %>
-	<div id="comments">
-		<%= render(:partial => 'comments', :locals=>{:entry=>@entry}) %>
-	</div>
+    <% if SETTINGS['features_enabled']['comments'] or @entry.comments_count > 0 %>
+        <div id="comments">
+            <%= render(:partial => 'comments', :locals=>{:entry=>@entry}) %>
+        </div>
+    <% end %>
 <% end %>
 
-<%= render(:partial => 'form_comment') %>
+<% if SETTINGS['features_enabled']['comments'] %>
+    <%= render(:partial => 'form_comment') %>
+<% end %>
 
 <% content_for :sidebar do %>
 	<% @d1,@m1,@y1 = @entry.created_at.strftime("%e %b %Y").split %>
