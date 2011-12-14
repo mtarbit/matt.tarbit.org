@@ -2,6 +2,6 @@
 <div class="inset-right">
 	<%= link_to(image_tag(entry.product.image, :width=>125, :class=>'border'), entry.product.associate_url) %>
 </div>
-<%= markdown(entry.content) %>
+<%= markdown(entry.content.html_safe) %>
 <p><%= link_to('See this item at amazon.co.uk &rarr;', entry.product.associate_url) %></p>
 <div class="clear"></div>
