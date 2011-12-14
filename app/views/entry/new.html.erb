@@ -1,6 +1,6 @@
 <h2>Add a new <%= @entry.variant.humanize %></h2>
 
-<% form_rows_for :entry, :url=>{:action=>:create} do |f| %>
+<%= form_rows_for :entry, :url=>{:action=>:create} do |f| %>
     
 	<%= hidden_field :entry, :variant %>
 

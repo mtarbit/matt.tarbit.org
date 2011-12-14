@@ -9,7 +9,7 @@ document.observe('dom:loaded', function(){
 // ]]>
 </script>
 
-<% form_rows_for :comment, :url=>{:controller=>:comment, :action=>:create}, :html=>{:onsubmit=>'challenge()'} do |f| %>
+<%= form_rows_for :comment, :url=>{:controller=>:comment, :action=>:create}, :html=>{:onsubmit=>'challenge()'} do |f| %>
 	<%= hidden_field :entry, :id %>
 	<%= hidden_field_tag @tokens[0] %>
 

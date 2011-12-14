@@ -49,7 +49,7 @@
 <h2><%= @book.id ? 'Edit' : 'Add a new' %> Book</h2>
 
 <div <% if @products %>class="fl" style="width:47%;"<% end %>>
-	<% form_rows_for :book, :url=>{:action=> @book.id ? :update : :create}, :html=>{:id=>'jsBookDetails'} do |f| %>
+	<%= form_rows_for :book, :url=>{:action=> @book.id ? :update : :create}, :html=>{:id=>'jsBookDetails'} do |f| %>
 		<% if @book.id %>
 			<%= hidden_field :book, :id %>
 		<% end %>

@@ -1,6 +1,6 @@
 <h2>Edit <%= @entry.variant.humanize %></h2>
 
-<% form_rows_for :entry, :url=>{:action=>:update} do |f| %>
+<%= form_rows_for :entry, :url=>{:action=>:update} do |f| %>
 
 	<%= hidden_field :entry, :id %>
 	<%= hidden_field :entry, :variant %>
