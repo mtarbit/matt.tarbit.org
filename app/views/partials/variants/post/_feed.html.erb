@@ -1,7 +1,7 @@
 <item>
-	<title><%=h entry.page_title %></title>
-	<link><%= entry_url(entry) %></link>
-	<guid><%= entry_url(entry) %></guid>
-	<description><%=h markdown(entry.content) %></description>
-	<pubDate><%= entry.created_at.rfc822 %></pubDate>
+    <title><%= entry.page_title %></title>
+    <link><%= entry_url(entry) %></link>
+    <guid><%= entry_url(entry) %></guid>
+    <description><%= "" + markdown(entry.content) %></description>
+    <pubDate><%= entry.created_at.rfc822 %></pubDate>
 </item>

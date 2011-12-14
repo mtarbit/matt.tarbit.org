@@ -1,12 +1,12 @@
+<% entry.title += (/[.:!?]$/ =~ entry.title) ? '' : '.' %>
 <item>
-	<title><%=h entry.page_title %></title>
-	<link><%= entry_url(entry) %></link>
-	<guid><%= entry_url(entry) %></guid>
-	<description>
-		<% entry.title += (/[.:!?]$/ =~ entry.title) ? '' : '.' %>
-		<%=h link_to entry.title, entry.url %>
-		<%=h entry.content %>
-        <%=h render(:partial => "partials/video", :locals => {:entry=>entry}) if entry.video? %>
-	</description>
-	<pubDate><%= entry.created_at.rfc822 %></pubDate>
+    <title><%= entry.page_title %></title>
+    <link><%= entry_url(entry) %></link>
+    <guid><%= entry_url(entry) %></guid>
+    <description>
+        <%= "" + link_to(entry.title, entry.url) %>
+        <%= entry.content %>
+        <%= "" + render(:partial => "partials/video", :locals => {:entry=>entry}) if entry.video? %>
+    </description>
+    <pubDate><%= entry.created_at.rfc822 %></pubDate>
 </item>
