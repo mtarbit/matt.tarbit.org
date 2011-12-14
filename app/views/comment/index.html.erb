@@ -4,10 +4,10 @@
 
 <table class="data">
 	<tr>
-		<th>Date</th>
 		<th width="50%">Comment</th>
 		<th>Name</th>
 		<th></th>
+		<th class="center">Posted</th>
 		<th></th>
 		<th></th>
 	</tr>
@@ -17,10 +17,10 @@
         url = (url.blank? || url.match(/^https?:\/\//)) ? url : 'http://' + url
         %>
 		<tr class="<%= cycle('row0','row1') %>">
-			<td class="ac small"><%= comment.created_at.strftime("%d-%m-%y @ %H:%M") %></td>
 			<td><span title="<%= comment.content %>"><%= truncate(comment.content, :length => 60) %></span></td>
 			<td><%= link_to comment.name, comment.email %></td>
 			<td class="ac"><% if !url.blank? %><%= link_to 'Link', url %><% end %></td>
+			<td class="ac small"><%= comment.created_at.strftime("%d-%m-%y @ %H:%M") %></td>
             <td class="ac"><%= link_to 'View', entry_url(comment.entry) %></td>
 			<td class="ac"><%= link_to 'Delete', {:action=>:delete, :id=>comment}, :confirm=>'Are you sure?' %></td>
 		</tr>
