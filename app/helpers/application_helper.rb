@@ -8,14 +8,14 @@ module ApplicationHelper
     form_for(name, *args, &block)
   end
 
-	def render_comments(comments, depth=0)
-		s = ''
-		for c in comments.to_a
-			s << render(:partial=>'entry/comment', :locals=>{:c=>c, :depth=>depth})
-			s << render_comments(c.children, depth+1) unless c.children.empty?
-		end
-		s
-	end
+  def render_comments(comments, depth=0)
+    s = ActiveSupport::SafeBuffer.new
+    for c in comments.to_a
+      s.safe_concat(render(:partial=>'entry/comment', :locals=>{:c=>c, :depth=>depth}))
+      s.safe_concat(render_comments(c.children, depth+1)) unless c.children.empty?
+    end
+    s
+  end
 
   def linkify_tags(tags)
     tags.map{|t| link_to(t.name, tag_url(:name=>t.name), {:class=>'tag'}) }.to_sentence(:last_word_connector=>' &amp; ').html_safe

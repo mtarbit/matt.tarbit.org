@@ -10,7 +10,7 @@ class CommentController < ApplicationController
 
   def index
     @single_column = true
-    @comments = Comment.paginate(:all, :page=>params[:page], :per_page=>15, :order=>'comments.created_at DESC')
+    @comments = Comment.order('comments.created_at DESC').paginate(:page=>params[:page], :per_page=>15)
   end
 
 	def preview

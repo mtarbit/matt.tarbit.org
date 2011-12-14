@@ -1,15 +1,18 @@
 <% 
+# Format with paragraphs.
 c.content = simple_format(c.content)
-c.content = auto_link(c.content, :urls) do |t|
-	parts = t.sub(%r{https?://},'').split('/')
-	(parts.length > 1) ? parts[0] + '/.../' + parts[-1] : parts
+# Link up urls but remove internal path components to keep them short.
+# Also stop spammers from receiving their google juice with nofollow.
+c.content = auto_link(c.content, :link => :urls, :html => { :rel => 'nofollow' }) do |t|
+    parts = t.sub(%r{https?://},'').split('/')
+    (parts.length > 1) ? parts[0] + '/.../' + parts[-1] : parts
 end
-c.content.gsub!(/(<[aA] )/,'\1 rel="nofollow"')
 if !c.website.blank? && c.website.include?('.')
-	href = (c.website =~ /^[a-z]+:\/\//) ? c.website : "http://#{c.website}"
+    href = (c.website =~ /^[a-z]+:\/\//) ? c.website : "http://#{c.website}"
 elsif !c.email.blank?
-	href = "mailto:#{c.email}"
+    href = "mailto:#{c.email}"
 end
+href = ''
 %>
 <li style="margin-left:<%= depth * 2 %>em;" id="comment-<%= c.id %>">
 	<div class="comment">
