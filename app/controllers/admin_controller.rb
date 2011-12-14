@@ -28,8 +28,9 @@ class AdminController < ApplicationController
 
   def index
     @single_column = true
-    conditions = {:variant => params[:variant]} if params[:variant]
-    @entries = Entry.paginate(:all, :page=>params[:page], :per_page=>15, :conditions=>conditions, :include=>[:comments,:tags], :order => 'entries.created_at DESC')
+    conditions = { :variant => params[:variant] } if params[:variant]
+    @entries = Entry.where(conditions).includes([:comments,:tags]).order('entries.created_at DESC')
+    @entries = @entries.paginate(:page=>params[:page], :per_page=>15)
   end
 
   def sync_from_delicious
