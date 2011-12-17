@@ -17,16 +17,12 @@ class BlogController < ApplicationController
 
   def date
     y,m,d = [params[:y], params[:m], params[:d]].map {|v| v.to_i if v }
-    begin
-      @entries = Entry.published.find_by_date(y,m,d)
-      @format1 = m ? d ? "%e %b %Y" : "%b %Y" : "%Y"
-      @format2 = m ? d ? "%Y %m %d" : "%Y %m" : "%Y"
-      @title = 'All entries from ' + Time.local(y,m,d).strftime(@format1)
-      @prev = @entries.last.find_prev
-      @next = @entries.first.find_next
-    rescue:
-      render_not_found
-    end
+    @entries = Entry.published.find_by_date(y,m,d)
+    @format1 = m ? d ? "%e %b %Y" : "%b %Y" : "%Y"
+    @format2 = m ? d ? "%Y %m %d" : "%Y %m" : "%Y"
+    @title = 'All entries from ' + Time.local(y,m,d).strftime(@format1)
+    @prev = @entries.last.find_prev
+    @next = @entries.first.find_next
   end
 
   def search

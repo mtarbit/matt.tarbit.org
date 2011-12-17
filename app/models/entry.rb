@@ -33,15 +33,15 @@ class Entry < ActiveRecord::Base
 		self.slug = str
 	end
 
-	def page_title
-		case self.variant
-			when 'post': self.title
-			when 'link': "Bookmark for \"#{self.title}\""
-			when 'quote': "A quote from #{self.title}"
-			when 'review': "I've been #{self.product.activity}: #{self.product.title}"
-			when 'status': "#{self.title}: \"#{self.content}\""
-		end
-	end
+  def page_title
+    case self.variant
+      when 'post'   then self.title
+      when 'link'   then "Bookmark for \"#{self.title}\""
+      when 'quote'  then "A quote from #{self.title}"
+      when 'review' then "I've been #{self.product.activity} then #{self.product.title}"
+      when 'status' then "#{self.title} then \"#{self.content}\""
+    end
+  end
 
   def longform?
     ['post','review'].include? self.variant
@@ -114,10 +114,10 @@ class Entry < ActiveRecord::Base
 		# rescue NoMethodErrors from attempting addition on nilClass
 		t1 = Time.local(y,m,d)
 		t2 = 
-		begin			Time.local(y,m,d+1) 
-		rescue: 
-			begin 	Time.local(y,m+1,1) 
-			rescue: Time.local(y+1,1,1) 
+		begin     Time.local(y,m,d+1) 
+		rescue 
+			begin   Time.local(y,m+1,1) 
+			rescue  Time.local(y+1,1,1) 
 			end
 		end
 
