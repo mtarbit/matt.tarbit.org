@@ -28,10 +28,10 @@
             <td class="center small"><%= entry.variant %></td>
 			<td>
 			<%= case entry.variant
-				when 'post': entry.title
-				when 'link': link_to entry.title, entry.url
-				when 'quote': link_to_if entry.url, ("&#8220;%s&#8221;" % truncate(entry.content, :length=>60)).html_safe, entry.url
-                when 'status': truncate(entry.content, :length=>60)
+				when 'post'     then entry.title
+				when 'link'     then link_to entry.title, entry.url
+				when 'quote'    then link_to_if entry.url, ("&#8220;%s&#8221;" % truncate(entry.content, :length=>60)).html_safe, entry.url
+                when 'status'   then truncate(entry.content, :length=>60)
 				else entry.title
 			end %>
 			</td>
