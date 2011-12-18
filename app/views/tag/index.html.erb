@@ -3,7 +3,7 @@
 <ul id="tags">
 <% @tags.each do |t| -%>
     <% size = [(9.5 + (t.count.to_f/2)) / 10, 1.5].min %>
-	<% weight = (size > 1.0) ? 'normal' : 'normal' %>
+    <% weight = (size > 1.0) ? 'normal' : 'normal' %>
     <li style="font-size:<%=size%>em; font-weight:<%= weight %>;"><%= link_to(t.name, tag_url(:name=>t.name), {:title=>"#{t.count} entries"}) %></li>
 <% end -%>
 </ul>

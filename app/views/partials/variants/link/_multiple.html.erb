@@ -1,12 +1,12 @@
 <% entry.title += (/[.:!?]$/ =~ entry.title) ? '' : '.' %>
 <% entry.title = link_to(entry.title, entry.url) %>
 <li>
-	<div class="content">
+    <div class="content">
         <% if entry.video? -%>
             <a href="<%= entry.url %>"><img src="<%= entry.thumb_url  %>" width="80" class="framed inset-left" style="margin-right:10px;" /></a>
         <% end -%>
         <%= highlight_html(markdown("__#{entry.title}__\n#{entry.content}"), @words) %>
         <div class="clear"></div>
     </div>
-	<p class="comments"><%= link_to pluralize(entry.comments_count, 'comment'), entry_url(entry) %></p>
+    <p class="comments"><%= link_to pluralize(entry.comments_count, 'comment'), entry_url(entry) %></p>
 </li>

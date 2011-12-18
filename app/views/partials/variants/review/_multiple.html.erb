@@ -1,9 +1,9 @@
 <div class="post">
-	<div class="inset-right">
-		<%= link_to(image_tag(entry.product.image, :width=>125, :class=>'framed'), entry.product.associate_url) %>
-	</div>
-	<h3><%= link_to highlight_text(entry.title, @words), entry_url(entry) %></h3>
-	<%= highlight_html(markdown(entry.content.html_safe), @words) %>
-	<p class="comments"><%= link_to pluralize(entry.comments_count, 'comment'), entry_url(entry) %></p>
-	<div class="clear"></div>
+    <div class="inset-right">
+        <%= link_to(image_tag(entry.product.image, :width=>125, :class=>'framed'), entry.product.associate_url) %>
+    </div>
+    <h3><%= link_to highlight_text(entry.title, @words), entry_url(entry) %></h3>
+    <%= highlight_html(markdown(entry.content.html_safe), @words) %>
+    <p class="comments"><%= link_to pluralize(entry.comments_count, 'comment'), entry_url(entry) %></p>
+    <div class="clear"></div>
 </div>

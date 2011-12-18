@@ -3,10 +3,10 @@ class CreateImageTable < ActiveRecord::Migration
 
     create_table :book_images do |t|
       t.column :book_id,    :integer, :null=>false
-  	  t.column :url,        :string
+      t.column :url,        :string
       t.column :height,     :integer, :null=>false
       t.column :width,      :integer, :null=>false
-  	  t.column :image_type, :string
+      t.column :image_type, :string
     end
 
     add_index :book_images, :book_id

@@ -7,12 +7,12 @@ class FormRowBuilder < ActionView::Helpers::FormBuilder
       input = super
 
       @template.content_tag(:div,
-        @template.content_tag(:div, label, :class=>'label') + 
+        @template.content_tag(:div, label, :class=>'label') +
         @template.content_tag(:div, input, :class=>'input'),
       :class=>'form-row')
     end
   end
-  
+
   field_helpers.each do |name|
     create_method_for_field(name)
   end

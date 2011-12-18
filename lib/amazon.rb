@@ -13,7 +13,7 @@ module Amazon
     def initialize(secret_key)
       @secret_key = secret_key
     end
-    
+
     def url_encode(string)
       # Encoded as per AmProdAd API specifications
       CGI.escape(string).gsub("%7E", "~").gsub("+", "%20")
@@ -42,7 +42,7 @@ module Amazon
       querystring = params_to_querystring(params)
       signature_for_string(string_to_sign(querystring))
     end
-    
+
     def sign(defaults, options)
       # Extend the parameters with a timestamp and an HMAC-SHA signature
       params = defaults.dup
@@ -51,7 +51,7 @@ module Amazon
       params.merge!(:Signature => signature_for_params(params))
     end
   end
-  
+
   class Product
     ALL_SEARCH_INDICES  = %w{Apparel Baby Blended Books Classical DVD Electronics HealthPersonalCare HomeGarden Kitchen Marketplace Music MusicTracks OutdoorLiving Software SoftwareVideoGames SportingGoods Tools Toys VHS Video VideoGames Watches}
     CORE_SEARCH_INDICES = %w{Books VideoGames Music DVD Electronics}
@@ -59,7 +59,7 @@ module Amazon
     include HTTParty
     base_uri ENDPOINT.scheme + '://' + ENDPOINT.host
     default_params :Service=>'AWSECommerceService', :ResponseGroup=>'Medium', :Sort=>'salesrank', :Country=>'UK', :Validate=>'True'
-    
+
     def initialize(access_key, secret_key)
       @access_key = access_key
       @secret_key = secret_key

@@ -3,15 +3,15 @@ class ImportLibrary < ActiveRecord::Migration
   def self.up
 
     create_table :books do |t|
-  	  t.column :title,      :string
-  	  t.column :isbn,       :string
-  	  t.column :asin,       :string
+      t.column :title,      :string
+      t.column :isbn,       :string
+      t.column :asin,       :string
       t.column :created_at, :datetime
       t.column :updated_at, :datetime
     end
 
     create_table :authors do |t|
-  	  t.column :name, :string
+      t.column :name, :string
     end
 
     create_table :authors_books, :id => false do |t|

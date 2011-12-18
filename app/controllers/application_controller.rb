@@ -40,22 +40,22 @@ class ApplicationController < ActionController::Base
     end
   end
 
-	def entry_options(entry)
-		y,m,d = entry.created_at.strftime('%Y %m %d').split
-		{:y=>y, :m=>m, :d=>d, :slug=>entry.slug}
+  def entry_options(entry)
+    y,m,d = entry.created_at.strftime('%Y %m %d').split
+    {:y=>y, :m=>m, :d=>d, :slug=>entry.slug}
   end
-	
-	def entry_path(*args)
-		options = args.last.is_a?(Hash) ? args.pop : {}
-		entry_slug_path(entry_options(args.first)) # , options)
-	end
-	helper_method :entry_path
 
-	def entry_url(*args)
-		options = args.last.is_a?(Hash) ? args.pop : {}
-		entry_slug_url(entry_options(args.first)) # , options)
-	end
-	helper_method :entry_url
+  def entry_path(*args)
+    options = args.last.is_a?(Hash) ? args.pop : {}
+    entry_slug_path(entry_options(args.first)) # , options)
+  end
+  helper_method :entry_path
+
+  def entry_url(*args)
+    options = args.last.is_a?(Hash) ? args.pop : {}
+    entry_slug_url(entry_options(args.first)) # , options)
+  end
+  helper_method :entry_url
 
   def spam_challenge_tokens
     ipaddr = Digest::SHA1.hexdigest(request.env['REMOTE_ADDR'])

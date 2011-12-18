@@ -6,20 +6,20 @@ class Entry < ActiveRecord::Base
 
   scope :published, :conditions => { :published => true }
 
-	validates_presence_of :title
-	validates_presence_of :slug
-	# validates_uniqueness_of :slug
+  validates_presence_of :title
+  validates_presence_of :slug
+  # validates_uniqueness_of :slug
 
   @@VARIANTS = ['link','post','review','quote','status']
 
   def self.variants
     @@VARIANTS
   end
-	
+
   def tags_as_string=(tags)
     if tags.is_a? String
       tags = tags.split.map {|t| Tag.find_or_initialize_by_name(t) }
-		end
+    end
     self.tags = tags
   end
 
@@ -27,11 +27,11 @@ class Entry < ActiveRecord::Base
     self.tags.map(&:name).join(' ')
   end
 
-	def generate_slug
-		str = self.title.downcase.gsub(/[^a-z0-9._ ]+/,'').gsub(/ +/,'-')
-		str = str.split(/-/)[0,3].join('-') if self.variant != 'post'
-		self.slug = str
-	end
+  def generate_slug
+    str = self.title.downcase.gsub(/[^a-z0-9._ ]+/,'').gsub(/ +/,'-')
+    str = str.split(/-/)[0,3].join('-') if self.variant != 'post'
+    self.slug = str
+  end
 
   def page_title
     case self.variant
@@ -46,11 +46,11 @@ class Entry < ActiveRecord::Base
   def longform?
     ['post','review'].include? self.variant
   end
-		
+
   def video?
     self.variant == 'link' and self.url =~ /http:\/\/(www\.)?youtube/
   end
- 
+
   def video_id
     if self.video?
       m = self.url.match(/\?v=([-_0-9a-zA-Z]+)(&|$)/)
@@ -76,13 +76,13 @@ class Entry < ActiveRecord::Base
 
   def self.counts_by_date
     sql = "SELECT
-            DATE_FORMAT(created_at,'%Y') AS y, 
-            DATE_FORMAT(created_at,'%m') AS m, 
-            DATE_FORMAT(created_at,'%d') AS d, 
-            COUNT(*) AS n 
-          FROM 
-            entries 
-          GROUP BY y,m,d 
+            DATE_FORMAT(created_at,'%Y') AS y,
+            DATE_FORMAT(created_at,'%m') AS m,
+            DATE_FORMAT(created_at,'%d') AS d,
+            COUNT(*) AS n
+          FROM
+            entries
+          GROUP BY y,m,d
           ORDER BY y,m,d ASC"
     res = ActiveRecord::Base.connection.select_all(sql)
 
@@ -98,34 +98,34 @@ class Entry < ActiveRecord::Base
       dates[y][m] ||= {}
       dates[y][m][d] ||= n
     end
-    
+
     dates
   end
-  
+
   def self.find_by_slug(y,m,d, slug)
     entries = self.find_by_date(y,m,d, slug)
-		(entries.length < 2) ? entries.first : entries
+    (entries.length < 2) ? entries.first : entries
   end
 
   def self.find_by_date(y,m,d=nil,slug=nil)
     y,m,d = [y,m,d].map{|v| v.to_i if v }
 
-		# rescue ArgumentErrors from out of range values
-		# rescue NoMethodErrors from attempting addition on nilClass
-		t1 = Time.local(y,m,d)
-		t2 = 
-		begin     Time.local(y,m,d+1) 
-		rescue 
-			begin   Time.local(y,m+1,1) 
-			rescue  Time.local(y+1,1,1) 
-			end
-		end
+    # rescue ArgumentErrors from out of range values
+    # rescue NoMethodErrors from attempting addition on nilClass
+    t1 = Time.local(y,m,d)
+    t2 =
+    begin     Time.local(y,m,d+1)
+    rescue
+      begin   Time.local(y,m+1,1)
+      rescue  Time.local(y+1,1,1)
+      end
+    end
 
-		conds = {}
-		conds[:created_at] = t1..t2
-		conds[:slug] = slug if slug
+    conds = {}
+    conds[:created_at] = t1..t2
+    conds[:slug] = slug if slug
 
-		entries = find(:all, :include=>[:comments,:tags], :conditions=>conds, :order=>"entries.created_at DESC")
+    entries = find(:all, :include=>[:comments,:tags], :conditions=>conds, :order=>"entries.created_at DESC")
   end
 
   def self.find_by_words(words)
@@ -147,19 +147,19 @@ class Entry < ActiveRecord::Base
   def self.create_from_twitter(item)
     item = self.convert_from_twitter(item)
     tweet = self.find_by_url(item['url']) || self.new
-		tweet.attributes = item
-		if tweet.changed?
-  		logger.info("Changed attributes: #{tweet.changes.inspect}")
-  		# Only save if the attributes have changed. Otherwise
-  		# we'll trigger the cache sweeper for every sync
-  		tweet.generate_slug
-  		tweet.save!
-  	end
+    tweet.attributes = item
+    if tweet.changed?
+      logger.info("Changed attributes: #{tweet.changes.inspect}")
+      # Only save if the attributes have changed. Otherwise
+      # we'll trigger the cache sweeper for every sync
+      tweet.generate_slug
+      tweet.save!
+    end
   end
 
   def self.convert_from_twitter(item)
     attrs = {
-			'variant' => 'status',
+      'variant' => 'status',
       'created_at' => Time.parse(item.created_at),
       'url' => item.id,
       'title' => "Status #{item.id}",
@@ -171,27 +171,27 @@ class Entry < ActiveRecord::Base
   def self.create_from_delicious(item)
     item = self.convert_from_delicious(item)
     link = self.find_by_url(item['url']) || self.new
-		link.attributes = item
-		if link.changed?
-  		logger.info("Changed attributes: #{link.changes.inspect}")
-  		# Only save if the attributes have changed. Otherwise
-  		# we'll trigger the cache sweeper for every link sync
-  		link.generate_slug
-  		link.save!
-  	end
+    link.attributes = item
+    if link.changed?
+      logger.info("Changed attributes: #{link.changes.inspect}")
+      # Only save if the attributes have changed. Otherwise
+      # we'll trigger the cache sweeper for every link sync
+      link.generate_slug
+      link.save!
+    end
   end
 
   def self.convert_from_delicious(item)
     attrs = {
-			'variant' => 'link',
+      'variant' => 'link',
       'created_at' => item['time'],
       'url' => item['href'],
       'title' => item['description'],
       'content' => item['extended'],
       'extra' => item['hash']
     }
-		attrs['tags_as_string'] = item['tags'].join(' ') if item['tags']
-		attrs
+    attrs['tags_as_string'] = item['tags'].join(' ') if item['tags']
+    attrs
   end
 
 end

@@ -3,10 +3,10 @@
 <p style="margin-bottom:1.5em">There are <%= pluralize(@books.size, 'book') %> in the library (browse <%= link_to 'by author', {:controller=>'author', :action=>'index'} %>).</p>
 
 <ul>
-	<% @books.each do |book| %>
-		<li><p>
-			<strong><em><%= link_to book.title, {:controller=>:book, :action=>:show, :id=>book.id}, {:class=>'hidden'} %></em></strong><br />
-			by <%= linkify_authors(book.authors, {:class=>'hidden'}) %>
-		</p></li>
-	<% end %>
+    <% @books.each do |book| %>
+        <li><p>
+            <strong><em><%= link_to book.title, {:controller=>:book, :action=>:show, :id=>book.id}, {:class=>'hidden'} %></em></strong><br />
+            by <%= linkify_authors(book.authors, {:class=>'hidden'}) %>
+        </p></li>
+    <% end %>
 </ul>

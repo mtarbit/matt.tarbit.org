@@ -1,7 +1,7 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
-	def form_rows_for(name, *args, &block)
+  def form_rows_for(name, *args, &block)
     options = args.last.is_a?(Hash) ? args.pop : {}
     options = options.merge(:builder => FormRowBuilder)
     args << options
@@ -41,7 +41,7 @@ module ApplicationHelper
     str.gsub!(reg) { $1 + highlight_text($2, words) + $3 }
     str.html_safe
   end
-                                                  
+
   def highlight_text(str,words)
     return str if str.nil? or words.nil?
 

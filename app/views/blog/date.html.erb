@@ -3,24 +3,24 @@
 <%= render :partial=>'partials/entries', :object=>@entries %>
 
 <% if @next or @prev -%>
-	<% content_for :sidebar do -%>
+    <% content_for :sidebar do -%>
 
-		<h2>Other dates</h2>
+        <h2>Other dates</h2>
 
-		<ul id="metadata">
-			<% if @prev: -%>
-				<% d_m_y = @prev.created_at.strftime(@format1) -%>
-				<% y,m,d = @prev.created_at.strftime(@format2).split -%>
-				<li class="prev"><%= link_to "Older entries from #{d_m_y}", date_url(:y=>y,:m=>m,:d=>d) -%></li>
-			<% end -%>
-			<% if @next: -%>
-				<% d_m_y = @next.created_at.strftime(@format1) -%>
-				<% y,m,d = @next.created_at.strftime(@format2).split -%>
-				<li class="next"><%= link_to "Newer entries from #{d_m_y}", date_url(:y=>y,:m=>m,:d=>d) -%></li>
-			<% end -%>
-		</ul>
-	
-		<p>Visit the <%= link_to 'archive', archive_url %> if you wish to skip merrily through time in a devil may care fashion.</p>
+        <ul id="metadata">
+            <% if @prev: -%>
+                <% d_m_y = @prev.created_at.strftime(@format1) -%>
+                <% y,m,d = @prev.created_at.strftime(@format2).split -%>
+                <li class="prev"><%= link_to "Older entries from #{d_m_y}", date_url(:y=>y,:m=>m,:d=>d) -%></li>
+            <% end -%>
+            <% if @next: -%>
+                <% d_m_y = @next.created_at.strftime(@format1) -%>
+                <% y,m,d = @next.created_at.strftime(@format2).split -%>
+                <li class="next"><%= link_to "Newer entries from #{d_m_y}", date_url(:y=>y,:m=>m,:d=>d) -%></li>
+            <% end -%>
+        </ul>
 
-	<% end -%>
+        <p>Visit the <%= link_to 'archive', archive_url %> if you wish to skip merrily through time in a devil may care fashion.</p>
+
+    <% end -%>
 <% end -%>

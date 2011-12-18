@@ -1,32 +1,32 @@
 <div>
-	<div style="float:left; width:50%;"><h2>Archives by title</h2></div>
-	<div style="float:right; width:50%; text-align:right;">
+    <div style="float:left; width:50%;"><h2>Archives by title</h2></div>
+    <div style="float:right; width:50%; text-align:right;">
         <p style="margin-top:0.6em;">
             <%= link_to(archive_url) do %>
                 View archives as calendar &rarr;
             <% end %>
         </p>
     </div>
-	<div class="clear"></div>
+    <div class="clear"></div>
 </div>
 
 <% if @entries -%>
-	<% 	min = 0; max = @entries.size - 1  %>
-	<% @entries.each_with_index do |entry,i| -%>
-		<%
-		this_date = entry.created_at.strftime('%b %Y')
-		last_date = (i>min) ? (last_entry = @entries[i-1]).created_at.strftime('%b %Y') : ''
-		next_date = (i<max) ? (next_entry = @entries[i+1]).created_at.strftime('%b %Y') : ''
-		-%>
+    <%  min = 0; max = @entries.size - 1  %>
+    <% @entries.each_with_index do |entry,i| -%>
+        <%
+        this_date = entry.created_at.strftime('%b %Y')
+        last_date = (i>min) ? (last_entry = @entries[i-1]).created_at.strftime('%b %Y') : ''
+        next_date = (i<max) ? (next_entry = @entries[i+1]).created_at.strftime('%b %Y') : ''
+        -%>
 
-		<% if this_date != last_date -%>
-			<h4><%= link_to this_date, date_url(:y=>entry.created_at.year, :m=>entry.created_at.month) %></h4>
-		<% end -%>
+        <% if this_date != last_date -%>
+            <h4><%= link_to this_date, date_url(:y=>entry.created_at.year, :m=>entry.created_at.month) %></h4>
+        <% end -%>
 
-		
-		<% if this_date != last_date -%><ul class="spaced" style="font-size:0.9em;"><% end -%>
-			<li><%= link_to truncate(entry.page_title, :length=>75), entry_url(entry) %></li>
-		<% if this_date != next_date -%></ul><% end -%>
 
-	<% end -%>
+        <% if this_date != last_date -%><ul class="spaced" style="font-size:0.9em;"><% end -%>
+            <li><%= link_to truncate(entry.page_title, :length=>75), entry_url(entry) %></li>
+        <% if this_date != next_date -%></ul><% end -%>
+
+    <% end -%>
 <% end -%>

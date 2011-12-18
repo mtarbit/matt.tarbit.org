@@ -53,11 +53,11 @@ class BookController < ApplicationController
     unless asin.empty?
       book.book_images = Product.find_images_by_asin(asin)
     end
-    
+
     book.save!
     redirect_to librarian_url
   end
-  
+
   def update
     book = Book.find(params[:book][:id])
     asin = params[:book_image]

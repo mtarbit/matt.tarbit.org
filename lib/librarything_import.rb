@@ -18,6 +18,6 @@ csv.each_with_index do |row,i|
 
   # Delete the columns we aren't going to be using
   delete_indices.each {|i| row.delete_at(i) }
-  
+
   puts row.join(", ")
 end

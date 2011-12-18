@@ -1,7 +1,7 @@
 class AdminController < ApplicationController
   before_filter :authenticate, :except=>:login
   cache_sweeper :blog_sweeper, :only=>[:sync_from_delicious, :sync_from_twitter]
-  
+
   layout "admin"
 
   def login
@@ -65,10 +65,10 @@ class AdminController < ApplicationController
     tweets = client.user_timeline(params)
     tweets.each {|e| Entry.create_from_twitter(e) }
 
-    redirect_to admin_url    
-    
+    redirect_to admin_url
+
     # if session[:rtoken] or user.access_token
-    #   
+    #
     #   if session[:rtoken]
     #     oauth.authorize_from_request(session[:rtoken][:token], session[:rtoken][:secret], params[:oauth_verifier])
     #     user.access_token = oauth.access_token
@@ -146,7 +146,7 @@ private
     new_comments = []
     for c in comments
       if c.children.length > 0
-        new_children = convert_comments(e, c.children) 
+        new_children = convert_comments(e, c.children)
       else
         new_children = []
       end
@@ -162,7 +162,7 @@ private
     end
     new_comments
   end
-  
+
   def migrate_library
     require 'csv'
     require 'time'

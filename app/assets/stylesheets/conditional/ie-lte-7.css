@@ -1,4 +1,4 @@
-img					{ -ms-interpolation-mode:bicubic; }
+img                 { -ms-interpolation-mode:bicubic; }
 
-pre.code code		{ white-space:pre; width:29em; overflow:visible; overflow-x:scroll; }
-pre.line code		{ overflow:visible; width:3em; }
+pre.code code       { white-space:pre; width:29em; overflow:visible; overflow-x:scroll; }
+pre.line code       { overflow:visible; width:3em; }

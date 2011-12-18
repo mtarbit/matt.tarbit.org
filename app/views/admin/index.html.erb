@@ -1,8 +1,8 @@
 <h2>Entry admin</h2>
 
 <p>
-	Create a <%= Entry.variants.map {|v| link_to(v, new_entry_url(:variant=>v)) }.to_sentence(:two_words_connector=>' or ', :last_word_connector=>' or ').html_safe %>.
-	Sync <%= link_to 'links', :action=>:sync_from_delicious %> or <%= link_to 'statuses', :action=>:sync_from_twitter %>.
+    Create a <%= Entry.variants.map {|v| link_to(v, new_entry_url(:variant=>v)) }.to_sentence(:two_words_connector=>' or ', :last_word_connector=>' or ').html_safe %>.
+    Sync <%= link_to 'links', :action=>:sync_from_delicious %> or <%= link_to 'statuses', :action=>:sync_from_twitter %>.
 </p>
 
 <div class="hr"><hr /></div>
@@ -12,38 +12,38 @@
 <div class="clear"></div>
 
 <table class="data">
-	<tr>
+    <tr>
         <th class="center">Variant</th>
-		<th width="50%">Entry</th>
-		<th class="center">Posted</th>
-		<th class="center">Pubd</th>
-		<th class="center">Cmts</th>
-		<th class="center">Tags</th>
-		<th></th>
-		<th></th>
-		<th></th>
-	</tr>
-	<% for entry in @entries -%>
-		<tr class="<%= cycle('row0','row1') %>">
+        <th width="50%">Entry</th>
+        <th class="center">Posted</th>
+        <th class="center">Pubd</th>
+        <th class="center">Cmts</th>
+        <th class="center">Tags</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    <% for entry in @entries -%>
+        <tr class="<%= cycle('row0','row1') %>">
             <td class="center small"><%= entry.variant %></td>
-			<td>
-			<%= case entry.variant
-				when 'post'     then entry.title
-				when 'link'     then link_to entry.title, entry.url
-				when 'quote'    then link_to_if entry.url, ("&#8220;%s&#8221;" % truncate(entry.content, :length=>60)).html_safe, entry.url
+            <td>
+            <%= case entry.variant
+                when 'post'     then entry.title
+                when 'link'     then link_to entry.title, entry.url
+                when 'quote'    then link_to_if entry.url, ("&#8220;%s&#8221;" % truncate(entry.content, :length=>60)).html_safe, entry.url
                 when 'status'   then truncate(entry.content, :length=>60)
-				else entry.title
-			end %>
-			</td>
-			<td class="center small"><%= entry.created_at.strftime("%d-%m-%y @ %H:%M") %></td>
-			<td class="center"><%= entry.published ? '&bull;'.html_safe : '' %></td>
-			<td class="center"><%= entry.comments.length > 0 ? entry.comments.length : '' %></td>
-			<td class="center"><%= entry.tags.length > 0 ? entry.tags.length : '' %></td>
-			<td class="center"><%= link_to 'View',   entry_url(entry) %></td>
-			<td class="center"><%= link_to 'Edit',   {:controller=>:entry, :action=>:edit,   :id=>entry } %></td>
-			<td class="center"><%= link_to 'Delete', {:controller=>:entry, :action=>:delete, :id=>entry}, :confirm=>'Are you sure?' %></td>
-		</tr>
-	<% end -%>
+                else entry.title
+            end %>
+            </td>
+            <td class="center small"><%= entry.created_at.strftime("%d-%m-%y @ %H:%M") %></td>
+            <td class="center"><%= entry.published ? '&bull;'.html_safe : '' %></td>
+            <td class="center"><%= entry.comments.length > 0 ? entry.comments.length : '' %></td>
+            <td class="center"><%= entry.tags.length > 0 ? entry.tags.length : '' %></td>
+            <td class="center"><%= link_to 'View',   entry_url(entry) %></td>
+            <td class="center"><%= link_to 'Edit',   {:controller=>:entry, :action=>:edit,   :id=>entry } %></td>
+            <td class="center"><%= link_to 'Delete', {:controller=>:entry, :action=>:delete, :id=>entry}, :confirm=>'Are you sure?' %></td>
+        </tr>
+    <% end -%>
 </table>
 
 <%= will_paginate @entries %>

@@ -2,20 +2,20 @@
 
 <%= form_rows_for :entry, :url=>{:action=>:update} do |f| %>
 
-	<%= hidden_field :entry, :id %>
-	<%= hidden_field :entry, :variant %>
+    <%= hidden_field :entry, :id %>
+    <%= hidden_field :entry, :variant %>
 
-	<fieldset>
-		<legend><%= @entry.variant.humanize %> Content</legend>
-		
-		<%= render(:partial => "partials/variants/#{@entry.variant}/form", :locals=>{:f=>f,:entry=>@entry} ) %>
+    <fieldset>
+        <legend><%= @entry.variant.humanize %> Content</legend>
 
-		<div class="form-row">
-			<div class="label"><label for="entry_tags_as_string">Tags:</label></div>
-			<div class="input"><%= text_field :entry, :tags_as_string, :style=>'width:98%', :size=>75 %></div>
-		</div>
+        <%= render(:partial => "partials/variants/#{@entry.variant}/form", :locals=>{:f=>f,:entry=>@entry} ) %>
 
-		<div class="form-gap"></div>
+        <div class="form-row">
+            <div class="label"><label for="entry_tags_as_string">Tags:</label></div>
+            <div class="input"><%= text_field :entry, :tags_as_string, :style=>'width:98%', :size=>75 %></div>
+        </div>
+
+        <div class="form-gap"></div>
 
         <div class="form-row">
             <div class="input">
@@ -24,12 +24,12 @@
             </div>
         </div>
 
-		<div class="form-gap"></div>
-			
-		<div class="form-row">
-			<div class="input"><%= submit_tag 'Submit', {:class=>'button'} %></div>
-		</div>
+        <div class="form-gap"></div>
 
-	</fieldset>
+        <div class="form-row">
+            <div class="input"><%= submit_tag 'Submit', {:class=>'button'} %></div>
+        </div>
+
+    </fieldset>
 
 <% end %>

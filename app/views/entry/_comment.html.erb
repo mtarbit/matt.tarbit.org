@@ -1,4 +1,4 @@
-<% 
+<%
 # Format with paragraphs.
 c.content = simple_format(c.content)
 # Link up urls but remove internal path components to keep them short.
@@ -15,12 +15,12 @@ end
 href = ''
 %>
 <li style="margin-left:<%= depth * 2 %>em;" id="comment-<%= c.id %>">
-	<div class="comment">
-		<%= c.content %>
-	</div>
-	<p class="small">
-		Posted
-		by <%= link_to_if href, c.name.titleize, href %> 
-		on <%= link_to (c.created_at || Time.now()).strftime("%e %b %Y at %I:%M %p"), {:anchor=>"comment-#{c.id}"}, {:title=>'Permalink'} %>
-	</p>
+    <div class="comment">
+        <%= c.content %>
+    </div>
+    <p class="small">
+        Posted
+        by <%= link_to_if href, c.name.titleize, href %>
+        on <%= link_to (c.created_at || Time.now()).strftime("%e %b %Y at %I:%M %p"), {:anchor=>"comment-#{c.id}"}, {:title=>'Permalink'} %>
+    </p>
 </li>

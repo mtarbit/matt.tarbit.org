@@ -1,5 +1,5 @@
 <% string_format = '<span class="lquote">&#8220;</span>%s<span class="rquote">&#8221;</span><span class="source">&mdash; %s</span>' %>
 <div class="quote">
-	<div class="content"><%= highlight_html(markdown(string_format % [entry.content, link_to_if(entry.url, highlight_text(entry.title,@words), entry.url)] ), @words) %></div>
-	<p class="comments"><%= link_to pluralize(entry.comments_count, 'comment'), entry_url(entry) %></p>
+    <div class="content"><%= highlight_html(markdown(string_format % [entry.content, link_to_if(entry.url, highlight_text(entry.title,@words), entry.url)] ), @words) %></div>
+    <p class="comments"><%= link_to pluralize(entry.comments_count, 'comment'), entry_url(entry) %></p>
 </div>

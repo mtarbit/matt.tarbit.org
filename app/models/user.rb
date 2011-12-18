@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
     self.password_salt = User.generate_salt
     self.password_hash = User.encrypted_password(self.password, self.password_salt)
   end
-  
+
   def self.authenticate(username, password)
     user = self.find_by_username(username)
     if user

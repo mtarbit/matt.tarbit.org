@@ -3,7 +3,7 @@
 <% entry.content = auto_link(entry.content, :urls) %>
 <% string_format = '<span class="lquote">&#8220;</span>%s<span class="rquote">&#8221;</span><span class="source">&mdash; %s</span>' %>
 <div class="quote">
-	<div class="content"><%= highlight_html(markdown(string_format % [entry.content, link_to("@twitter", entry.status_url)]), @words) %></div>
-	<p class="comments"><%= link_to pluralize(entry.comments_count, 'comment'), entry_url(entry) %></p>
-	<div class="clear"></div>
+    <div class="content"><%= highlight_html(markdown(string_format % [entry.content, link_to("@twitter", entry.status_url)]), @words) %></div>
+    <p class="comments"><%= link_to pluralize(entry.comments_count, 'comment'), entry_url(entry) %></p>
+    <div class="clear"></div>
 </div>

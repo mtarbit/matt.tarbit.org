@@ -2,102 +2,102 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-	<title><%= truncate(@title, :length=>60) || "Matt Tarbit's Weblog" %></title>
+    <title><%= truncate(@title, :length=>60) || "Matt Tarbit's Weblog" %></title>
 
     <meta name="description" content="A personal site about games, programming, and whatever else has happened across my peripheral vision lately." />
 
-	<%= auto_discovery_link_tag :rss, rss_url %>
-    
-    <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold' %>
-	<%= stylesheet_link_tag 'application' %>
-	<%= stylesheet_link_tag 'print', :media=>'print' %>
-	<!--[if lte IE 7]>
-		<%= stylesheet_link_tag 'conditional/ie-lte-7' %>
-	<![endif]-->
+    <%= auto_discovery_link_tag :rss, rss_url %>
 
-	<%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold' %>
+    <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag 'print', :media=>'print' %>
+    <!--[if lte IE 7]>
+        <%= stylesheet_link_tag 'conditional/ie-lte-7' %>
+    <![endif]-->
+
+    <%= javascript_include_tag 'application' %>
 
     <%= csrf_meta_tags %>
 
-	<script type="text/javascript">
+    <script type="text/javascript">
 
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-3016489-1']);
-		_gaq.push(['_trackPageview']);
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-3016489-1']);
+        _gaq.push(['_trackPageview']);
 
-		(function() {
+        (function() {
             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
+        })();
 
-	</script>
+    </script>
 
 </head>
 <body id="<%= "#{controller.controller_name}-#{controller.action_name}" %>" <% if controller.wide_layout? %>class="wide"<% end %>>
 
 <div id="pagefull">
-	
-	<div id="pagehead"><div class="inner">
-		<h1 id="pagelogo">
+
+    <div id="pagehead"><div class="inner">
+        <h1 id="pagelogo">
             <%= link_to(index_url, :rel=>'me') do %>
                 <span>Matt<small>.</small>Tarbit<small>.org</small></span>
             <% end %>
         </h1>
-		<ul id="pagemenu">
-			<% if content_for? :navigation %>
-				<%= yield :navigation %>
-			<% else %>
-				<li class="first"><%= link_to 'About', about_url %></li>
-				<li><%= link_to 'Archive', archive_url %></li>
-				<li><%= link_to 'Library', library_url %></li>
-				<li><%= link_to 'Tags', tags_url %></li>
-				<li><%= link_to 'Feed', rss_url %></li>
-				<li><%= link_to 'Search', search_url %></li>
-			<% end %>
-		</ul>
-		<br class="clear" />
-	</div></div>
+        <ul id="pagemenu">
+            <% if content_for? :navigation %>
+                <%= yield :navigation %>
+            <% else %>
+                <li class="first"><%= link_to 'About', about_url %></li>
+                <li><%= link_to 'Archive', archive_url %></li>
+                <li><%= link_to 'Library', library_url %></li>
+                <li><%= link_to 'Tags', tags_url %></li>
+                <li><%= link_to 'Feed', rss_url %></li>
+                <li><%= link_to 'Search', search_url %></li>
+            <% end %>
+        </ul>
+        <br class="clear" />
+    </div></div>
 
-	<div id="pagebody"><div class="inner">		
-		<% if controller.wide_layout? or controller.single_column? -%>
+    <div id="pagebody"><div class="inner">
+        <% if controller.wide_layout? or controller.single_column? -%>
 
-			<%= render(:partial=>'partials/feedback', :object=>flash) %>
-			<%= yield %>
+            <%= render(:partial=>'partials/feedback', :object=>flash) %>
+            <%= yield %>
 
-		<% else -%>
+        <% else -%>
 
-			<div class="pagelcol">
-				<%= render(:partial=>'partials/feedback', :object=>flash) %>
-				<%= yield %>
-			</div>
+            <div class="pagelcol">
+                <%= render(:partial=>'partials/feedback', :object=>flash) %>
+                <%= yield %>
+            </div>
 
-			<div class="pagercol">
-				<% if content_for? :sidebar %>
-					<%= yield :sidebar %>
-				<% else %>
-					<h2>Where am I?</h2>
+            <div class="pagercol">
+                <% if content_for? :sidebar %>
+                    <%= yield :sidebar %>
+                <% else %>
+                    <h2>Where am I?</h2>
 
-					<p>
-						This is the personal site of <%= link_to 'Matthew Tarbit', about_url %>, a seasoned
-						web developer holed-up in a hideaway somewhere in the depths of Leeds, England.
-					</p>
-					<p>
-						Should the mood arise, you might add my outpourings to the deluge that is your already
-						overflowing <%= link_to 'info drip feed', rss_url %>.
-					</p>
-					<p>
-						Alternately, rest a while and <%= link_to 'dig through my entries', search_url %>
-						like a corpulent pig in search of all that is truffle-icious.
-					</p>
-				<% end %>
-			</div>
+                    <p>
+                        This is the personal site of <%= link_to 'Matthew Tarbit', about_url %>, a seasoned
+                        web developer holed-up in a hideaway somewhere in the depths of Leeds, England.
+                    </p>
+                    <p>
+                        Should the mood arise, you might add my outpourings to the deluge that is your already
+                        overflowing <%= link_to 'info drip feed', rss_url %>.
+                    </p>
+                    <p>
+                        Alternately, rest a while and <%= link_to 'dig through my entries', search_url %>
+                        like a corpulent pig in search of all that is truffle-icious.
+                    </p>
+                <% end %>
+            </div>
 
-			<div class="clear"></div>
+            <div class="clear"></div>
 
-		<% end -%>
+        <% end -%>
 
-	</div></div>
+    </div></div>
 
 </div>
 

@@ -9,14 +9,14 @@ class Product < ActiveRecord::Base
     # "http://www.amazon.co.uk/dp/#{@asin}/ref=nosim?tag=#{ASSOCIATE_ID}"
     "http://www.amazon.co.uk/dp/#{asin}/?tag=" + SETTINGS['amazon']['associate_id']
   end
-  
+
   def activity
     case group
-    when 'Book': 'reading'
-    when 'Video Games': 'playing'
-    when 'Music': 'listening to'
-    when 'DVD': 'watching'
-    when 'Electronics': 'using'
+    when 'Book' then 'reading'
+    when 'Video Games' then 'playing'
+    when 'Music' then 'listening to'
+    when 'DVD' then 'watching'
+    when 'Electronics' then 'using'
     end
   end
 
@@ -27,7 +27,7 @@ class Product < ActiveRecord::Base
   def self.lookup(search, options={})
     self.request(:lookup, search, options)
   end
-  
+
   def self.request(operation, search, options={})
     raw = options.delete(:Raw)
 
@@ -36,10 +36,10 @@ class Product < ActiveRecord::Base
 
     res = [res] unless res.is_a?(Array)
     res = (raw) ? res : res.collect { |item| self.convert_from_amazon(item) }
-    
+
     (operation == :lookup) ? res[0] : res
   end
-  
+
   def self.search_by_asin(asin)
     self.find_by_asin(asin) || self.lookup(asin)
   end
@@ -62,28 +62,28 @@ class Product < ActiveRecord::Base
       :url  => item['DetailPageURL']
     })
 
-	  if item_attr = item['ItemAttributes']
-  	  product.title     = item_attr['Title']
-  		product.group     = item_attr['ProductGroup']
-  		product.creator   = case item_attr['ProductGroup']
-  		  when 'Music': "by #{item_attr['Artist']}"
-  			when 'Book':  "by #{item_attr['Author'].to_a.to_sentence}"
-  		end
-	  end
-
-		if item_image = item['LargeImage']
-  		product.image = item_image['URL']
+    if item_attr = item['ItemAttributes']
+      product.title     = item_attr['Title']
+      product.group     = item_attr['ProductGroup']
+      product.creator   = case item_attr['ProductGroup']
+        when 'Music': "by #{item_attr['Artist']}"
+        when 'Book':  "by #{item_attr['Author'].to_a.to_sentence}"
+      end
     end
-    
+
+    if item_image = item['LargeImage']
+      product.image = item_image['URL']
+    end
+
     product
   end
 
   def self.convert_from_amazon_book_image(item)
-	  BookImage.new({
-  		:url      => item['URL'],
-  		:height   => item['Height'],
-  		:width    => item['Width']
-		})
+    BookImage.new({
+      :url      => item['URL'],
+      :height   => item['Height'],
+      :width    => item['Width']
+    })
   end
 
 end

@@ -17,11 +17,11 @@ private
 
   def expire_item(record)
     return if record.nil?
-  
+
     # Expire the two index pages
     expire_page({:controller=>'book'})
     expire_page({:controller=>'author'})
-    
+
     # Expire this record and any associated records
     if record.is_a?(Book)
       expire_book(record)
@@ -37,7 +37,7 @@ private
     expire_page({:controller=>'book',:action=>'show',:id=>book.id})
     # Expire the front page if this book is on it
     last = Book.find(:first, :order=>'created_at DESC', :offset=>3)
-  	expire_page(index_path) if book.created_at >= last.created_at
+    expire_page(index_path) if book.created_at >= last.created_at
   end
 
   def expire_author(author)

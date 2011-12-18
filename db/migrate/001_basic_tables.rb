@@ -8,7 +8,7 @@ class BasicTables < ActiveRecord::Migration
       t.column :created_at,     :datetime
       t.column :updated_at,     :datetime
     end
-    
+
     # Entries can be posts, links or quotes
     create_table :posts do |t|
       t.column :title,        :string
@@ -26,7 +26,7 @@ class BasicTables < ActiveRecord::Migration
       t.column :source,       :string
     end
     add_index :links, :href
-    
+
     # Entries can be tagged
     create_table :tags do |t|
       t.column :name, :string
@@ -37,7 +37,7 @@ class BasicTables < ActiveRecord::Migration
     end
     add_index :entries_tags, [:entry_id, :tag_id]
     add_index :entries_tags, :tag_id
-    
+
     # Entries can be commented upon
     create_table :comments do |t|
       t.column :entry_id,   :integer, :null=>false

@@ -1,13 +1,13 @@
-body				{ margin:0; padding:0; font-size:90%; }
+body                { margin:0; padding:0; font-size:90%; }
 
-a					{ color:#222; text-decoration:none; }
+a                   { color:#222; text-decoration:none; }
 
-#pagehead			{ display:none; }
-#pagebody			{ background:none; }
-#pagebody .inner	{ padding:0; }
+#pagehead           { display:none; }
+#pagebody           { background:none; }
+#pagebody .inner    { padding:0; }
 
-.download-links		{ display:none; }
-.pg					{ page-break-before:left; }
-.sample .detail ul	{ font-size:0.8em; }
+.download-links     { display:none; }
+.pg                 { page-break-before:left; }
+.sample .detail ul  { font-size:0.8em; }
 
-.print				{ display:inherit; }
+.print              { display:inherit; }

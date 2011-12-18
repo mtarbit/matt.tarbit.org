@@ -2,25 +2,25 @@
 
 <%= form_rows_for :user, :url=>{:action=>:login} do |f| %>
 
-	<fieldset>
-		<legend>Login Details</legend>
-		
-		<%= f.text_field :username, :style=>'width:98%', :size=>75 %>
-		<%= f.password_field :password, :style=>'width:98%', :size=>75 %>
+    <fieldset>
+        <legend>Login Details</legend>
 
-		<div class="form-row">
-			<div class="input">
-				<span class="tick-item"><%= check_box_tag 'remember_me' %></span>
-				<span class="tick-text"><label for="remember_me">Remember me on this computer</label></span>
-			</div>
-		</div>
+        <%= f.text_field :username, :style=>'width:98%', :size=>75 %>
+        <%= f.password_field :password, :style=>'width:98%', :size=>75 %>
 
-		<div class="form-gap"></div>
-			
-		<div class="form-row">
-			<div class="input"><%= submit_tag 'Submit', {:class=>'button'} %></div>
-		</div>
+        <div class="form-row">
+            <div class="input">
+                <span class="tick-item"><%= check_box_tag 'remember_me' %></span>
+                <span class="tick-text"><label for="remember_me">Remember me on this computer</label></span>
+            </div>
+        </div>
 
-	</fieldset>
+        <div class="form-gap"></div>
+
+        <div class="form-row">
+            <div class="input"><%= submit_tag 'Submit', {:class=>'button'} %></div>
+        </div>
+
+    </fieldset>
 
 <% end %>

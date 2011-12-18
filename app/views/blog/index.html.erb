@@ -11,14 +11,14 @@
 
 
 <% content_for :sidebar do -%>
-	<h2>Where am I?</h2>
+    <h2>Where am I?</h2>
 
-	<p>
-	The personal site of <%= link_to 'Matthew Tarbit', about_url %>, a seasoned
-	web developer holed-up in a hideaway somewhere in the depths of Leeds, England.
-	</p>
+    <p>
+    The personal site of <%= link_to 'Matthew Tarbit', about_url %>, a seasoned
+    web developer holed-up in a hideaway somewhere in the depths of Leeds, England.
+    </p>
 
-	<div class="hr"><hr /></div>
+    <div class="hr"><hr /></div>
 
-	<%= render(:partial=>'partials/reading', :object=>@books) %>
+    <%= render(:partial=>'partials/reading', :object=>@books) %>
 <% end -%>

@@ -1,7 +1,7 @@
 class EntryController < ApplicationController
   before_filter :authenticate, :except=>:read
   cache_sweeper :blog_sweeper, :only=>[:create,:update,:delete]
-  
+
   layout :layout_for_action
 
   def layout_for_action
@@ -16,9 +16,9 @@ class EntryController < ApplicationController
       render_not_found
       # raise ActiveRecord::RecordNotFound
     else
-   		@title = @entry.page_title
-  		@next = @entry.find_next
-  		@prev = @entry.find_prev
+      @title = @entry.page_title
+      @next = @entry.find_next
+      @prev = @entry.find_prev
 
       # Create the comment object, pre-populating it with data
       # from either a failed submission or a previous comment.
@@ -28,14 +28,14 @@ class EntryController < ApplicationController
         :website => cookies[:user_website]
       })
 
-      @tokens = spam_challenge_tokens 
+      @tokens = spam_challenge_tokens
     end
   end
 
   def new
     @single_column = true
     @entry = Entry.new
-		@entry.variant = params[:variant]
+    @entry.variant = params[:variant]
 
     if @entry.variant=='review'
       if params[:asin]
@@ -59,20 +59,20 @@ class EntryController < ApplicationController
 
   def create
     entry = Entry.new(params[:entry])
-		if entry.variant == 'review'
-			entry.product = Product.search_by_asin(params[:asin])
-		end
+    if entry.variant == 'review'
+      entry.product = Product.search_by_asin(params[:asin])
+    end
     entry.save!
-				
+
     redirect_to admin_url
   end
-  
+
   def update
     entry = Entry.find(params[:entry][:id])
     entry.attributes = params[:entry]
-		if entry.variant == 'review'
-			entry.product = Product.search_by_asin(params[:asin])
-		end
+    if entry.variant == 'review'
+      entry.product = Product.search_by_asin(params[:asin])
+    end
     entry.save!
     redirect_to admin_url
   end

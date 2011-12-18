@@ -1,5 +1,5 @@
 <% cache do %>
-	<%= render(:partial => "partials/variants/#{@entry.variant}/single", :locals=>{:entry=>@entry} ) %>
+    <%= render(:partial => "partials/variants/#{@entry.variant}/single", :locals=>{:entry=>@entry} ) %>
     <% if SETTINGS['features_enabled']['comments'] or @entry.comments_count > 0 %>
         <div id="comments">
             <%= render(:partial => 'comments', :locals=>{:entry=>@entry}) %>
@@ -12,26 +12,26 @@
 <% end %>
 
 <% content_for :sidebar do %>
-	<% @d1,@m1,@y1 = @entry.created_at.strftime("%e %b %Y").split %>
-	<% @d2,@m2,@y2 = @entry.created_at.strftime("%d %m %Y").split %>
+    <% @d1,@m1,@y1 = @entry.created_at.strftime("%e %b %Y").split %>
+    <% @d2,@m2,@y2 = @entry.created_at.strftime("%d %m %Y").split %>
 
-	<h2>Metadata</h2>
+    <h2>Metadata</h2>
 
-	<ul id="metadata">
-		<li class="time">
-			Posted on 
-			<%= link_to @d1, date_url(:y=>@y2,:m=>@m2,:d=>@d2) %>
-			<%= link_to @m1, date_url(:y=>@y2,:m=>@m2,:d=>nil) %>
-			<%= link_to @y1, date_url(:y=>@y2,:m=>nil,:d=>nil) %>
-			at <%= @entry.created_at.strftime("%I:%M %p") %>
-		</li>
+    <ul id="metadata">
+        <li class="time">
+            Posted on
+            <%= link_to @d1, date_url(:y=>@y2,:m=>@m2,:d=>@d2) %>
+            <%= link_to @m1, date_url(:y=>@y2,:m=>@m2,:d=>nil) %>
+            <%= link_to @y1, date_url(:y=>@y2,:m=>nil,:d=>nil) %>
+            at <%= @entry.created_at.strftime("%I:%M %p") %>
+        </li>
 
-		<% if @prev: %><li class="prev"><%= link_to truncate(@prev.page_title, :length=>60), entry_url(@prev), :title=>'Older entry' %></li><% end %>
-		<% if @next: %><li class="next"><%= link_to truncate(@next.page_title, :length=>60), entry_url(@next), :title=>'Newer entry' %></li><% end %>
+        <% if @prev: %><li class="prev"><%= link_to truncate(@prev.page_title, :length=>60), entry_url(@prev), :title=>'Older entry' %></li><% end %>
+        <% if @next: %><li class="next"><%= link_to truncate(@next.page_title, :length=>60), entry_url(@next), :title=>'Newer entry' %></li><% end %>
 
-		<% if @entry.tags.count > 0 -%>
-			<li class="tags"><%= linkify_tags(@entry.tags) %></li>
-		<% end -%>
-	</ul>
+        <% if @entry.tags.count > 0 -%>
+            <li class="tags"><%= linkify_tags(@entry.tags) %></li>
+        <% end -%>
+    </ul>
 
 <% end %>

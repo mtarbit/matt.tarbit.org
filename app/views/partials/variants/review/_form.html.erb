@@ -4,8 +4,8 @@
 <%= f.text_field :slug, :style=>'width:98%', :size=>75 %>
 
 <div class="fr" style="text-align:center; margin:2px 10px 0 0;">
-	<%= image_tag(entry.product.image, :width=>125, :class=>'border') %>
-	<p>
+    <%= image_tag(entry.product.image, :width=>125, :class=>'border') %>
+    <p>
         <%= link_to(url_for(:controller=>'admin', :action=>'amazon', :next=>request.path)) do %>
             Change product &rarr;
         <% end %>

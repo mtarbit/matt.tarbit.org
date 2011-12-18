@@ -1,543 +1,543 @@
 <script type="text/javascript">
-	// <![CDATA[
-	
-	function initImages() {
-		var re = /_t\.jpg$/;
-		$$('div.img a').each(function(el){
-			var img = el.down('img');
-			if (img) {
-				if (re.test(img.src)) {
-					el.href = img.src.replace(re,'.jpg');
-					el.observe('click', function(e){ window.open(this.href); e.stop(); });
-				}
-			}
-		})
-	}
-	
-	document.observe('dom:loaded', initImages);
-	
-	// ]]>
+    // <![CDATA[
+
+    function initImages() {
+        var re = /_t\.jpg$/;
+        $$('div.img a').each(function(el){
+            var img = el.down('img');
+            if (img) {
+                if (re.test(img.src)) {
+                    el.href = img.src.replace(re,'.jpg');
+                    el.observe('click', function(e){ window.open(this.href); e.stop(); });
+                }
+            }
+        })
+    }
+
+    document.observe('dom:loaded', initImages);
+
+    // ]]>
 </script>
 
 <style type="text/css">
-	ul.gamesList				{ margin:1em auto; padding:0; width:870px; overflow:hidden; }
-	ul.gamesList li				{ margin:0; padding:0; list-style-type:none; float:left; margin-left:10px; margin-bottom:2em; width:100px; text-align:center; }
-	ul.gamesList li.first 		{ clear:both; margin-left:0; }
-	ul.gamesList div.img		{ width:100px; height:100px; overflow:hidden; margin-bottom:0.5em; text-align:center; }
-	ul.gamesList div.img img 	{ display:inline; }
-	ul.gamesList div.txt a		{ line-height:1.2em; }
-	ul.gamesList div small		{ color:#666; }
+    ul.gamesList                { margin:1em auto; padding:0; width:870px; overflow:hidden; }
+    ul.gamesList li             { margin:0; padding:0; list-style-type:none; float:left; margin-left:10px; margin-bottom:2em; width:100px; text-align:center; }
+    ul.gamesList li.first       { clear:both; margin-left:0; }
+    ul.gamesList div.img        { width:100px; height:100px; overflow:hidden; margin-bottom:0.5em; text-align:center; }
+    ul.gamesList div.img img    { display:inline; }
+    ul.gamesList div.txt a      { line-height:1.2em; }
+    ul.gamesList div small      { color:#666; }
 </style>
 
 <h2>Hobby Games: The 100 Best<span style="font-weight:normal; color:#666;"> &mdash; A Visual Companion</span></h2>
 
 <p>
-	If you came here directly, see <a href="/2009/08/23/hobby-games-the">this post</a> for more details on what this is about.
-	All imagery courtesy of the community at <a href="http://www.geekdo.com/">Geekdō</a>. Click on a 
-	thumbnail to see the full-size scan in a new window, or click on a title to go to the entry for that game at <a href="http://www.geekdo.com/">Geekdo.com</a>.
+    If you came here directly, see <a href="/2009/08/23/hobby-games-the">this post</a> for more details on what this is about.
+    All imagery courtesy of the community at <a href="http://www.geekdo.com/">Geekdō</a>. Click on a
+    thumbnail to see the full-size scan in a new window, or click on a title to go to the entry for that game at <a href="http://www.geekdo.com/">Geekdo.com</a>.
 </p>
 
 <div class="hr"><hr /></a></div>
 
 <ul class="gamesList">
-	<li class="first">
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic342163_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/5">Acquire</a></div>
-		<div><small>(Bruce C. Shelley)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic502800_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/rpgitem/43626">Amber Diceless</a></div>
-		<div><small>(Nicole Lindroos)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic146430_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/5404">Amun-Re</a></div>
-		<div><small>(Ian Livingstone)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic503063_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/rpgitem/43948">Ars Magica</a></div>
-		<div><small>(Stewart Wieck)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic24006_t.jpg" width="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/98">Axis & Allies</a></div>
-		<div><small>(Thomas M. Reid)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic21060_t.jpg" width="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/551">Battle Cry</a></div>
-		<div><small>(Tracy Hickman)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic34098_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/1540">BattleTech</a></div>
-		<div><small>(Philip Reed)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic256111_t.jpg" width="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/2288">Blood Bowl</a></div>
-		<div><small>(Justin Achilli)</small></div>
-	</li>
-	<li class="first">
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic69366_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/11">Bohnanza</a></div>
-		<div><small>(Mike Selinker)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic106711_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/240">Britannia</a></div>
-		<div><small>(Tom Dalgliesh)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic59279_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/17">Button Men</a></div>
-		<div><small>(Greg Stolze)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic507753_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/rpgitem/46421">Call of Cthulhu</a></div>
-		<div><small>(Monte Cook)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic166867_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/822">Carcassonne</a></div>
-		<div><small>(Steven E. Schend)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic135704_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/2795">Car Wars</a></div>
-		<div><small>(Jeff Tidball)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic519054_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/rpgitem/49214">Champions</a></div>
-		<div><small>(Bill Bridges)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic290698_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/rpgitem/244">Circus Maximus</a></div>
-		<div><small>(Stan!)</small></div>
-	</li>
-	<li class="first">
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic203792_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/478">Citadels</a></div>
-		<div><small>(Tom Jolly)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic87459_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/177">Civilization</a></div>
-		<div><small>(Steven Savile)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic428608_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/15">Cosmic Encounter</a></div>
-		<div><small>(Bruno Faidutti)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic247006_t.jpg" width="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/1302">Cosmic Wimpout</a></div>
-		<div><small>(Andrew Looney)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic164435_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/4014">Dawn Patrol</a></div>
-		<div><small>(Skip Williams)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic249300_t.jpg" width="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/17226">Descent</a></div>
-		<div><small>(Alan R. Moon)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic11666_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/483">Diplomacy</a></div>
-		<div><small>(Larry Harris)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic511746_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/rpgitem/44081">Dungeons & Dragons</a></div>
-		<div><small>(Richard Garfield)</small></div>
-	</li>
-	<li class="first">
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic29928_t.jpg" width="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/7290">Dynasty League Baseball</a></div>
-		<div><small>(William W. Connors)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic180538_t.jpg" width="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/93">El Grande</a></div>
-		<div><small>(Christian T. Petersen)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic75368_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/254">Empires in Arms</a></div>
-		<div><small>(Alessio Cavatore)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic373825_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/911">Empires of the Middle Ages</a></div>
-		<div><small>(Timothy Brown)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic530942_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/rpgitem/45276">The Extraordinary Adventures of Baron Munchausen</a></div>
-		<div><small>(Allen Varney)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic90128_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/12355">Fire and Fury</a></div>
-		<div><small>(Phil Yates)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic142488_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/11168">Flames of War</a></div>
-		<div><small>(William Jones)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic414362_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/258">Fluxx</a></div>
-		<div><small>(Rick Loomis)</small></div>
-	</li>
-	<li class="first">
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic168167_t.jpg" width="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/173">Formula D&eacute;</a></div>
-		<div><small>(John Kovalic)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic312728_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/936">The Fury of Dracula</a></div>
-		<div><small>(Anthony J. Gallela)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic31686_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/6472">A Game of Thrones</a></div>
-		<div><small>(Jesse Scoble)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic89933_t.jpg" width="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/3099">Gettysburg</a></div>
-		<div><small>(Lou Zocchi)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic531205_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/rpgitem/44022">Ghostbusters</a></div>
-		<div><small>(James Wallis)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic180599_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/2063">The Great Khan Game</a></div>
-		<div><small>(James M. Ward)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic105813_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/2002">Hammer of the Scots</a></div>
-		<div><small>(Gav Thorpe)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic353047_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/17392">Here I Stand</a></div>
-		<div><small>(Uli Blennemann)</small></div>
-	</li>
-	<li class="first">
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic9550_t.jpg" width="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/701">A House Divided</a></div>
-		<div><small>(S. Craig Taylor, Jr.)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic55406_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/859">Illuminati</a></div>
-		<div><small>(Scott Haring)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic178771_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/30684">Johnny Reb</a></div>
-		<div><small>(Dana Lombardy)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic369211_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/242">Junta</a></div>
-		<div><small>(Darren Watts)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic13290_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/987">Kingmaker</a></div>
-		<div><small>(Greg Stafford)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic87942_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/196">Kremlin</a></div>
-		<div><small>(Lester Smith)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic151045_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/1887">Legend of the Five Rings</a></div>
-		<div><small>(Wolfgang Baur)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic94585_t.jpg" width="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/18144">Lensman</a></div>
-		<div><small>(Marc W. Miller)</small></div>
-	</li>
-	<li class="first">
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic125793_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/2150">London's Burning</a></div>
-		<div><small>(Ted S. Raicer)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic479124_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/823">Lord of the Rings</a></div>
-		<div><small>(Teeuwynn Woodruff)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic276379_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/286">Machiavelli</a></div>
-		<div><small>(Mike Breault)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic163749_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/463">Magic: The Gathering</a></div>
-		<div><small>(Jordan Weisman)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic504708_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/rpgitem/43636">Marvel Super Heroes</a></div>
-		<div><small>(Steve Kenson)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic532558_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/rpgitem/53040">Metamorphosis Alpha</a></div>
-		<div><small>(Gary Gygax)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic502021_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/rpgitem/44583">My Life with Master</a></div>
-		<div><small>(Greg Costikyan)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic19600_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/1800">Mythos</a></div>
-		<div><small>(John D. Rateliff)</small></div>
-	</li>
-	<li class="first">
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic18800_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/4230">Napoleon's Last Battles</a></div>
-		<div><small>(Chris 'Gerry' Klug)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic87967_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/1674">Naval War</a></div>
-		<div><small>(John Scott Tynes)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic69398_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/5206">Ogre</a></div>
-		<div><small>(Erick Wujcik)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic190904_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/1234">Once Upon a Time</a></div>
-		<div><small>(Marc Gascoigne)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic260484_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/2238">PanzerBlitz</a></div>
-		<div><small>(Mike Bennighof)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic506681_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/rpgitem/46295">Paranoia</a></div>
-		<div><small>(Steve Jackson)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic507739_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/rpgitem/43854">Pendragon</a></div>
-		<div><small>(Shannon Appelcline)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic162248_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/2987">Pirate's Cove</a></div>
-		<div><small>(JD Wiker)</small></div>
-	</li>
-	<li class="first">
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic128918_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/2784">Plague!</a></div>
-		<div><small>(Richard H. Berg)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic173153_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/2651">Power Grid</a></div>
-		<div><small>(Martin Wallace)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic158548_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/3076">Puerto Rico</a></div>
-		<div><small>(Tom Wham)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic32910_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/8044">Renaissance of Infantry</a></div>
-		<div><small>(Joseph Miranda)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic249264_t.jpg" width="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/18">RoboRally</a></div>
-		<div><small>(James Ernest)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic505931_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/rpgitem/43642">RuneQuest</a></div>
-		<div><small>(Paul Jaquays)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic268839_t.jpg" width="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/13">The Settlers of Catan</a></div>
-		<div><small>(Richard Dansky)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic52949_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/3475">Shadowfist</a></div>
-		<div><small>(Ken St. Andre)</small></div>
-	</li>
-	<li class="first">
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic514946_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/rpgitem/48105">Shadowrun</a></div>
-		<div><small>(Steven S. Long)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic70547_t.jpg" width="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/15062">Shadows over Camelot</a></div>
-		<div><small>(Peter Corless)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic172079_t.jpg" width="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/27266">Silent Death: The Next Millennium</a></div>
-		<div><small>(Dale Donovan)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic85254_t.jpg" width="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/2163">Space Hulk</a></div>
-		<div><small>(Matt Forbeck)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic232451_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/1035">Squad Leader</a></div>
-		<div><small>(Ray Winninger)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic91706_t.jpg" width="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/4651">Stalingrad</a></div>
-		<div><small>(Lewis Pulsipher)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic68997_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/1589">Star Fleet Battles</a></div>
-		<div><small>(Bruce Nesmith)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic31648_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/4292">The Sword and the Flame</a></div>
-		<div><small>(Steve Winter)</small></div>
-	</li>
-	<li class="first">
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic289256_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/788">Tales of the Arabian Nights</a></div>
-		<div><small>(Jeff Grubb)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic82059_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/714">Talisman</a></div>
-		<div><small>(Shane Lacy Hensley)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic216380_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/3577">Terrible Swift Sword</a></div>
-		<div><small>(Douglas Niles)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic115300_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/21790">Thurn and Taxis</a></div>
-		<div><small>(Ed Greenwood)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic38668_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/9209">Ticket to Ride</a></div>
-		<div><small>(Mike Fitzgerald)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic168169_t.jpg" width="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/42">Tigris & Euphrates</a></div>
-		<div><small>(Thomas Lehmann)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic178078_t.jpg" width="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/54">Tikal</a></div>
-		<div><small>(Warren Spector)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic501981_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/rpgitem/44809">Toon</a></div>
-		<div><small>(David 'Zeb' Cook)</small></div>
-	</li>
-	<li class="first">
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic514176_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/rpgitem/47727">Traveller</a></div>
-		<div><small>(Mike Pondsmith)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic106853_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/12333">Twilight Struggle</a></div>
-		<div><small>(Zev Shlasinger)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic504533_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/rpgitem/45650">Unknown Armies</a></div>
-		<div><small>(Kenneth Hite)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic162086_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/586">Up Front</a></div>
-		<div><small>(Sandy Petersen)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic178705_t.jpg" width="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/2122">Vampire: The Eternal Struggle</a></div>
-		<div><small>(R. Hyrum Savage)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic502421_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/rpgitem/44361">Vampire: The Masquerade</a></div>
-		<div><small>(George Vasilakos)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic174105_t.jpg" width="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/60">Vinci</a></div>
-		<div><small>(Kevin Wilson)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic243328_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/626">War and Peace</a></div>
-		<div><small>(R.A. Salvatore)</small></div>
-	</li>
-	<li class="first">
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic55747_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/11106">Warhammer 40,000</a></div>
-		<div><small>(Jack Emmert)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic513556_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/rpgitem/44146">The Warlock of Firetop Mountain</a></div>
-		<div><small>(Chris Pramas)</small></div>
-	</li>
-	<li>
-		<div class="img"></div>
-		<div>The Warlord</div>
-		<div><small>(Steve Jackson)</small></div>
-	</li>
-	<li>
-		<div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic184442_t.jpg" height="100" /></a></div>
-		<div class="txt"><a href="http://www.geekdo.com/boardgame/589">Wiz-War</a></div>
-		<div><small>(John Wick)</small></div>
-	</li>
+    <li class="first">
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic342163_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/5">Acquire</a></div>
+        <div><small>(Bruce C. Shelley)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic502800_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/rpgitem/43626">Amber Diceless</a></div>
+        <div><small>(Nicole Lindroos)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic146430_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/5404">Amun-Re</a></div>
+        <div><small>(Ian Livingstone)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic503063_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/rpgitem/43948">Ars Magica</a></div>
+        <div><small>(Stewart Wieck)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic24006_t.jpg" width="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/98">Axis & Allies</a></div>
+        <div><small>(Thomas M. Reid)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic21060_t.jpg" width="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/551">Battle Cry</a></div>
+        <div><small>(Tracy Hickman)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic34098_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/1540">BattleTech</a></div>
+        <div><small>(Philip Reed)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic256111_t.jpg" width="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/2288">Blood Bowl</a></div>
+        <div><small>(Justin Achilli)</small></div>
+    </li>
+    <li class="first">
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic69366_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/11">Bohnanza</a></div>
+        <div><small>(Mike Selinker)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic106711_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/240">Britannia</a></div>
+        <div><small>(Tom Dalgliesh)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic59279_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/17">Button Men</a></div>
+        <div><small>(Greg Stolze)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic507753_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/rpgitem/46421">Call of Cthulhu</a></div>
+        <div><small>(Monte Cook)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic166867_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/822">Carcassonne</a></div>
+        <div><small>(Steven E. Schend)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic135704_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/2795">Car Wars</a></div>
+        <div><small>(Jeff Tidball)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic519054_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/rpgitem/49214">Champions</a></div>
+        <div><small>(Bill Bridges)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic290698_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/rpgitem/244">Circus Maximus</a></div>
+        <div><small>(Stan!)</small></div>
+    </li>
+    <li class="first">
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic203792_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/478">Citadels</a></div>
+        <div><small>(Tom Jolly)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic87459_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/177">Civilization</a></div>
+        <div><small>(Steven Savile)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic428608_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/15">Cosmic Encounter</a></div>
+        <div><small>(Bruno Faidutti)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic247006_t.jpg" width="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/1302">Cosmic Wimpout</a></div>
+        <div><small>(Andrew Looney)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic164435_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/4014">Dawn Patrol</a></div>
+        <div><small>(Skip Williams)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic249300_t.jpg" width="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/17226">Descent</a></div>
+        <div><small>(Alan R. Moon)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic11666_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/483">Diplomacy</a></div>
+        <div><small>(Larry Harris)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic511746_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/rpgitem/44081">Dungeons & Dragons</a></div>
+        <div><small>(Richard Garfield)</small></div>
+    </li>
+    <li class="first">
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic29928_t.jpg" width="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/7290">Dynasty League Baseball</a></div>
+        <div><small>(William W. Connors)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic180538_t.jpg" width="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/93">El Grande</a></div>
+        <div><small>(Christian T. Petersen)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic75368_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/254">Empires in Arms</a></div>
+        <div><small>(Alessio Cavatore)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic373825_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/911">Empires of the Middle Ages</a></div>
+        <div><small>(Timothy Brown)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic530942_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/rpgitem/45276">The Extraordinary Adventures of Baron Munchausen</a></div>
+        <div><small>(Allen Varney)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic90128_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/12355">Fire and Fury</a></div>
+        <div><small>(Phil Yates)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic142488_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/11168">Flames of War</a></div>
+        <div><small>(William Jones)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic414362_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/258">Fluxx</a></div>
+        <div><small>(Rick Loomis)</small></div>
+    </li>
+    <li class="first">
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic168167_t.jpg" width="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/173">Formula D&eacute;</a></div>
+        <div><small>(John Kovalic)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic312728_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/936">The Fury of Dracula</a></div>
+        <div><small>(Anthony J. Gallela)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic31686_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/6472">A Game of Thrones</a></div>
+        <div><small>(Jesse Scoble)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic89933_t.jpg" width="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/3099">Gettysburg</a></div>
+        <div><small>(Lou Zocchi)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic531205_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/rpgitem/44022">Ghostbusters</a></div>
+        <div><small>(James Wallis)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic180599_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/2063">The Great Khan Game</a></div>
+        <div><small>(James M. Ward)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic105813_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/2002">Hammer of the Scots</a></div>
+        <div><small>(Gav Thorpe)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic353047_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/17392">Here I Stand</a></div>
+        <div><small>(Uli Blennemann)</small></div>
+    </li>
+    <li class="first">
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic9550_t.jpg" width="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/701">A House Divided</a></div>
+        <div><small>(S. Craig Taylor, Jr.)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic55406_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/859">Illuminati</a></div>
+        <div><small>(Scott Haring)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic178771_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/30684">Johnny Reb</a></div>
+        <div><small>(Dana Lombardy)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic369211_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/242">Junta</a></div>
+        <div><small>(Darren Watts)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic13290_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/987">Kingmaker</a></div>
+        <div><small>(Greg Stafford)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic87942_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/196">Kremlin</a></div>
+        <div><small>(Lester Smith)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic151045_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/1887">Legend of the Five Rings</a></div>
+        <div><small>(Wolfgang Baur)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic94585_t.jpg" width="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/18144">Lensman</a></div>
+        <div><small>(Marc W. Miller)</small></div>
+    </li>
+    <li class="first">
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic125793_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/2150">London's Burning</a></div>
+        <div><small>(Ted S. Raicer)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic479124_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/823">Lord of the Rings</a></div>
+        <div><small>(Teeuwynn Woodruff)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic276379_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/286">Machiavelli</a></div>
+        <div><small>(Mike Breault)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic163749_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/463">Magic: The Gathering</a></div>
+        <div><small>(Jordan Weisman)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic504708_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/rpgitem/43636">Marvel Super Heroes</a></div>
+        <div><small>(Steve Kenson)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic532558_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/rpgitem/53040">Metamorphosis Alpha</a></div>
+        <div><small>(Gary Gygax)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic502021_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/rpgitem/44583">My Life with Master</a></div>
+        <div><small>(Greg Costikyan)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic19600_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/1800">Mythos</a></div>
+        <div><small>(John D. Rateliff)</small></div>
+    </li>
+    <li class="first">
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic18800_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/4230">Napoleon's Last Battles</a></div>
+        <div><small>(Chris 'Gerry' Klug)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic87967_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/1674">Naval War</a></div>
+        <div><small>(John Scott Tynes)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic69398_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/5206">Ogre</a></div>
+        <div><small>(Erick Wujcik)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic190904_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/1234">Once Upon a Time</a></div>
+        <div><small>(Marc Gascoigne)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic260484_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/2238">PanzerBlitz</a></div>
+        <div><small>(Mike Bennighof)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic506681_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/rpgitem/46295">Paranoia</a></div>
+        <div><small>(Steve Jackson)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic507739_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/rpgitem/43854">Pendragon</a></div>
+        <div><small>(Shannon Appelcline)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic162248_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/2987">Pirate's Cove</a></div>
+        <div><small>(JD Wiker)</small></div>
+    </li>
+    <li class="first">
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic128918_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/2784">Plague!</a></div>
+        <div><small>(Richard H. Berg)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic173153_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/2651">Power Grid</a></div>
+        <div><small>(Martin Wallace)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic158548_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/3076">Puerto Rico</a></div>
+        <div><small>(Tom Wham)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic32910_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/8044">Renaissance of Infantry</a></div>
+        <div><small>(Joseph Miranda)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic249264_t.jpg" width="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/18">RoboRally</a></div>
+        <div><small>(James Ernest)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic505931_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/rpgitem/43642">RuneQuest</a></div>
+        <div><small>(Paul Jaquays)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic268839_t.jpg" width="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/13">The Settlers of Catan</a></div>
+        <div><small>(Richard Dansky)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic52949_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/3475">Shadowfist</a></div>
+        <div><small>(Ken St. Andre)</small></div>
+    </li>
+    <li class="first">
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic514946_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/rpgitem/48105">Shadowrun</a></div>
+        <div><small>(Steven S. Long)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic70547_t.jpg" width="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/15062">Shadows over Camelot</a></div>
+        <div><small>(Peter Corless)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic172079_t.jpg" width="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/27266">Silent Death: The Next Millennium</a></div>
+        <div><small>(Dale Donovan)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic85254_t.jpg" width="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/2163">Space Hulk</a></div>
+        <div><small>(Matt Forbeck)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic232451_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/1035">Squad Leader</a></div>
+        <div><small>(Ray Winninger)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic91706_t.jpg" width="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/4651">Stalingrad</a></div>
+        <div><small>(Lewis Pulsipher)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic68997_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/1589">Star Fleet Battles</a></div>
+        <div><small>(Bruce Nesmith)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic31648_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/4292">The Sword and the Flame</a></div>
+        <div><small>(Steve Winter)</small></div>
+    </li>
+    <li class="first">
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic289256_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/788">Tales of the Arabian Nights</a></div>
+        <div><small>(Jeff Grubb)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic82059_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/714">Talisman</a></div>
+        <div><small>(Shane Lacy Hensley)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic216380_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/3577">Terrible Swift Sword</a></div>
+        <div><small>(Douglas Niles)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic115300_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/21790">Thurn and Taxis</a></div>
+        <div><small>(Ed Greenwood)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic38668_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/9209">Ticket to Ride</a></div>
+        <div><small>(Mike Fitzgerald)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic168169_t.jpg" width="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/42">Tigris & Euphrates</a></div>
+        <div><small>(Thomas Lehmann)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic178078_t.jpg" width="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/54">Tikal</a></div>
+        <div><small>(Warren Spector)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic501981_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/rpgitem/44809">Toon</a></div>
+        <div><small>(David 'Zeb' Cook)</small></div>
+    </li>
+    <li class="first">
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic514176_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/rpgitem/47727">Traveller</a></div>
+        <div><small>(Mike Pondsmith)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic106853_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/12333">Twilight Struggle</a></div>
+        <div><small>(Zev Shlasinger)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic504533_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/rpgitem/45650">Unknown Armies</a></div>
+        <div><small>(Kenneth Hite)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic162086_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/586">Up Front</a></div>
+        <div><small>(Sandy Petersen)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic178705_t.jpg" width="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/2122">Vampire: The Eternal Struggle</a></div>
+        <div><small>(R. Hyrum Savage)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic502421_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/rpgitem/44361">Vampire: The Masquerade</a></div>
+        <div><small>(George Vasilakos)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic174105_t.jpg" width="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/60">Vinci</a></div>
+        <div><small>(Kevin Wilson)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic243328_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/626">War and Peace</a></div>
+        <div><small>(R.A. Salvatore)</small></div>
+    </li>
+    <li class="first">
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic55747_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/11106">Warhammer 40,000</a></div>
+        <div><small>(Jack Emmert)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic513556_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/rpgitem/44146">The Warlock of Firetop Mountain</a></div>
+        <div><small>(Chris Pramas)</small></div>
+    </li>
+    <li>
+        <div class="img"></div>
+        <div>The Warlord</div>
+        <div><small>(Steve Jackson)</small></div>
+    </li>
+    <li>
+        <div class="img"><a href="#"><img src="http://images.boardgamegeek.com/images/pic184442_t.jpg" height="100" /></a></div>
+        <div class="txt"><a href="http://www.geekdo.com/boardgame/589">Wiz-War</a></div>
+        <div><small>(John Wick)</small></div>
+    </li>
 </ul>

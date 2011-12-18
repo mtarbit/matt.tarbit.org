@@ -1,80 +1,80 @@
 <h2>About</h2>
 
 <div class="section">
-	<h3>This site belongs to Matthew J. Tarbit</h3>
-	<p>
-		I come from Newcastle-upon-Tyne, in the North of England, and live in Leeds, in the pretend North of England.
-		I'm married to the lovely <a href="http://theyorkshirefork.co.uk">Katie Buffalo</a>, she's a 'murican and the best thing since sliced bread, we met on the internet, it's the future.
-	</p>
-	<p>
-		I've recently finished a long stint working for <a href="http://www.sense.co.uk/">Sense Internet</a>, tying ribbons of PHP, MySQL, HTML, CSS, JavaScript, Flash and ActionScript into pretty bows.
-		And am now settling in to the distinctly more Python-flavoured environs of <a href="http://www.isotoma.com/">Isotoma</a> in York.
-	</p>
-	<p>
-		If you've looked at the archives at all you may have noticed there's a gap of 2 years unaccounted for. 
-		The entries preceding that lull are from a site called pixelised.com that my brother and I used to run.
-		Seemed a shame to let them go to waste.
-	</p>
-	<p>
-		If you'd like to get in touch with me, you can send an email to mtarbit, plus an at-sign, then gmail, with a dot-com.
-	</p>
+    <h3>This site belongs to Matthew J. Tarbit</h3>
+    <p>
+        I come from Newcastle-upon-Tyne, in the North of England, and live in Leeds, in the pretend North of England.
+        I'm married to the lovely <a href="http://theyorkshirefork.co.uk">Katie Buffalo</a>, she's a 'murican and the best thing since sliced bread, we met on the internet, it's the future.
+    </p>
+    <p>
+        I've recently finished a long stint working for <a href="http://www.sense.co.uk/">Sense Internet</a>, tying ribbons of PHP, MySQL, HTML, CSS, JavaScript, Flash and ActionScript into pretty bows.
+        And am now settling in to the distinctly more Python-flavoured environs of <a href="http://www.isotoma.com/">Isotoma</a> in York.
+    </p>
+    <p>
+        If you've looked at the archives at all you may have noticed there's a gap of 2 years unaccounted for. 
+        The entries preceding that lull are from a site called pixelised.com that my brother and I used to run.
+        Seemed a shame to let them go to waste.
+    </p>
+    <p>
+        If you'd like to get in touch with me, you can send an email to mtarbit, plus an at-sign, then gmail, with a dot-com.
+    </p>
 </div>
 
 <div class="section">
-	<h3>Colophon</h3>
-	<p>
-		This website plays host to <%= link_to(pluralize(@total,'entry'), archive_url) %> 
-		which can be broken down by type as 
-		<%= @count.map{ |a| pluralize(a.last,a.first) }.to_sentence(:last_word_connector=>' and ') %>.
-		There's also a library of <%= link_to(pluralize(@books,'book'), library_url) %> by <%= link_to(pluralize(@authors,'author'),{:controller=>'author'}) %>.
-	</p>
-	<p>
-		Entries prior to 2003 were written by <%= link_to('Matt', index_url) %> and <a href="http://www.flickr.com/photos/dtarbit/">Dan Tarbit</a>
-		with occasional contributions from <a href="http://www.jonnyram.com">Jonathan Lumb</a>. Unfortunately, attribution for some of the older 
-		posts and comments has been obscured by the mists of time.
-	</p>
-	<p>
-		The site is built using the
-		<a href="http://www.ruby-lang.org/">Ruby</a> on 
-		<a href="http://www.rubyonrails.org/">Rails</a> framework backed by a 
-		<a href="http://www.mysql.com/">MySQL</a> database.
-		Posts are marked up in the <a href="http://daringfireball.net/projects/markdown/">markdown</a> syntax and parsed by the <a href="http://www.deveiate.org/projects/BlueCloth">BlueCloth</a> gem.
-		Code is highlighted with <a href="http://pygments.org/">Pygments</a>.
-		Some of the data for links and reviews is obtained via web service APIs. 
-		The <a href="http://pablotron.org/software/rubilicious/">rubilicious</a> library is used to sync bookmarks from a <a href="http://del.icio.us/">del.icio.us</a> account, 
-		the <a href="http://twitter.rubyforge.org/">twitter</a> gem is used to retrieve my statuses from Twitter
-		and the <a href="http://httparty.rubyforge.org/">httparty</a> gem is used to search for and retrieve amazon product details for reviews and associate links.
-		Emails are sent via <a href="http://www.rubyinside.com/how-to-use-gmails-smtp-server-with-rails-394.html">Gmail's SMTP service</a> with a helping hand from lib/smtp_tls.rb. 
-		The site is served by <a href="http://httpd.apache.org/">Apache 2</a> &amp; <a href="http://www.modrails.com/">mod_rails</a> on a 
-		<a href="http://www.linode.com">Linode VPS</a>, shared thanks to the kindly benefaction of <a href="http://www.ukben.com/">Ben Walton</a>. 
-		Code is written in 
-		<a href="http://macromates.com/">Textmate</a>, 
-		<a href="http://www.vim.org/">vim</a>
-		and version controlled with the help of
-		<a href="http://github.com/mtarbit/matt.tarbit.org/tree">github</a>.
-		Icons are used here and there from the free <a href="http://www.famfamfam.com/lab/icons/silk/">silk icon set</a> by Mark James.
-	</p>
+    <h3>Colophon</h3>
+    <p>
+        This website plays host to <%= link_to(pluralize(@total,'entry'), archive_url) %> 
+        which can be broken down by type as 
+        <%= @count.map{ |a| pluralize(a.last,a.first) }.to_sentence(:last_word_connector=>' and ') %>.
+        There's also a library of <%= link_to(pluralize(@books,'book'), library_url) %> by <%= link_to(pluralize(@authors,'author'),{:controller=>'author'}) %>.
+    </p>
+    <p>
+        Entries prior to 2003 were written by <%= link_to('Matt', index_url) %> and <a href="http://www.flickr.com/photos/dtarbit/">Dan Tarbit</a>
+        with occasional contributions from <a href="http://www.jonnyram.com">Jonathan Lumb</a>. Unfortunately, attribution for some of the older 
+        posts and comments has been obscured by the mists of time.
+    </p>
+    <p>
+        The site is built using the
+        <a href="http://www.ruby-lang.org/">Ruby</a> on 
+        <a href="http://www.rubyonrails.org/">Rails</a> framework backed by a 
+        <a href="http://www.mysql.com/">MySQL</a> database.
+        Posts are marked up in the <a href="http://daringfireball.net/projects/markdown/">markdown</a> syntax and parsed by the <a href="http://www.deveiate.org/projects/BlueCloth">BlueCloth</a> gem.
+        Code is highlighted with <a href="http://pygments.org/">Pygments</a>.
+        Some of the data for links and reviews is obtained via web service APIs. 
+        The <a href="http://pablotron.org/software/rubilicious/">rubilicious</a> library is used to sync bookmarks from a <a href="http://del.icio.us/">del.icio.us</a> account, 
+        the <a href="http://twitter.rubyforge.org/">twitter</a> gem is used to retrieve my statuses from Twitter
+        and the <a href="http://httparty.rubyforge.org/">httparty</a> gem is used to search for and retrieve amazon product details for reviews and associate links.
+        Emails are sent via <a href="http://www.rubyinside.com/how-to-use-gmails-smtp-server-with-rails-394.html">Gmail's SMTP service</a> with a helping hand from lib/smtp_tls.rb. 
+        The site is served by <a href="http://httpd.apache.org/">Apache 2</a> &amp; <a href="http://www.modrails.com/">mod_rails</a> on a 
+        <a href="http://www.linode.com">Linode VPS</a>, shared thanks to the kindly benefaction of <a href="http://www.ukben.com/">Ben Walton</a>. 
+        Code is written in 
+        <a href="http://macromates.com/">Textmate</a>, 
+        <a href="http://www.vim.org/">vim</a>
+        and version controlled with the help of
+        <a href="http://github.com/mtarbit/matt.tarbit.org/tree">github</a>.
+        Icons are used here and there from the free <a href="http://www.famfamfam.com/lab/icons/silk/">silk icon set</a> by Mark James.
+    </p>
 </div>
 
 <% content_for :sidebar do %>
-	<h2>Elsewhere</h2>
+    <h2>Elsewhere</h2>
 
-	<div class="section">
-		<p>
-			Parts of me are strewn about the ether.
-			Particularly in the following locations:
-		</p>
+    <div class="section">
+        <p>
+            Parts of me are strewn about the ether.
+            Particularly in the following locations:
+        </p>
 
-		<ul class="sites">
-		    <li class="site-tw"><a rel="me" href="http://www.twitter.com/mtarbit">Tweets</a> at Twitter</li>
-		    <li class="site-dl"><a rel="me" href="http://del.icio.us/pxmatt">Links</a> at Delicious</li>
-		    <li class="site-fb"><a rel="me" href="http://www.facebook.com/profile.php?id=687311229">Friends</a> at Facebook</li>
-			<li class="site-li"><a rel="me" href="http://www.linkedin.com/pub/matt-tarbit/5/809/388">Contacts</a> at LinkedIn</li>
-		    <li class="site-fl"><a rel="me" href="http://www.flickr.com/photos/36071867@N00/">Photos</a> at Flickr</li>
-		    <li class="site-lt"><a rel="me" href="http://www.librarything.com/catalog/mtarbit">Books</a> at LibraryThing</li>
-			<li class="site-xb"><a rel="me" href="http://live.xbox.com/en-US/profile/profile.aspx?pp=0&amp;GamerTag=Matt+and+Katie">Games</a> at Xbox Live</li>
-		    <li class="site-lf"><a rel="me" href="http://www.last.fm/user/pxm">Music</a> at Last.fm</li>
-		    <li class="site-gh"><a rel="me" href="http://www.github.com/mtarbit">Code</a> at GitHub</li>
-		</ul>
-	</div>		
+        <ul class="sites">
+            <li class="site-tw"><a rel="me" href="http://www.twitter.com/mtarbit">Tweets</a> at Twitter</li>
+            <li class="site-dl"><a rel="me" href="http://del.icio.us/pxmatt">Links</a> at Delicious</li>
+            <li class="site-fb"><a rel="me" href="http://www.facebook.com/profile.php?id=687311229">Friends</a> at Facebook</li>
+            <li class="site-li"><a rel="me" href="http://www.linkedin.com/pub/matt-tarbit/5/809/388">Contacts</a> at LinkedIn</li>
+            <li class="site-fl"><a rel="me" href="http://www.flickr.com/photos/36071867@N00/">Photos</a> at Flickr</li>
+            <li class="site-lt"><a rel="me" href="http://www.librarything.com/catalog/mtarbit">Books</a> at LibraryThing</li>
+            <li class="site-xb"><a rel="me" href="http://live.xbox.com/en-US/profile/profile.aspx?pp=0&amp;GamerTag=Matt+and+Katie">Games</a> at Xbox Live</li>
+            <li class="site-lf"><a rel="me" href="http://www.last.fm/user/pxm">Music</a> at Last.fm</li>
+            <li class="site-gh"><a rel="me" href="http://www.github.com/mtarbit">Code</a> at GitHub</li>
+        </ul>
+    </div>      
 <% end %>

@@ -13,13 +13,13 @@ class CommentController < ApplicationController
     @comments = Comment.order('comments.created_at DESC').paginate(:page=>params[:page], :per_page=>15)
   end
 
-	def preview
-		redirect_to index_url unless request.xhr?
-		@entry = Entry.published.find(params[:entry][:id])
-		@entry.threads.build(params[:comment])
-	  @entry.comments_count += 1
-	end
-  
+  def preview
+    redirect_to index_url unless request.xhr?
+    @entry = Entry.published.find(params[:entry][:id])
+    @entry.threads.build(params[:comment])
+    @entry.comments_count += 1
+  end
+
   def create
     # If no referer, it's probably a spambot, so give it the silent treatment.
     unless request.env.has_key?('HTTP_REFERER')
@@ -27,7 +27,7 @@ class CommentController < ApplicationController
         render :text=>'', :status=>404 and return
       end
     end
-    
+
     tokens = spam_challenge_tokens
     entry = Entry.published.find(params[:entry][:id])
     comment = Comment.new(params[:comment])
@@ -62,7 +62,7 @@ class CommentController < ApplicationController
 
           # Send a comment notification email then show the comment added to the page.
           vars = {
-            :comment => comment, 
+            :comment => comment,
             :read_link => entry_url(entry, :anchor=>"comment-#{comment.id}"),
             :junk_link => url_for(:controller=>'comment', :action=>'delete', :id=>comment),
             :request => request
@@ -77,7 +77,7 @@ class CommentController < ApplicationController
     end
 
   end
-  
+
   def update
     comment = Comment.find(params[:comment][:id])
     comment.attributes = params[:comment]

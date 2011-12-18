@@ -1,127 +1,127 @@
 <script>
-	function initProductDetails() {
-		var formA = $('jsBookDetails');
-		if (!formA) return;
-	
-		$$('.jsProductDetails').each(function(el){
-			var formB = el.down('form');
-			var links = el.select('ul li a');
-			if (!formB || !links) return;
-		
-			links.each(function(link) {
-				var inputsB = formB.getElements();
-				var filters = ['title','authors','asin','image'];
-				for (var i=0; i<filters.length; i++) {
-					var re = new RegExp(filters[i],'i');
-					if (re.test(link.innerHTML)) {
-						inputsB = inputsB.select(function(el){ return re.test(el.id); });
-						break;
-					}
-				}
+    function initProductDetails() {
+        var formA = $('jsBookDetails');
+        if (!formA) return;
 
-				link.observe('click',function(e){
-					e.stop();
-					inputsB.each(function(inputB){
-						var inputA = formA.down('#book_' + inputB.id);
-						if (inputA) inputA.setValue(inputB.getValue());
-					});
-				});
-			})
-		});
-	}
+        $$('.jsProductDetails').each(function(el){
+            var formB = el.down('form');
+            var links = el.select('ul li a');
+            if (!formB || !links) return;
 
-	function initSearchButton() {
-		var bttn = $('jsSearchButton');
-		var form = $('jsBookDetails');
-		if (!bttn || !form) return;
-		bttn.observe('click',function(e){
-			e.stop();
-			form.action = '<%= url_for(:action=>:search) %>';
-			form.submit();
-		});
-	}
+            links.each(function(link) {
+                var inputsB = formB.getElements();
+                var filters = ['title','authors','asin','image'];
+                for (var i=0; i<filters.length; i++) {
+                    var re = new RegExp(filters[i],'i');
+                    if (re.test(link.innerHTML)) {
+                        inputsB = inputsB.select(function(el){ return re.test(el.id); });
+                        break;
+                    }
+                }
 
-	document.observe('dom:loaded',initProductDetails);
-	document.observe('dom:loaded',initSearchButton);
+                link.observe('click',function(e){
+                    e.stop();
+                    inputsB.each(function(inputB){
+                        var inputA = formA.down('#book_' + inputB.id);
+                        if (inputA) inputA.setValue(inputB.getValue());
+                    });
+                });
+            })
+        });
+    }
+
+    function initSearchButton() {
+        var bttn = $('jsSearchButton');
+        var form = $('jsBookDetails');
+        if (!bttn || !form) return;
+        bttn.observe('click',function(e){
+            e.stop();
+            form.action = '<%= url_for(:action=>:search) %>';
+            form.submit();
+        });
+    }
+
+    document.observe('dom:loaded',initProductDetails);
+    document.observe('dom:loaded',initSearchButton);
 
 </script>
 
 <h2><%= @book.id ? 'Edit' : 'Add a new' %> Book</h2>
 
 <div <% if @products %>class="fl" style="width:47%;"<% end %>>
-	<%= form_rows_for :book, :url=>{:action=> @book.id ? :update : :create}, :html=>{:id=>'jsBookDetails'} do |f| %>
-		<% if @book.id %>
-			<%= hidden_field :book, :id %>
-		<% end %>
+    <%= form_rows_for :book, :url=>{:action=> @book.id ? :update : :create}, :html=>{:id=>'jsBookDetails'} do |f| %>
+        <% if @book.id %>
+            <%= hidden_field :book, :id %>
+        <% end %>
 
-		<fieldset class="mb">
-			<legend>Book Details</legend>
+        <fieldset class="mb">
+            <legend>Book Details</legend>
 
-			<%= f.text_area :title, :style=>'width:98%', :cols=>75, :rows=>3 %>
-			<%= f.text_field :authors_as_string, :style=>'width:98%', :size=>75, :label=>'Authors' %>
-			<%= f.text_field :isbn, :style=>'width:98%', :size=>75, :label=>'ISBN' %>
-			<%= f.text_field :asin, :style=>'width:98%', :size=>75, :label=>'ASIN' %>
-			<%= hidden_field_tag :book_image %>
+            <%= f.text_area :title, :style=>'width:98%', :cols=>75, :rows=>3 %>
+            <%= f.text_field :authors_as_string, :style=>'width:98%', :size=>75, :label=>'Authors' %>
+            <%= f.text_field :isbn, :style=>'width:98%', :size=>75, :label=>'ISBN' %>
+            <%= f.text_field :asin, :style=>'width:98%', :size=>75, :label=>'ASIN' %>
+            <%= hidden_field_tag :book_image %>
 
-			<div class="form-gap"></div>
-			
-			<div class="form-row">
-				<div class="input">
-					<%= submit_tag 'Submit', {:class=>'button'} %>
-					<%= submit_tag 'Search', {:class=>'button', :id=>'jsSearchButton'} %>
-				</div>
-			</div>
+            <div class="form-gap"></div>
 
-		</fieldset>
+            <div class="form-row">
+                <div class="input">
+                    <%= submit_tag 'Submit', {:class=>'button'} %>
+                    <%= submit_tag 'Search', {:class=>'button', :id=>'jsSearchButton'} %>
+                </div>
+            </div>
 
-	<% end %>
+        </fieldset>
 
-	<% if img = @book.image('large') %>
-		<fieldset>
-			<legend>Current Image</legend>
-			<%= image_tag(img.url, :alt=>@book.title, :class=>'border', :style=>'width:100%;') %>
-		</fieldset>
-	<% end %>
+    <% end %>
+
+    <% if img = @book.image('large') %>
+        <fieldset>
+            <legend>Current Image</legend>
+            <%= image_tag(img.url, :alt=>@book.title, :class=>'border', :style=>'width:100%;') %>
+        </fieldset>
+    <% end %>
 </div>
 
 <% if @products %>
-	<fieldset class="fr" style="width:47%;">
-		<legend>Product Details</legend>
+    <fieldset class="fr" style="width:47%;">
+        <legend>Product Details</legend>
 
-		<% @products.each do |product| %>
-			<div class="jsProductDetails mb" style="overflow:hidden;">
+        <% @products.each do |product| %>
+            <div class="jsProductDetails mb" style="overflow:hidden;">
 
-				<form>
-					<%= hidden_field_tag :title, product['ItemAttributes']['Title'] %>
-					<%= hidden_field_tag :authors_as_string, product['ItemAttributes']['Author'].to_a.join(', ') %>
-					<%= hidden_field_tag :asin, product['ASIN'] %>
-					<%= hidden_field_tag :image, product['ASIN'] %>
-				</form>
+                <form>
+                    <%= hidden_field_tag :title, product['ItemAttributes']['Title'] %>
+                    <%= hidden_field_tag :authors_as_string, product['ItemAttributes']['Author'].to_a.join(', ') %>
+                    <%= hidden_field_tag :asin, product['ASIN'] %>
+                    <%= hidden_field_tag :image, product['ASIN'] %>
+                </form>
 
-				<% image = product['MediumImage'] %>
-				<% if image %>
-					<div class="ml fr">
-						<%= image_tag(image['URL'], :height=>image['Height'], :width=>image['Width'], :border=>0, :class=>'border') %>
-					</div>
-				<% end %>
-				<div>
-					<%= product['ItemAttributes']['Title'] %>
-					<span class="small">by</span>
-					<%= product['ItemAttributes']['Author'].to_a.join('<span class="small">,</span> ') %>
-					<span class="small">(<%= product['ASIN'] %>)</span>
-					<ul class="small">
-						<li><a href="#">Use all product details</a></li>
-						<li><a href="#">Just use the title</a></li>
-						<li><a href="#">Just use the authors</a></li>
-						<li><a href="#">Just use the ASIN</a></li>
-						<li><a href="#">Just use the image</a></li>
-					</ul>
-				</div>
+                <% image = product['MediumImage'] %>
+                <% if image %>
+                    <div class="ml fr">
+                        <%= image_tag(image['URL'], :height=>image['Height'], :width=>image['Width'], :border=>0, :class=>'border') %>
+                    </div>
+                <% end %>
+                <div>
+                    <%= product['ItemAttributes']['Title'] %>
+                    <span class="small">by</span>
+                    <%= product['ItemAttributes']['Author'].to_a.join('<span class="small">,</span> ') %>
+                    <span class="small">(<%= product['ASIN'] %>)</span>
+                    <ul class="small">
+                        <li><a href="#">Use all product details</a></li>
+                        <li><a href="#">Just use the title</a></li>
+                        <li><a href="#">Just use the authors</a></li>
+                        <li><a href="#">Just use the ASIN</a></li>
+                        <li><a href="#">Just use the image</a></li>
+                    </ul>
+                </div>
 
-			</div>
-		<% end %>
+            </div>
+        <% end %>
 
-	</fieldset>
+    </fieldset>
 <% end %>
 
 <div class="clear"></div>

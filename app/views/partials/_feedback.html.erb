@@ -1,9 +1,9 @@
 <% if feedback[:notice] -%>
-	<div id="feedback" class="notice"><%= feedback[:notice] %></div>
+    <div id="feedback" class="notice"><%= feedback[:notice] %></div>
 <% end -%>
 <% if feedback[:errors] -%>
-	<div id="feedback" class="errors">
-		<h2>Please check you've filled in the form correctly:</h2>
-		<%= content_tag(:ul, feedback[:errors].map{|e| content_tag(:li, e) }) %>
-	</div>
+    <div id="feedback" class="errors">
+        <h2>Please check you've filled in the form correctly:</h2>
+        <%= content_tag(:ul, feedback[:errors].map{|e| content_tag(:li, e) }) %>
+    </div>
 <% end -%>
