@@ -86,9 +86,10 @@ module Amazon
 
       # Look for an appropriate return value in the response
       items = res[params[:Operation] + 'Response']['Items']
-      items = case items['Request']['IsValid']
-        when 'True':  items['Item']
-        when 'False': items['Request']['Errors']['Error']['Message']
+      items =
+      case items['Request']['IsValid']
+        when 'True' then  items['Item']
+        when 'False' then items['Request']['Errors']['Error']['Message']
       end
 
       # Return it if we found one, or just use the raw response

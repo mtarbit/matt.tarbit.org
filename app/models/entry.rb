@@ -114,10 +114,13 @@ class Entry < ActiveRecord::Base
     # rescue NoMethodErrors from attempting addition on nilClass
     t1 = Time.local(y,m,d)
     t2 =
-    begin     Time.local(y,m,d+1)
+    begin
+      Time.local(y,m,d+1)
     rescue
-      begin   Time.local(y,m+1,1)
-      rescue  Time.local(y+1,1,1)
+      begin
+        Time.local(y,m+1,1)
+      rescue
+        Time.local(y+1,1,1)
       end
     end
 

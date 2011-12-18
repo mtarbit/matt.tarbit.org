@@ -12,11 +12,11 @@ class Product < ActiveRecord::Base
 
   def activity
     case group
-    when 'Book' then 'reading'
-    when 'Video Games' then 'playing'
-    when 'Music' then 'listening to'
-    when 'DVD' then 'watching'
-    when 'Electronics' then 'using'
+      when 'Book' then 'reading'
+      when 'Video Games' then 'playing'
+      when 'Music' then 'listening to'
+      when 'DVD' then 'watching'
+      when 'Electronics' then 'using'
     end
   end
 
@@ -65,9 +65,10 @@ class Product < ActiveRecord::Base
     if item_attr = item['ItemAttributes']
       product.title     = item_attr['Title']
       product.group     = item_attr['ProductGroup']
-      product.creator   = case item_attr['ProductGroup']
-        when 'Music': "by #{item_attr['Artist']}"
-        when 'Book':  "by #{item_attr['Author'].to_a.to_sentence}"
+      product.creator   =
+      case item_attr['ProductGroup']
+        when 'Music' then "by #{item_attr['Artist']}"
+        when 'Book' then "by #{item_attr['Author'].to_a.to_sentence}"
       end
     end
 

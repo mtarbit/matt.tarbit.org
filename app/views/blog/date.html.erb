@@ -8,12 +8,12 @@
         <h2>Other dates</h2>
 
         <ul id="metadata">
-            <% if @prev: -%>
+            <% if @prev -%>
                 <% d_m_y = @prev.created_at.strftime(@format1) -%>
                 <% y,m,d = @prev.created_at.strftime(@format2).split -%>
                 <li class="prev"><%= link_to "Older entries from #{d_m_y}", date_url(:y=>y,:m=>m,:d=>d) -%></li>
             <% end -%>
-            <% if @next: -%>
+            <% if @next -%>
                 <% d_m_y = @next.created_at.strftime(@format1) -%>
                 <% y,m,d = @next.created_at.strftime(@format2).split -%>
                 <li class="next"><%= link_to "Newer entries from #{d_m_y}", date_url(:y=>y,:m=>m,:d=>d) -%></li>
