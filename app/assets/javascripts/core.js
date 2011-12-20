@@ -12,21 +12,14 @@ function initSlugField() {
 
 function initCodeLineNumbers() {
     $('pre.code').each(function(code){
-        var nodes = $(this).find('code').get(0).childNodes;
-        var count = 1;
+        var count = $(this).find('code').text().split(/[\n\r]/).length;
         var lines = [];
-
-        for (var i=0; i<nodes.length; i++) {
-            if (nodes[i].nodeType != 3) continue;
-            var matches = nodes[i].nodeValue.match(/[\r\n]/g);
-            if (matches) count += matches.length;
-        }
 
         for (var i=1; i<count; i++) {
             lines.push(i);
         }
 
-        $(this).prepend('<pre class="line"><code>'+lines.join("\n")+'</code></pre>');
+        $(this).prepend('<pre class="line"><code>' + lines.join("\n") + '</code></pre>');
     });
 }
 
