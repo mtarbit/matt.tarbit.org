@@ -1,22 +1,9 @@
-<script type="text/javascript">
-    // <![CDATA[
+<script>
 
-    function initImages() {
-        var re = /_t\.jpg$/;
-        $$('div.img a').each(function(el){
-            var img = el.down('img');
-            if (img) {
-                if (re.test(img.src)) {
-                    el.href = img.src.replace(re,'.jpg');
-                    el.observe('click', function(e){ window.open(this.href); e.stop(); });
-                }
-            }
-        })
-    }
+    $(function(){
+        initImages();
+    });
 
-    document.observe('dom:loaded', initImages);
-
-    // ]]>
 </script>
 
 <style type='text/css'>

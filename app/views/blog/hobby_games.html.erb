@@ -1,25 +1,12 @@
-<script type="text/javascript">
-    // <![CDATA[
+<script>
 
-    function initImages() {
-        var re = /_t\.jpg$/;
-        $$('div.img a').each(function(el){
-            var img = el.down('img');
-            if (img) {
-                if (re.test(img.src)) {
-                    el.href = img.src.replace(re,'.jpg');
-                    el.observe('click', function(e){ window.open(this.href); e.stop(); });
-                }
-            }
-        })
-    }
+    $(function(){
+        initImages();
+    });
 
-    document.observe('dom:loaded', initImages);
-
-    // ]]>
 </script>
 
-<style type="text/css">
+<style>
     ul.gamesList                { margin:1em auto; padding:0; width:870px; overflow:hidden; }
     ul.gamesList li             { margin:0; padding:0; list-style-type:none; float:left; margin-left:10px; margin-bottom:2em; width:100px; text-align:center; }
     ul.gamesList li.first       { clear:both; margin-left:0; }

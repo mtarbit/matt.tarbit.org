@@ -1,15 +1,15 @@
 <script>
-// <![CDATA[
-function challenge() {
-    $('<%= @tokens[0] %>').value = '<%= @tokens[1] %>';
-}
-document.observe('dom:loaded', function(){
-    $('js-warning').hide();
-});
-// ]]>
+
+    $(function(){
+        $('.comment-warning').hide();
+        $('.comment-form').submit(function(){
+            $('#<%= @tokens[0] %>').val('<%= @tokens[1] %>');
+        });
+    });
+
 </script>
 
-<%= form_rows_for :comment, :url=>{:controller=>:comment, :action=>:create}, :html=>{:onsubmit=>'challenge()'} do |f| %>
+<%= form_rows_for :comment, :url=>{:controller=>:comment, :action=>:create}, :html=>{:class=>'comment-form'} do |f| %>
     <%= hidden_field :entry, :id %>
     <%= hidden_field_tag @tokens[0] %>
 
@@ -18,7 +18,7 @@ document.observe('dom:loaded', function(){
 
         <% if SETTINGS['features_enabled']['comments'] %>
 
-            <div id="js-warning">
+            <div class="comment-warning">
                 <div class="form-row">
                     <div class="input"><em>You must have Javascript enabled to add a comment.</em></div>
                 </div>

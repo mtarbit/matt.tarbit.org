@@ -1,48 +1,54 @@
 <script>
+
     function initProductDetails() {
-        var formA = $('jsBookDetails');
-        if (!formA) return;
+        var formA = $('#jsBookDetails');
 
-        $$('.jsProductDetails').each(function(el){
-            var formB = el.down('form');
-            var links = el.select('ul li a');
-            if (!formB || !links) return;
+        $('.jsProductDetails').each(function(){
+            var el = $(this);
 
-            links.each(function(link) {
-                var inputsB = formB.getElements();
+            var formB = el.find('form');
+            var links = el.find('ul li a');
+
+            links.each(function() {
+                var link = $(this);
+                var inputsB = formB.find(':input');
+
                 var filters = ['title','authors','asin','image'];
                 for (var i=0; i<filters.length; i++) {
                     var re = new RegExp(filters[i],'i');
-                    if (re.test(link.innerHTML)) {
-                        inputsB = inputsB.select(function(el){ return re.test(el.id); });
+                    if (re.test(link.text())) {
+                        inputsB = inputsB.select(function(){ return re.test($(this).attr('id')); });
                         break;
                     }
                 }
 
-                link.observe('click',function(e){
-                    e.stop();
+                link.click(function(e){
                     inputsB.each(function(inputB){
                         var inputA = formA.down('#book_' + inputB.id);
                         if (inputA) inputA.setValue(inputB.getValue());
                     });
+                    e.preventDefault();
                 });
+
             })
         });
     }
 
     function initSearchButton() {
-        var bttn = $('jsSearchButton');
-        var form = $('jsBookDetails');
-        if (!bttn || !form) return;
-        bttn.observe('click',function(e){
-            e.stop();
-            form.action = '<%= url_for(:action=>:search) %>';
+        var bttn = $('#jsSearchButton');
+        var form = $('#jsBookDetails');
+
+        bttn.click(function(e){
+            form.attr('action', '<%= url_for(:action=>:search) %>');
             form.submit();
+            e.preventDefault();
         });
     }
 
-    document.observe('dom:loaded',initProductDetails);
-    document.observe('dom:loaded',initSearchButton);
+    $(function(){
+        initProductDetails();
+        initSearchButton();
+    });
 
 </script>
 
