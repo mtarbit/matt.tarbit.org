@@ -6,17 +6,6 @@ require 'hmac-sha2'
 require 'base64'
 require 'httparty'
 
-module REXML
-  class Source
-    def match(pattern, cons=false)
-      @buffer.force_encoding('UTF-8')
-      md = pattern.match(@buffer)
-      @buffer = $' if cons and md
-      return md
-    end
-  end
-end
-
 module Amazon
   ENDPOINT = URI.parse('http://ecs.amazonaws.co.uk/onca/xml')
 
