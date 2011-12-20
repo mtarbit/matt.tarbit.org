@@ -4,7 +4,7 @@ class FormRowBuilder < ActionView::Helpers::FormBuilder
     define_method(field_name) do |field, *args|
       label = args[0].delete(:label) || field.to_s.humanize
       label = @template.content_tag(:label, label + ":", :for => "#{@object_name}_#{field}")
-      input = super
+      input = super(field, *args)
 
       @template.content_tag(:div,
         @template.content_tag(:div, label, :class=>'label') +
