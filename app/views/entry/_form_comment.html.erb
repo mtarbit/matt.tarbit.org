@@ -41,7 +41,6 @@ document.observe('dom:loaded', function(){
             <div class="form-row">
                 <div class="input">
                     <%= submit_tag 'Submit', {:class=>'button'} %>
-                    <%= submit_to_remote 'preview', 'Preview', {:html=>{:class=>'button'}, :url=>{:controller=>:comment, :action=>:preview}} %>
                 </div>
             </div>
 
