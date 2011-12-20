@@ -6,6 +6,17 @@ require 'hmac-sha2'
 require 'base64'
 require 'httparty'
 
+module REXML
+  class Source
+    def match(pattern, cons=false)
+      @buffer.force_encoding('UTF-8')
+      md = pattern.match(@buffer)
+      @buffer = $' if cons and md
+      return md
+    end
+  end
+end
+
 module Amazon
   ENDPOINT = URI.parse('http://ecs.amazonaws.co.uk/onca/xml')
 
@@ -60,10 +71,11 @@ module Amazon
     base_uri ENDPOINT.scheme + '://' + ENDPOINT.host
     default_params :Service=>'AWSECommerceService', :ResponseGroup=>'Medium', :Sort=>'salesrank', :Country=>'UK', :Validate=>'True'
 
-    def initialize(access_key, secret_key)
+    def initialize(access_key, secret_key, associate_tag)
       @access_key = access_key
       @secret_key = secret_key
-      self.class.default_params :AWSAccessKeyId => @access_key
+      @associate_tag = associate_tag
+      self.class.default_params :AssociateTag => @associate_tag, :AWSAccessKeyId => @access_key
     end
 
     def search(search, options={})

@@ -31,7 +31,7 @@ class Product < ActiveRecord::Base
   def self.request(operation, search, options={})
     raw = options.delete(:Raw)
 
-    amz = Amazon::Product.new(SETTINGS['amazon']['access_key'], SETTINGS['amazon']['secret_key'])
+    amz = Amazon::Product.new(SETTINGS['amazon']['access_key'], SETTINGS['amazon']['secret_key'], SETTINGS['amazon']['associate_id'])
     res = amz.method(operation).call(search, options)
 
     res = [res] unless res.is_a?(Array)
