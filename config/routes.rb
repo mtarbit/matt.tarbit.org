@@ -70,8 +70,8 @@ MattTarbitOrg::Application.routes.draw do
   match         'new/book' => 'book#new', :as => :new_book
   match         'new/:variant' => 'entry#new', :as => :new_entry
 
-  match         'hobby[-_]games' => 'blog#hobby_games'
-  match         'family[-_]games' => 'blog#family_games'
+  match         'hobby_games' => 'blog#hobby_games'
+  match         'family_games' => 'blog#family_games'
   match         'cv' => 'blog#cv'
 
   match ':y(/:m(/:d))' => 'blog#date', :as => :date, 
