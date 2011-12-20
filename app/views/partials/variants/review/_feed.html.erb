@@ -1,10 +1,2 @@
-<item>
-    <title><%= entry.page_title %></title>
-    <link><%= entry_url(entry) %></link>
-    <guid><%= entry_url(entry) %></guid>
-    <description>
-        <%= "" + link_to(image_tag(entry.product.image, :width=>125, :align=>'right', :hspace=>5), entry.product.associate_url) %>
-        <%= "" + markdown(entry.content.html_safe) %>
-    </description>
-    <pubDate><%= entry.created_at.rfc822 %></pubDate>
-</item>
+<%= "" + link_to(image_tag(entry.product.image, :width=>125, :align=>'right', :hspace=>5), entry.product.associate_url) %>
+<%= "" + markdown(entry.content.html_safe) %>

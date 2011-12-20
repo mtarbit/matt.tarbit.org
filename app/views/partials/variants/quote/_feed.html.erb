@@ -1,10 +1,2 @@
-<item>
-    <title><%= entry.page_title %></title>
-    <link><%= entry_url(entry) %></link>
-    <guid><%= entry_url(entry) %></guid>
-    <description>
-        &#8220;<%= entry.content %>&#8221;
-        - <%= "" + link_to_if(entry.url, entry.title, entry.url) %>
-    </description>
-    <pubDate><%= entry.created_at.rfc822 %></pubDate>
-</item>
+&#8220;<%= entry.content %>&#8221;
+- <%= "" + link_to_if(entry.url, entry.title, entry.url) %>
