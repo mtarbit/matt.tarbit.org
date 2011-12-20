@@ -1,5 +1,5 @@
 <div class="post">
     <h3><%= link_to highlight_text(entry.title, @words), entry_url(entry) %></h3>
-    <%= highlight_html(markdown(entry.content.html_safe), @words) %>
+    <%= highlight_html(codify(markdown(entry.content.html_safe)), @words) %>
     <p class="comments"><%= link_to pluralize(entry.comments_count, 'comment'), entry_url(entry) %></p>
 </div>

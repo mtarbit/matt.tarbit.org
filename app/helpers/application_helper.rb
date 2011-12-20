@@ -55,4 +55,14 @@ module ApplicationHelper
     str.html_safe
   end
 
+  def codify(str)
+    str = ERB::Util.html_escape(str).to_str
+    str.gsub!(%r|<pre><code>\s*@@(\w+)\s*(.*?)\s*</code></pre>|m) do
+      code = Pygments.highlight($2, :lexer => $1)
+      code.sub!(%r|<div class="highlight">\s*<pre>(.*)</pre>\s*</div>|m, '\1')
+      %{\n\n<pre class="code"><code>%s\n</code></pre>\n\n} % [code.rstrip]
+    end
+    str.html_safe
+  end
+
 end
