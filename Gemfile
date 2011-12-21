@@ -37,4 +37,5 @@ gem 'will_paginate'
 gem 'ruby-hmac'
 gem 'httparty'
 gem 'pygments.rb'
+gem 'twitter'
 
