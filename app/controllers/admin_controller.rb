@@ -34,7 +34,6 @@ class AdminController < ApplicationController
   end
 
   def sync_from_delicious
-    require 'rubilicious'
     r = Rubilicious.new(SETTINGS['delicious']['username'], SETTINGS['delicious']['password'])
     begin
         r.recent.each {|e| Entry.create_from_delicious(e) }
@@ -122,7 +121,6 @@ private
   def migrate_library
     require 'csv'
     require 'time'
-    require 'amazon/ecs'
 
     delete_indices = [2,4,5,7,8,9,11,12,13].reverse
 
