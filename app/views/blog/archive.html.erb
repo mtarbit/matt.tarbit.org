@@ -25,7 +25,7 @@
             <h3><%= link_to(y, date_url(:y=>y)) %></h3>
 
             <% (1..12).each do |m| %>
-                <% month = Time.local(y,m).strftime("%b") %>
+                <% month = Time.utc(y,m).strftime("%b") %>
                 <% space = '&nbsp;'.html_safe %>
 
                 <div class="cal-m <%= m%6 == 1 ? 'first':'' %>">
@@ -35,7 +35,7 @@
                             <tr>
                                 <% 7.times do |j| %>
                                     <%
-                                    d = 1 + ((i*7) + j) - Time.local(y,m).wday
+                                    d = 1 + ((i*7) + j) - Time.utc(y,m).wday
                                     count = @dates[y][m][d] rescue nil
                                     valid = (d > 0 and d <= Date.civil(y,m,-1).day)
                                     css = valid ? count ? 'in':'on':'off'
