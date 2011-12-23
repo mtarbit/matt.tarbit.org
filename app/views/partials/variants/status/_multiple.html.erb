@@ -1,5 +1,5 @@
-<% entry.content.gsub!(/(\s|^)@(\w+)(?=\s|$)/) {|s| $1 + link_to("@#{$2}", "http://twitter.com/#{$2}") } %>
-<% entry.content.gsub!(/(\s|^)(#\w+)(?=\s|$)/) {|s| $1 + link_to($2, "http://twitter.com/search?q=" + URI.escape($2)) } %>
+<% entry.content.gsub!(/(\W|^)@(\w+)(?=\W|$)/) {|s| $1 + link_to("@#{$2}", "http://twitter.com/#{$2}") } %>
+<% entry.content.gsub!(/(\W|^)(#\w+)(?=\W|$)/) {|s| $1 + link_to($2, "http://twitter.com/search?q=" + URI.escape($2)) } %>
 <% entry.content = auto_link(entry.content, :urls) %>
 <% string_format = '<span class="lquote">&#8220;</span>%s<span class="rquote">&#8221;</span><span class="source">&mdash; %s</span>' %>
 <div class="quote">
