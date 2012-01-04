@@ -5,25 +5,26 @@
 #   git config --global core.excludesfile ~/.gitignore_global
 
 # Ignore bundler config
-/.bundle
+.bundle
 
 # Ignore the default SQLite database.
-/db/*.sqlite3
+db/*.sqlite3
 
 # Ignore all logfiles and tempfiles.
-/log/*.log
-/tmp
+log/*.log
+tmp
 
 # Ignore yaml files since they're likely to contain sensitive 
 # information and I'm providing example templates instead.
 *.yml
 
-# Pre-3.1 ignores. May need to re-instate some of these as we go?
-# _archive
-# db/backup
-# tmp/**/*
-# *.html
-# !public/404.html
-# !public/500.html
-# vendor/gems
+# Blacklist everything in the public directory to catch all pre-compiled
+# assets and cached pages. And then explicitly whitelist things we want.
+public/*
+!public/404.html
+!public/422.html
+!public/500.html
+!public/favicon.ico
+!public/files
+!public/robots.txt
 
