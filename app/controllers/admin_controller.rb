@@ -34,7 +34,6 @@ class AdminController < ApplicationController
   end
 
   def sync_from_delicious
-    require 'rubilicious'
     r = Rubilicious.new(SETTINGS['delicious']['username'], SETTINGS['delicious']['password'])
     begin
         r.recent.each {|e| Entry.create_from_delicious(e) }
@@ -45,57 +44,13 @@ class AdminController < ApplicationController
   end
 
   def sync_from_twitter
-    require 'twitter'
+    latest = Entry.where(:variant => 'status').order('created_at DESC').first
+    params = latest ? { :since_id => latest.url } : { :count => 200 }
 
-    oauth = Twitter::OAuth.new(
-      SETTINGS['twitter']['oauth']['consumer_key'],
-      SETTINGS['twitter']['oauth']['consumer_secret']
-    )
-
-    oauth.authorize_from_access(
-      SETTINGS['twitter']['oauth']['access_token'],
-      SETTINGS['twitter']['oauth']['access_secret']
-    )
-
-    client = Twitter::Base.new(oauth)
-
-    latest = Entry.find(:first, :conditions=>{:variant=>'status'}, :order=>'created_at DESC')
-    params = latest ? { :since_id=>latest.url } : { :count=>200 }
-
-    tweets = client.user_timeline(params)
-    tweets.each {|e| Entry.create_from_twitter(e) }
+    tweets = Twitter.user_timeline(SETTINGS['twitter']['username'], params)
+    tweets.each { |t| Entry.create_from_twitter(t) }
 
     redirect_to admin_url
-
-    # if session[:rtoken] or user.access_token
-    #
-    #   if session[:rtoken]
-    #     oauth.authorize_from_request(session[:rtoken][:token], session[:rtoken][:secret], params[:oauth_verifier])
-    #     user.access_token = oauth.access_token
-    #     user.save
-    #   end
-
-    #   if user.access_token
-    #     oauth.authorize_from_access(user.access_token[:token], user.access_token[:secret])
-
-    #     client = Twitter::Base.new(oauth)
-
-    #     latest = Entry.find(:first, :conditions=>{:variant=>'status'}, :order=>'created_at DESC')
-    #     params = latest ? { :since_id=>latest.url } : { :count=>200 }
-
-    #     tweets = client.user_timeline(params)
-    #     tweets.each {|e| Entry.create_from_twitter(e) }
-
-    #     redirect_to admin_url
-    #   end
-
-    # else
-    #     session[:rtoken] = {
-    #       :token  => oauth.request_token.token,
-    #       :secret => oauth.request_token.secret
-    #     }
-    #     redirect_to oauth.request_token.authorize_url
-    # end
   end
 
   def amazon
@@ -166,7 +121,6 @@ private
   def migrate_library
     require 'csv'
     require 'time'
-    require 'amazon/ecs'
 
     delete_indices = [2,4,5,7,8,9,11,12,13].reverse
 

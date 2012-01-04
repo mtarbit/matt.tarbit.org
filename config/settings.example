@@ -9,11 +9,7 @@ gmail:
     password: password
 
 twitter:
-	oauth:
-	    consumer_key: ********************
-	    consumer_secret: *******************************************
-	    access_token: **************************************************
-	    access_secret: ******************************************
+  username: username
 
 delicious:
     username: username

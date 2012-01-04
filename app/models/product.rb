@@ -1,5 +1,3 @@
-require 'amazon'
-
 class Product < ActiveRecord::Base
   belongs_to :entry
   validates_presence_of :asin

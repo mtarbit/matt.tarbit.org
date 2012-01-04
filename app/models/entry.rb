@@ -163,7 +163,7 @@ class Entry < ActiveRecord::Base
   def self.convert_from_twitter(item)
     attrs = {
       'variant' => 'status',
-      'created_at' => Time.parse(item.created_at),
+      'created_at' => item.created_at,
       'url' => item.id,
       'title' => "Status #{item.id}",
       'content' => item.text,
