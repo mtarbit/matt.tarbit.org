@@ -1,6 +1,4 @@
-<% entry.content = auto_link(entry.content, :urls) %>
-<% entry.content.gsub!(/(\s|^)@(\w+)(?=\s|$)/) {|s| $1 + link_to("@#{$2}", "http://twitter.com/#{$2}") } %>
-<% entry.content.gsub!(/(\s|^)(#\w+)(?=\s|$)/) {|s| $1 + link_to($2, "http://twitter.com/search?q=" + URI.escape($2)) } %>
+<% entry.content = auto_link(auto_link_tweet(entry.content), :link => :urls) %>
 
 <h2 class="link">A quote from <%= link_to("me, on Twitter", entry.status_url) %>:</h2>
 

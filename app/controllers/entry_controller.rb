@@ -11,24 +11,23 @@ class EntryController < ApplicationController
   def read
     if params[:slug]
       @entry = Entry.find_by_slug(params[:y],params[:m],params[:d], params[:slug])
-    end
-    if @entry.nil? or (not session[:user] and not @entry.published)
-      render_not_found
-      # raise ActiveRecord::RecordNotFound
-    else
-      @title = @entry.page_title
-      @next = @entry.find_next
-      @prev = @entry.find_prev
+      if @entry and (@entry.published or session[:user])
+        @title = @entry.page_title
+        @next = @entry.find_next
+        @prev = @entry.find_prev
 
-      # Create the comment object, pre-populating it with data
-      # from either a failed submission or a previous comment.
-      @comment = Comment.new(flash[:comment] || {
-        :name => cookies[:user_name],
-        :email => cookies[:user_email],
-        :website => cookies[:user_website]
-      })
+        # Create the comment object, pre-populating it with data
+        # from either a failed submission or a previous comment.
+        @comment = Comment.new(flash[:comment] || {
+          :name => cookies[:user_name],
+          :email => cookies[:user_email],
+          :website => cookies[:user_website]
+        })
 
-      @tokens = spam_challenge_tokens
+        @tokens = spam_challenge_tokens
+      else
+        raise ActiveRecord::RecordNotFound
+      end
     end
   end
 

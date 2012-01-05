@@ -112,15 +112,15 @@ class Entry < ActiveRecord::Base
 
     # rescue ArgumentErrors from out of range values
     # rescue NoMethodErrors from attempting addition on nilClass
-    t1 = Time.local(y,m,d)
+    t1 = Time.utc(y,m,d)
     t2 =
     begin
-      Time.local(y,m,d+1)
+      Time.utc(y,m,d+1)
     rescue
       begin
-        Time.local(y,m+1,1)
+        Time.utc(y,m+1,1)
       rescue
-        Time.local(y+1,1,1)
+        Time.utc(y+1,1,1)
       end
     end
 
@@ -128,23 +128,27 @@ class Entry < ActiveRecord::Base
     conds[:created_at] = t1..t2
     conds[:slug] = slug if slug
 
-    entries = find(:all, :include=>[:comments,:tags], :conditions=>conds, :order=>"entries.created_at DESC")
+    entries = where(conds).includes([:comments, :tags]).order("entries.created_at DESC")
   end
 
   def self.find_by_words(words)
     sql = []; arg = []
+
     sql_words = words.map {|w|
       # escape special chars to hide them from MySQL's RLIKE
       w = w.gsub(/([.\[\]*^\$])/, '\\\\\1')
       # wrap with MySQL RLIKE word boundary character classes
       w = '[[:<:]]'+w+'[[:>:]]'
     }
+
     sql_words.each {|w|
       sql << "(entries.title RLIKE ? OR entries.content RLIKE ?)"
       arg += [w,w]
     }
+
     conds = [sql.join(' AND ')] + arg
-    entries = find(:all, :include=>[:comments], :conditions=>conds, :order=>"entries.created_at DESC")
+
+    entries = where(conds).includes([:comments]).order("entries.created_at DESC")
   end
 
   def self.create_from_twitter(item)

@@ -65,4 +65,11 @@ module ApplicationHelper
     str.html_safe
   end
 
+  def auto_link_tweet(str)
+    str = ERB::Util.html_escape(str).to_str
+    str.gsub!(/(\W|^)@(\w+)(?=\W|$)/) {|s| $1 + link_to("@#{$2}", "http://twitter.com/#{$2}") }
+    str.gsub!(/(\W|^)(#\w+)(?=\W|$)/) {|s| $1 + link_to($2, "http://twitter.com/search?q=" + URI.escape($2)) }
+    str.html_safe
+  end
+
 end
